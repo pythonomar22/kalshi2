@@ -1,0 +1,46 @@
+2025-05-14 18:08:39,163 - INFO - trader_core.main - Initializing Trader Core...
+2025-05-14 18:08:39,164 - INFO - streamers.init_config - KALSHI Streamer: Running in PRODUCTION mode.
+2025-05-14 18:08:39,164 - INFO - trader_core.main - Starting data streamers...
+2025-05-14 18:08:39,164 - INFO - streamers.init_config - KALSHI Streamer: Running in PRODUCTION mode.
+2025-05-14 18:08:39,219 - INFO - streamers.kalshi_websocket_client_task - Kalshi: Attempting to connect to wss://api.elections.kalshi.com/trade-api/ws/v2 for markets: ['KXETHD-25MAY1422-T2629.99']
+2025-05-14 18:08:39,229 - INFO - streamers.init_config - KALSHI Streamer: Running in PRODUCTION mode.
+2025-05-14 18:08:39,230 - INFO - streamers.binance_websocket_client_task - Binance: Attempting to connect to wss://data-stream.binance.vision/stream
+2025-05-14 18:08:39,231 - INFO - trader_core.trading_logic_loop - Starting trading logic loop...
+2025-05-14 18:08:39,506 - INFO - streamers.kalshi_websocket_client_task - Kalshi: Successfully connected to WebSocket.
+2025-05-14 18:08:39,507 - INFO - streamers.kalshi_websocket_client_task - Kalshi: Sent subscription request: {"id": 1, "cmd": "subscribe", "params": {"channels": ["orderbook_delta"], "market_tickers": ["KXETHD-25MAY1422-T2629.99"]}}
+2025-05-14 18:08:39,580 - INFO - streamers.kalshi_websocket_client_task - Kalshi: Subscribed to 'orderbook_delta' (Server SID: 1).
+2025-05-14 18:08:39,581 - INFO - streamers.kalshi_websocket_client_task - Kalshi: ORDERBOOK_SNAPSHOT for KXETHD-25MAY1422-T2629.99 (SID: 1, Seq: 1)
+2025-05-14 18:08:39,716 - INFO - streamers.binance_websocket_client_task - Binance: Successfully connected to WebSocket.
+2025-05-14 18:08:39,717 - INFO - streamers.binance_websocket_client_task - Binance: Sent subscription request: {"method": "SUBSCRIBE", "params": ["ethusdt@kline_1m"], "id": 1}
+2025-05-14 18:08:39,913 - INFO - streamers.binance_websocket_client_task - Binance: Subscription response: {"result": null, "id": 1}
+2025-05-14 18:08:49,232 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.5050 (TTE: 0.04 days, Vol: 1.00)
+2025-05-14 18:08:59,234 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.4928 (TTE: 0.04 days, Vol: 1.00)
+2025-05-14 18:09:09,235 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.4637 (TTE: 0.04 days, Vol: 1.00)
+2025-05-14 18:09:19,237 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.4618 (TTE: 0.04 days, Vol: 1.00)
+2025-05-14 18:09:29,238 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.4584 (TTE: 0.04 days, Vol: 1.00)
+2025-05-14 18:09:39,240 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.4489 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:09:49,242 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.4508 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:09:59,244 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.4579 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:10:09,244 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.4046 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:10:19,246 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.4007 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:10:29,248 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3859 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:10:39,249 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3795 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:10:49,250 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3944 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:10:59,252 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3873 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:11:09,253 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3836 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:11:19,255 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3399 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:11:29,256 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3073 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:11:39,258 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3188 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:11:49,260 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3207 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:11:59,262 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3348 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:12:09,263 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3488 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:12:19,264 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3458 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:12:29,265 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3576 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:12:39,266 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3591 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:12:49,268 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3496 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:12:59,269 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3545 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:13:09,271 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3500 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:13:19,272 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3534 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:13:29,274 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3528 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:13:39,275 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3716 (TTE: 0.03 days, Vol: 1.00)
+2025-05-14 18:13:49,277 - INFO - model.calculate_p_model - P_Model Output for ETHUSDT vs Kalshi Strike 2629.99: P_model=0.3498 (TTE: 0.03 days, Vol: 1.00)

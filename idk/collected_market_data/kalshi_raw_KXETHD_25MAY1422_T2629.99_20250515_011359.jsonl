@@ -1,0 +1,366 @@
+2025-05-15T01:14:00.302927+00:00	{"type":"subscribed","id":1,"msg":{"channel":"orderbook_delta","sid":1}}
+
+2025-05-15T01:14:00.303401+00:00	{"type":"orderbook_snapshot","sid":1,"seq":1,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","yes":[[3,80000],[22,1000],[23,1400]],"no":[[3,79962],[24,4800],[40,200],[41,1400]]}}
+
+2025-05-15T01:14:03.855789+00:00	{"type":"orderbook_delta","sid":1,"seq":2,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":4800,"side":"yes","ts":"2025-05-15T01:14:03.793825Z"}}
+
+2025-05-15T01:14:06.194448+00:00	{"type":"orderbook_delta","sid":1,"seq":3,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-4800,"side":"yes","ts":"2025-05-15T01:14:06.141284Z"}}
+
+2025-05-15T01:14:15.034153+00:00	{"type":"orderbook_delta","sid":1,"seq":4,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":4800,"side":"yes","ts":"2025-05-15T01:14:14.970881Z"}}
+
+2025-05-15T01:14:16.445571+00:00	{"type":"orderbook_delta","sid":1,"seq":5,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-4800,"side":"yes","ts":"2025-05-15T01:14:16.373075Z"}}
+
+2025-05-15T01:14:17.264852+00:00	{"type":"orderbook_delta","sid":1,"seq":6,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":4800,"side":"yes","ts":"2025-05-15T01:14:17.184531Z"}}
+
+2025-05-15T01:14:18.874324+00:00	{"type":"orderbook_delta","sid":1,"seq":7,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-4800,"side":"yes","ts":"2025-05-15T01:14:18.806706Z"}}
+
+2025-05-15T01:14:19.733439+00:00	{"type":"orderbook_delta","sid":1,"seq":8,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":22,"delta":-1000,"side":"yes","ts":"2025-05-15T01:12:47.484552Z"}}
+
+2025-05-15T01:14:19.733627+00:00	{"type":"orderbook_delta","sid":1,"seq":9,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":10,"delta":1000,"side":"yes","ts":"2025-05-15T01:14:19.664837Z"}}
+
+2025-05-15T01:14:19.792666+00:00	{"type":"orderbook_delta","sid":1,"seq":10,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":11,"delta":10001,"side":"yes","ts":"2025-05-15T01:14:19.733758Z"}}
+
+2025-05-15T01:14:19.834535+00:00	{"type":"orderbook_delta","sid":1,"seq":11,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":23,"delta":-1400,"side":"yes","ts":"2025-05-15T01:14:19.765964Z"}}
+
+2025-05-15T01:14:19.874439+00:00	{"type":"orderbook_delta","sid":1,"seq":12,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":11,"delta":1400,"side":"yes","ts":"2025-05-15T01:14:19.806867Z"}}
+
+2025-05-15T01:14:21.814094+00:00	{"type":"orderbook_delta","sid":1,"seq":13,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":4800,"side":"yes","ts":"2025-05-15T01:14:21.762689Z"}}
+
+2025-05-15T01:14:22.213923+00:00	{"type":"orderbook_delta","sid":1,"seq":14,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-4800,"side":"yes","ts":"2025-05-15T01:14:22.147418Z"}}
+
+2025-05-15T01:14:36.254176+00:00	{"type":"orderbook_delta","sid":1,"seq":15,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":41,"delta":-1400,"side":"no","ts":"2025-05-15T01:14:36.18721Z"}}
+
+2025-05-15T01:14:36.254349+00:00	{"type":"orderbook_delta","sid":1,"seq":16,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":11,"delta":-1400,"side":"yes","ts":"2025-05-15T01:14:36.187295Z"}}
+
+2025-05-15T01:14:36.254476+00:00	{"type":"orderbook_delta","sid":1,"seq":17,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":11,"delta":-10001,"side":"yes","ts":"2025-05-15T01:14:36.187332Z"}}
+
+2025-05-15T01:14:36.692820+00:00	{"type":"orderbook_delta","sid":1,"seq":18,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":4800,"side":"yes","ts":"2025-05-15T01:14:36.635388Z"}}
+
+2025-05-15T01:14:37.072730+00:00	{"type":"orderbook_delta","sid":1,"seq":19,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-4800,"side":"yes","ts":"2025-05-15T01:14:37.007069Z"}}
+
+2025-05-15T01:15:39.297521+00:00	{"type":"orderbook_delta","sid":1,"seq":20,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":11,"delta":1400,"side":"yes","ts":"2025-05-15T01:15:39.182712Z"}}
+
+2025-05-15T01:15:39.297793+00:00	{"type":"orderbook_delta","sid":1,"seq":21,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":41,"delta":1400,"side":"no","ts":"2025-05-15T01:15:39.190283Z"}}
+
+2025-05-15T01:15:39.297902+00:00	{"type":"orderbook_delta","sid":1,"seq":22,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":11,"delta":10001,"side":"yes","ts":"2025-05-15T01:15:39.191808Z"}}
+
+2025-05-15T01:15:49.323757+00:00	{"type":"orderbook_delta","sid":1,"seq":23,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":41,"delta":-1,"side":"no","ts":"2025-05-15T01:15:49.2011Z"}}
+
+2025-05-15T01:15:54.391838+00:00	{"type":"orderbook_delta","sid":1,"seq":24,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":4800,"side":"yes","ts":"2025-05-15T01:15:54.330435Z"}}
+
+2025-05-15T01:15:58.133881+00:00	{"type":"orderbook_delta","sid":1,"seq":25,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":11,"delta":-1400,"side":"yes","ts":"2025-05-15T01:15:58.026382Z"}}
+
+2025-05-15T01:15:58.133996+00:00	{"type":"orderbook_delta","sid":1,"seq":26,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":41,"delta":-1399,"side":"no","ts":"2025-05-15T01:15:58.026431Z"}}
+
+2025-05-15T01:15:58.134057+00:00	{"type":"orderbook_delta","sid":1,"seq":27,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":11,"delta":-10001,"side":"yes","ts":"2025-05-15T01:15:58.026464Z"}}
+
+2025-05-15T01:15:58.252918+00:00	{"type":"orderbook_delta","sid":1,"seq":28,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-4800,"side":"yes","ts":"2025-05-15T01:15:58.201811Z"}}
+
+2025-05-15T01:16:34.584036+00:00	{"type":"orderbook_delta","sid":1,"seq":29,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":10,"delta":-1000,"side":"yes","ts":"2025-05-15T01:16:34.442586Z"}}
+
+2025-05-15T01:16:42.693206+00:00	{"type":"orderbook_delta","sid":1,"seq":30,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":41,"delta":1400,"side":"no","ts":"2025-05-15T01:16:42.631762Z"}}
+
+2025-05-15T01:16:52.349191+00:00	{"type":"orderbook_delta","sid":1,"seq":31,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":4800,"side":"yes","ts":"2025-05-15T01:16:52.254732Z"}}
+
+2025-05-15T01:16:54.661841+00:00	{"type":"orderbook_delta","sid":1,"seq":32,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-4800,"side":"yes","ts":"2025-05-15T01:16:54.580405Z"}}
+
+2025-05-15T01:16:56.373489+00:00	{"type":"orderbook_delta","sid":1,"seq":33,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":4800,"side":"yes","ts":"2025-05-15T01:16:56.319923Z"}}
+
+2025-05-15T01:17:07.668688+00:00	{"type":"orderbook_delta","sid":1,"seq":34,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":10,"delta":200,"side":"yes","ts":"2025-05-15T01:17:07.507164Z"}}
+
+2025-05-15T01:17:07.668931+00:00	{"type":"orderbook_delta","sid":1,"seq":35,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":40,"delta":-200,"side":"no","ts":"2025-05-15T01:11:24.405821Z"}}
+
+2025-05-15T01:17:07.669055+00:00	{"type":"orderbook_delta","sid":1,"seq":36,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":30,"delta":200,"side":"no","ts":"2025-05-15T01:17:07.542095Z"}}
+
+2025-05-15T01:17:07.669146+00:00	{"type":"orderbook_delta","sid":1,"seq":37,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":41,"delta":-1400,"side":"no","ts":"2025-05-15T01:17:07.58282Z"}}
+
+2025-05-15T01:17:07.673786+00:00	{"type":"orderbook_delta","sid":1,"seq":38,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":31,"delta":1400,"side":"no","ts":"2025-05-15T01:17:07.611124Z"}}
+
+2025-05-15T01:17:09.873650+00:00	{"type":"orderbook_delta","sid":1,"seq":39,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":11,"delta":1400,"side":"yes","ts":"2025-05-15T01:17:09.818678Z"}}
+
+2025-05-15T01:17:19.744980+00:00	{"type":"orderbook_delta","sid":1,"seq":40,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":10,"delta":-200,"side":"yes","ts":"2025-05-15T01:17:19.626179Z"}}
+
+2025-05-15T01:17:19.745249+00:00	{"type":"orderbook_delta","sid":1,"seq":41,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":30,"delta":-200,"side":"no","ts":"2025-05-15T01:17:07.542095Z"}}
+
+2025-05-15T01:17:19.745383+00:00	{"type":"orderbook_delta","sid":1,"seq":42,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":40,"delta":200,"side":"no","ts":"2025-05-15T01:17:19.659263Z"}}
+
+2025-05-15T01:17:19.755858+00:00	{"type":"orderbook_delta","sid":1,"seq":43,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":11,"delta":-1400,"side":"yes","ts":"2025-05-15T01:17:19.685013Z"}}
+
+2025-05-15T01:17:19.756072+00:00	{"type":"orderbook_delta","sid":1,"seq":44,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":31,"delta":-1400,"side":"no","ts":"2025-05-15T01:17:19.701552Z"}}
+
+2025-05-15T01:17:19.792896+00:00	{"type":"orderbook_delta","sid":1,"seq":45,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":41,"delta":1400,"side":"no","ts":"2025-05-15T01:17:19.732116Z"}}
+
+2025-05-15T01:17:28.993649+00:00	{"type":"orderbook_delta","sid":1,"seq":46,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-4800,"side":"yes","ts":"2025-05-15T01:17:28.942909Z"}}
+
+2025-05-15T01:17:29.678239+00:00	{"type":"orderbook_delta","sid":1,"seq":47,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":41,"delta":-1400,"side":"no","ts":"2025-05-15T01:17:29.527847Z"}}
+
+2025-05-15T01:17:34.231425+00:00	{"type":"orderbook_delta","sid":1,"seq":48,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":4800,"side":"yes","ts":"2025-05-15T01:17:34.180485Z"}}
+
+2025-05-15T01:17:35.092875+00:00	{"type":"orderbook_delta","sid":1,"seq":49,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-4800,"side":"yes","ts":"2025-05-15T01:17:35.032061Z"}}
+
+2025-05-15T01:17:45.715010+00:00	{"type":"orderbook_delta","sid":1,"seq":50,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":41,"delta":1400,"side":"no","ts":"2025-05-15T01:17:45.662178Z"}}
+
+2025-05-15T01:18:05.523448+00:00	{"type":"orderbook_delta","sid":1,"seq":51,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":4800,"side":"yes","ts":"2025-05-15T01:18:05.359926Z"}}
+
+2025-05-15T01:18:08.214174+00:00	{"type":"orderbook_delta","sid":1,"seq":52,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-4800,"side":"yes","ts":"2025-05-15T01:18:08.145618Z"}}
+
+2025-05-15T01:18:13.402176+00:00	{"type":"orderbook_delta","sid":1,"seq":53,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":4800,"side":"yes","ts":"2025-05-15T01:18:13.301775Z"}}
+
+2025-05-15T01:18:14.433982+00:00	{"type":"orderbook_delta","sid":1,"seq":54,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":40,"delta":-200,"side":"no","ts":"2025-05-15T01:17:19.659263Z"}}
+
+2025-05-15T01:18:14.434244+00:00	{"type":"orderbook_delta","sid":1,"seq":55,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":30,"delta":200,"side":"no","ts":"2025-05-15T01:18:14.37121Z"}}
+
+2025-05-15T01:18:14.492037+00:00	{"type":"orderbook_delta","sid":1,"seq":56,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":41,"delta":-1400,"side":"no","ts":"2025-05-15T01:18:14.426853Z"}}
+
+2025-05-15T01:18:14.513877+00:00	{"type":"orderbook_delta","sid":1,"seq":57,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":31,"delta":1400,"side":"no","ts":"2025-05-15T01:18:14.459425Z"}}
+
+2025-05-15T01:18:15.633981+00:00	{"type":"orderbook_delta","sid":1,"seq":58,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-4800,"side":"yes","ts":"2025-05-15T01:18:15.582088Z"}}
+
+2025-05-15T01:18:18.153371+00:00	{"type":"orderbook_delta","sid":1,"seq":59,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":4800,"side":"yes","ts":"2025-05-15T01:18:18.094946Z"}}
+
+2025-05-15T01:18:22.794677+00:00	{"type":"orderbook_delta","sid":1,"seq":60,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":10,"delta":200,"side":"yes","ts":"2025-05-15T01:18:22.728527Z"}}
+
+2025-05-15T01:18:25.093787+00:00	{"type":"orderbook_delta","sid":1,"seq":61,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":11,"delta":1400,"side":"yes","ts":"2025-05-15T01:18:25.031739Z"}}
+
+2025-05-15T01:19:03.414143+00:00	{"type":"orderbook_delta","sid":1,"seq":62,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":10,"delta":-200,"side":"yes","ts":"2025-05-15T01:19:03.349545Z"}}
+
+2025-05-15T01:19:03.433468+00:00	{"type":"orderbook_delta","sid":1,"seq":63,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":30,"delta":-200,"side":"no","ts":"2025-05-15T01:18:14.37121Z"}}
+
+2025-05-15T01:19:03.433636+00:00	{"type":"orderbook_delta","sid":1,"seq":64,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":40,"delta":200,"side":"no","ts":"2025-05-15T01:19:03.379814Z"}}
+
+2025-05-15T01:19:03.476797+00:00	{"type":"orderbook_delta","sid":1,"seq":65,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":11,"delta":-1400,"side":"yes","ts":"2025-05-15T01:19:03.408226Z"}}
+
+2025-05-15T01:19:03.491812+00:00	{"type":"orderbook_delta","sid":1,"seq":66,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":31,"delta":-1400,"side":"no","ts":"2025-05-15T01:19:03.424772Z"}}
+
+2025-05-15T01:19:03.524479+00:00	{"type":"orderbook_delta","sid":1,"seq":67,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":41,"delta":1400,"side":"no","ts":"2025-05-15T01:19:03.458143Z"}}
+
+2025-05-15T01:19:03.974375+00:00	{"type":"orderbook_delta","sid":1,"seq":68,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-4800,"side":"yes","ts":"2025-05-15T01:19:03.906095Z"}}
+
+2025-05-15T01:19:18.373315+00:00	{"type":"orderbook_delta","sid":1,"seq":69,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":4800,"side":"yes","ts":"2025-05-15T01:19:18.303753Z"}}
+
+2025-05-15T01:19:18.412837+00:00	{"type":"orderbook_delta","sid":1,"seq":70,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-4800,"side":"yes","ts":"2025-05-15T01:19:18.351291Z"}}
+
+2025-05-15T01:20:14.354149+00:00	{"type":"orderbook_delta","sid":1,"seq":71,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":24,"delta":-4800,"side":"no","ts":"2025-05-15T01:20:14.295406Z"}}
+
+2025-05-15T01:20:14.393544+00:00	{"type":"orderbook_delta","sid":1,"seq":72,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":42,"delta":4800,"side":"no","ts":"2025-05-15T01:20:14.329736Z"}}
+
+2025-05-15T01:20:38.273271+00:00	{"type":"orderbook_delta","sid":1,"seq":73,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":42,"delta":-4800,"side":"no","ts":"2025-05-15T01:20:38.218827Z"}}
+
+2025-05-15T01:20:38.313295+00:00	{"type":"orderbook_delta","sid":1,"seq":74,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":37,"delta":4800,"side":"no","ts":"2025-05-15T01:20:38.255075Z"}}
+
+2025-05-15T01:22:16.715462+00:00	{"type":"orderbook_delta","sid":1,"seq":75,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":40,"delta":-200,"side":"no","ts":"2025-05-15T01:19:03.379814Z"}}
+
+2025-05-15T01:22:16.715716+00:00	{"type":"orderbook_delta","sid":1,"seq":76,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":50,"delta":200,"side":"no","ts":"2025-05-15T01:22:16.651744Z"}}
+
+2025-05-15T01:22:16.774085+00:00	{"type":"orderbook_delta","sid":1,"seq":77,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":41,"delta":-1400,"side":"no","ts":"2025-05-15T01:22:16.708993Z"}}
+
+2025-05-15T01:22:16.791594+00:00	{"type":"orderbook_delta","sid":1,"seq":78,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":51,"delta":1400,"side":"no","ts":"2025-05-15T01:22:16.74274Z"}}
+
+2025-05-15T01:25:16.113932+00:00	{"type":"orderbook_delta","sid":1,"seq":79,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":51,"delta":-7,"side":"no","ts":"2025-05-15T01:25:16.027027Z"}}
+
+2025-05-15T01:28:42.055549+00:00	{"type":"orderbook_delta","sid":1,"seq":80,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":37,"delta":-4800,"side":"no","ts":"2025-05-15T01:28:42.001937Z"}}
+
+2025-05-15T01:28:42.092567+00:00	{"type":"orderbook_delta","sid":1,"seq":81,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":66,"delta":4800,"side":"no","ts":"2025-05-15T01:28:42.035974Z"}}
+
+2025-05-15T01:28:54.956123+00:00	{"type":"orderbook_delta","sid":1,"seq":82,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":66,"delta":-4800,"side":"no","ts":"2025-05-15T01:28:54.899142Z"}}
+
+2025-05-15T01:28:54.993321+00:00	{"type":"orderbook_delta","sid":1,"seq":83,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":62,"delta":4800,"side":"no","ts":"2025-05-15T01:28:54.932945Z"}}
+
+2025-05-15T01:29:11.430501+00:00	{"type":"orderbook_delta","sid":1,"seq":84,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":62,"delta":-4800,"side":"no","ts":"2025-05-15T01:29:11.309187Z"}}
+
+2025-05-15T01:29:11.430723+00:00	{"type":"orderbook_delta","sid":1,"seq":85,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":58,"delta":4800,"side":"no","ts":"2025-05-15T01:29:11.339337Z"}}
+
+2025-05-15T01:29:15.424642+00:00	{"type":"orderbook_delta","sid":1,"seq":86,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":58,"delta":-4800,"side":"no","ts":"2025-05-15T01:29:15.355445Z"}}
+
+2025-05-15T01:29:15.453348+00:00	{"type":"orderbook_delta","sid":1,"seq":87,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":55,"delta":4800,"side":"no","ts":"2025-05-15T01:29:15.396358Z"}}
+
+2025-05-15T01:30:00.793499+00:00	{"type":"orderbook_delta","sid":1,"seq":88,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":51,"delta":-1393,"side":"no","ts":"2025-05-15T01:30:00.646782Z"}}
+
+2025-05-15T01:30:24.252969+00:00	{"type":"orderbook_delta","sid":1,"seq":89,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":51,"delta":1400,"side":"no","ts":"2025-05-15T01:30:24.202251Z"}}
+
+2025-05-15T01:31:05.302885+00:00	{"type":"orderbook_delta","sid":1,"seq":90,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":50,"delta":-200,"side":"no","ts":"2025-05-15T01:22:16.651744Z"}}
+
+2025-05-15T01:31:05.303165+00:00	{"type":"orderbook_delta","sid":1,"seq":91,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":60,"delta":200,"side":"no","ts":"2025-05-15T01:31:05.135553Z"}}
+
+2025-05-15T01:31:05.303257+00:00	{"type":"orderbook_delta","sid":1,"seq":92,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":51,"delta":-1400,"side":"no","ts":"2025-05-15T01:31:05.184062Z"}}
+
+2025-05-15T01:31:05.303319+00:00	{"type":"orderbook_delta","sid":1,"seq":93,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":61,"delta":1400,"side":"no","ts":"2025-05-15T01:31:05.223255Z"}}
+
+2025-05-15T01:31:10.994389+00:00	{"type":"orderbook_delta","sid":1,"seq":94,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":61,"delta":-1400,"side":"no","ts":"2025-05-15T01:31:10.931484Z"}}
+
+2025-05-15T01:31:11.053286+00:00	{"type":"orderbook_delta","sid":1,"seq":95,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":3,"delta":-80000,"side":"yes","ts":"2025-05-15T01:31:10.986086Z"}}
+
+2025-05-15T01:31:11.104435+00:00	{"type":"orderbook_delta","sid":1,"seq":96,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:31:11.029795Z"}}
+
+2025-05-15T01:31:11.152933+00:00	{"type":"orderbook_delta","sid":1,"seq":97,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:31:11.100501Z"}}
+
+2025-05-15T01:31:11.193557+00:00	{"type":"orderbook_delta","sid":1,"seq":98,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:31:11.1381Z"}}
+
+2025-05-15T01:31:11.546381+00:00	{"type":"orderbook_delta","sid":1,"seq":99,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:31:11.442953Z"}}
+
+2025-05-15T01:31:13.183256+00:00	{"type":"orderbook_delta","sid":1,"seq":100,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:31:13.090083Z"}}
+
+2025-05-15T01:31:13.292912+00:00	{"type":"orderbook_delta","sid":1,"seq":101,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:31:13.223503Z"}}
+
+2025-05-15T01:31:18.100766+00:00	{"type":"orderbook_delta","sid":1,"seq":102,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:31:17.986196Z"}}
+
+2025-05-15T01:31:20.455724+00:00	{"type":"orderbook_delta","sid":1,"seq":103,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:31:20.315456Z"}}
+
+2025-05-15T01:31:24.550573+00:00	{"type":"orderbook_delta","sid":1,"seq":104,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":3,"delta":80000,"side":"yes","ts":"2025-05-15T01:31:24.389361Z"}}
+
+2025-05-15T01:31:26.804772+00:00	{"type":"orderbook_delta","sid":1,"seq":105,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":3,"delta":-80000,"side":"yes","ts":"2025-05-15T01:31:26.682513Z"}}
+
+2025-05-15T01:31:26.805044+00:00	{"type":"orderbook_delta","sid":1,"seq":106,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:31:26.714059Z"}}
+
+2025-05-15T01:31:27.527250+00:00	{"type":"orderbook_delta","sid":1,"seq":107,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":61,"delta":1400,"side":"no","ts":"2025-05-15T01:31:27.44068Z"}}
+
+2025-05-15T01:31:41.139353+00:00	{"type":"orderbook_delta","sid":1,"seq":108,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:31:41.031179Z"}}
+
+2025-05-15T01:31:52.533152+00:00	{"type":"orderbook_delta","sid":1,"seq":109,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:31:52.477267Z"}}
+
+2025-05-15T01:31:55.372529+00:00	{"type":"orderbook_delta","sid":1,"seq":110,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:31:55.29099Z"}}
+
+2025-05-15T01:31:57.941445+00:00	{"type":"orderbook_delta","sid":1,"seq":111,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:31:57.876312Z"}}
+
+2025-05-15T01:31:59.990344+00:00	{"type":"orderbook_delta","sid":1,"seq":112,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:31:59.875023Z"}}
+
+2025-05-15T01:32:01.936005+00:00	{"type":"orderbook_delta","sid":1,"seq":113,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:32:01.799691Z"}}
+
+2025-05-15T01:32:17.094156+00:00	{"type":"orderbook_delta","sid":1,"seq":114,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":61,"delta":-1400,"side":"no","ts":"2025-05-15T01:32:17.041513Z"}}
+
+2025-05-15T01:32:21.333044+00:00	{"type":"orderbook_delta","sid":1,"seq":115,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:32:21.276256Z"}}
+
+2025-05-15T01:32:30.496676+00:00	{"type":"orderbook_delta","sid":1,"seq":116,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":61,"delta":1400,"side":"no","ts":"2025-05-15T01:32:30.396884Z"}}
+
+2025-05-15T01:32:56.971808+00:00	{"type":"orderbook_delta","sid":1,"seq":117,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:32:56.90864Z"}}
+
+2025-05-15T01:32:57.153157+00:00	{"type":"orderbook_delta","sid":1,"seq":118,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:32:57.089432Z"}}
+
+2025-05-15T01:33:00.499978+00:00	{"type":"orderbook_delta","sid":1,"seq":119,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":61,"delta":-1400,"side":"no","ts":"2025-05-15T01:33:00.387104Z"}}
+
+2025-05-15T01:33:11.252720+00:00	{"type":"orderbook_delta","sid":1,"seq":120,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:33:11.161228Z"}}
+
+2025-05-15T01:33:12.584966+00:00	{"type":"orderbook_delta","sid":1,"seq":121,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:33:12.447528Z"}}
+
+2025-05-15T01:33:13.199667+00:00	{"type":"orderbook_delta","sid":1,"seq":122,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:33:13.114258Z"}}
+
+2025-05-15T01:33:13.212687+00:00	{"type":"orderbook_delta","sid":1,"seq":123,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:33:13.149955Z"}}
+
+2025-05-15T01:33:20.133075+00:00	{"type":"orderbook_delta","sid":1,"seq":124,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:33:20.06777Z"}}
+
+2025-05-15T01:33:20.886385+00:00	{"type":"orderbook_delta","sid":1,"seq":125,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:33:20.722404Z"}}
+
+2025-05-15T01:33:22.133936+00:00	{"type":"orderbook_delta","sid":1,"seq":126,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:33:22.082853Z"}}
+
+2025-05-15T01:33:25.113588+00:00	{"type":"orderbook_delta","sid":1,"seq":127,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:33:25.057046Z"}}
+
+2025-05-15T01:33:33.986985+00:00	{"type":"orderbook_delta","sid":1,"seq":128,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":61,"delta":1400,"side":"no","ts":"2025-05-15T01:33:33.841047Z"}}
+
+2025-05-15T01:33:38.634398+00:00	{"type":"orderbook_delta","sid":1,"seq":129,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:33:38.574613Z"}}
+
+2025-05-15T01:33:41.459887+00:00	{"type":"orderbook_delta","sid":1,"seq":130,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:33:41.336483Z"}}
+
+2025-05-15T01:33:50.332725+00:00	{"type":"orderbook_delta","sid":1,"seq":131,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:33:50.280591Z"}}
+
+2025-05-15T01:34:13.409092+00:00	{"type":"orderbook_delta","sid":1,"seq":132,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:34:13.341546Z"}}
+
+2025-05-15T01:34:20.132659+00:00	{"type":"orderbook_delta","sid":1,"seq":133,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:34:20.081712Z"}}
+
+2025-05-15T01:34:29.384367+00:00	{"type":"orderbook_delta","sid":1,"seq":134,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:34:29.242892Z"}}
+
+2025-05-15T01:34:41.073044+00:00	{"type":"orderbook_delta","sid":1,"seq":135,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:34:41.009476Z"}}
+
+2025-05-15T01:34:43.105737+00:00	{"type":"orderbook_delta","sid":1,"seq":136,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:34:42.973394Z"}}
+
+2025-05-15T01:35:03.093148+00:00	{"type":"orderbook_delta","sid":1,"seq":137,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:35:03.027782Z"}}
+
+2025-05-15T01:35:14.749096+00:00	{"type":"orderbook_delta","sid":1,"seq":138,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:35:14.58717Z"}}
+
+2025-05-15T01:35:29.808251+00:00	{"type":"orderbook_delta","sid":1,"seq":139,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:35:29.697797Z"}}
+
+2025-05-15T01:35:36.661758+00:00	{"type":"orderbook_delta","sid":1,"seq":140,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:35:36.533051Z"}}
+
+2025-05-15T01:35:37.954929+00:00	{"type":"orderbook_delta","sid":1,"seq":141,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:35:37.885822Z"}}
+
+2025-05-15T01:35:43.624319+00:00	{"type":"orderbook_delta","sid":1,"seq":142,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":60,"delta":-200,"side":"no","ts":"2025-05-15T01:31:05.135553Z"}}
+
+2025-05-15T01:35:43.624547+00:00	{"type":"orderbook_delta","sid":1,"seq":143,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":50,"delta":200,"side":"no","ts":"2025-05-15T01:35:43.546572Z"}}
+
+2025-05-15T01:35:43.673338+00:00	{"type":"orderbook_delta","sid":1,"seq":144,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":61,"delta":-1400,"side":"no","ts":"2025-05-15T01:35:43.605178Z"}}
+
+2025-05-15T01:35:43.713868+00:00	{"type":"orderbook_delta","sid":1,"seq":145,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":51,"delta":1400,"side":"no","ts":"2025-05-15T01:35:43.652211Z"}}
+
+2025-05-15T01:35:46.595883+00:00	{"type":"orderbook_delta","sid":1,"seq":146,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":50,"delta":-200,"side":"no","ts":"2025-05-15T01:35:43.546572Z"}}
+
+2025-05-15T01:35:46.596152+00:00	{"type":"orderbook_delta","sid":1,"seq":147,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":60,"delta":200,"side":"no","ts":"2025-05-15T01:35:46.512713Z"}}
+
+2025-05-15T01:35:46.632581+00:00	{"type":"orderbook_delta","sid":1,"seq":148,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":51,"delta":-1400,"side":"no","ts":"2025-05-15T01:35:46.56542Z"}}
+
+2025-05-15T01:35:46.674783+00:00	{"type":"orderbook_delta","sid":1,"seq":149,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":61,"delta":1400,"side":"no","ts":"2025-05-15T01:35:46.605588Z"}}
+
+2025-05-15T01:35:56.872413+00:00	{"type":"orderbook_delta","sid":1,"seq":150,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:35:56.810242Z"}}
+
+2025-05-15T01:35:57.033886+00:00	{"type":"orderbook_delta","sid":1,"seq":151,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":80000,"side":"yes","ts":"2025-05-15T01:35:56.983475Z"}}
+
+2025-05-15T01:35:57.393659+00:00	{"type":"orderbook_delta","sid":1,"seq":152,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":2,"delta":-80000,"side":"yes","ts":"2025-05-15T01:35:57.337143Z"}}
+
+2025-05-15T01:36:21.102909+00:00	{"type":"orderbook_delta","sid":1,"seq":153,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":61,"delta":-1400,"side":"no","ts":"2025-05-15T01:36:20.990089Z"}}
+
+2025-05-15T01:36:25.014130+00:00	{"type":"orderbook_delta","sid":1,"seq":154,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":60,"delta":-200,"side":"no","ts":"2025-05-15T01:35:46.512713Z"}}
+
+2025-05-15T01:36:25.014382+00:00	{"type":"orderbook_delta","sid":1,"seq":155,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":70,"delta":200,"side":"no","ts":"2025-05-15T01:36:24.9563Z"}}
+
+2025-05-15T01:36:27.393373+00:00	{"type":"orderbook_delta","sid":1,"seq":156,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","price":71,"delta":1400,"side":"no","ts":"2025-05-15T01:36:27.324741Z"}}
+
+2025-05-15T01:45:42.002583+00:00	{"type":"subscribed","id":2,"msg":{"channel":"orderbook_delta","sid":1}}
+
+2025-05-15T01:45:42.002994+00:00	{"type":"orderbook_snapshot","sid":1,"seq":1,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","no":[[3,79962],[55,4800],[70,200],[71,1400]]}}
+
+2025-05-15T01:56:34.093821+00:00	{"type":"subscribed","id":3,"msg":{"channel":"orderbook_delta","sid":1}}
+
+2025-05-15T01:56:34.094169+00:00	{"type":"orderbook_snapshot","sid":1,"seq":1,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":"0baee590-9ed5-4cca-9030-8f0dc2b2bea5","no":[[3,79962],[55,4800],[70,200],[71,1400]]}}
+
+2025-05-15T02:05:24.881748+00:00	{"type":"subscribed","id":4,"msg":{"channel":"orderbook_delta","sid":1}}
+
+2025-05-15T02:05:24.882244+00:00	{"type":"orderbook_snapshot","sid":1,"seq":1,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":""}}
+
+2025-05-15T02:22:09.602725+00:00	{"type":"subscribed","id":5,"msg":{"channel":"orderbook_delta","sid":1}}
+
+2025-05-15T02:22:09.603132+00:00	{"type":"orderbook_snapshot","sid":1,"seq":1,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":""}}
+
+2025-05-15T02:36:43.094550+00:00	{"type":"subscribed","id":6,"msg":{"channel":"orderbook_delta","sid":1}}
+
+2025-05-15T02:36:43.095025+00:00	{"type":"orderbook_snapshot","sid":1,"seq":1,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":""}}
+
+2025-05-15T02:46:02.547048+00:00	{"type":"subscribed","id":7,"msg":{"channel":"orderbook_delta","sid":1}}
+
+2025-05-15T02:46:02.547461+00:00	{"type":"orderbook_snapshot","sid":1,"seq":1,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":""}}
+
+2025-05-15T02:53:25.937118+00:00	{"type":"subscribed","id":8,"msg":{"channel":"orderbook_delta","sid":1}}
+
+2025-05-15T02:53:25.937506+00:00	{"type":"orderbook_snapshot","sid":1,"seq":1,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":""}}
+
+2025-05-15T03:04:22.653432+00:00	{"type":"subscribed","id":9,"msg":{"channel":"orderbook_delta","sid":1}}
+
+2025-05-15T03:04:22.653758+00:00	{"type":"orderbook_snapshot","sid":1,"seq":1,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":""}}
+
+2025-05-15T03:55:33.653064+00:00	{"type":"subscribed","id":10,"msg":{"channel":"orderbook_delta","sid":1}}
+
+2025-05-15T03:55:33.653531+00:00	{"type":"orderbook_snapshot","sid":1,"seq":1,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":""}}
+
+2025-05-15T04:12:41.035891+00:00	{"type":"subscribed","id":11,"msg":{"channel":"orderbook_delta","sid":1}}
+
+2025-05-15T04:12:41.036314+00:00	{"type":"orderbook_snapshot","sid":1,"seq":1,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":""}}
+
+2025-05-15T04:20:55.351559+00:00	{"type":"subscribed","id":12,"msg":{"channel":"orderbook_delta","sid":1}}
+
+2025-05-15T04:20:55.351970+00:00	{"type":"orderbook_snapshot","sid":1,"seq":1,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":""}}
+
+2025-05-15T05:29:19.189879+00:00	{"type":"subscribed","id":13,"msg":{"channel":"orderbook_delta","sid":1}}
+
+2025-05-15T05:29:19.190373+00:00	{"type":"orderbook_snapshot","sid":1,"seq":1,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":""}}
+
+2025-05-15T05:35:43.710992+00:00	{"type":"subscribed","id":14,"msg":{"channel":"orderbook_delta","sid":1}}
+
+2025-05-15T05:35:43.711455+00:00	{"type":"orderbook_snapshot","sid":1,"seq":1,"msg":{"market_ticker":"KXETHD-25MAY1422-T2629.99","market_id":""}}
+
