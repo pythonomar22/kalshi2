@@ -8,7 +8,7 @@ from datetime import datetime
 STREAMS_TO_SUBSCRIBE = [
     # "ethusdt@miniTicker",
     # "btcusdt@miniTicker",
-    "ethusdt@kline_1m",  # 1-minute candlesticks for ETH/USDT
+    # "ethusdt@kline_1m",  # 1-minute candlesticks for ETH/USDT
     "btcusdt@kline_1m"   # 1-minute candlesticks for BTC/USDT
     # For even more granularity (consider data volume):
     # "ethusdt@kline_1s",
