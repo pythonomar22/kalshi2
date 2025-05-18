@@ -8,6 +8,7 @@ import numpy as np
 
 import utils 
 import sizing 
+import linreg_strategy # Import the new strategy module
 
 # --- Configuration ---
 BASE_PROJECT_DIR = utils.BASE_PROJECT_DIR
@@ -19,33 +20,20 @@ TRADE_DECISION_OFFSET_MINUTES = 5
 KALSHI_MAX_STALENESS_SECONDS = 240  
 NTM_PERCENTAGE_THRESHOLD = 0.025    
 
-# --- Simulated Linear Regression Model Parameters ---
-# These would normally be loaded from a trained model file
-MODEL_PARAMS = {
-    'intercept': 0.0,
-    'coef_btc_price_change_1m': 0.05,    # Positive short-term momentum = slightly bullish
-    'coef_btc_price_change_5m': 0.1,     # Positive mid-term momentum = more bullish
-    'coef_btc_price_change_15m': 0.02,   # Longer-term momentum, less weight
-    'coef_btc_volatility_15m': -0.01,  # Higher volatility might slightly decrease confidence (negative weight)
-    'coef_distance_to_strike': 0.0001  # If current price is far above strike, more bullish for YES
-                                      # This needs careful scaling or normalization in a real model
-}
-# Thresholds for taking action based on model score
-MODEL_SCORE_THRESHOLD_BUY_YES = 0.2  # Lowered threshold a bit
-MODEL_SCORE_THRESHOLD_BUY_NO = -0.2 # Lowered threshold a bit
-
-# --- Sizing Parameters (can be moved to sizing.py or config file later) ---
-sizing.MODEL_SCORE_THRESHOLD_BUY_YES = MODEL_SCORE_THRESHOLD_BUY_YES # Make available to sizing module
-sizing.MODEL_SCORE_THRESHOLD_BUY_NO = MODEL_SCORE_THRESHOLD_BUY_NO   # Make available to sizing module
-sizing.MIN_MODEL_SCORE_FOR_SCALING = 0.5 # Start scaling if abs(score) > 0.5
-sizing.CONFIDENCE_SCALING_FACTOR = 1.0   # For every 1 point of score above min_scaling, add 1 contract
+# --- Pass necessary thresholds to sizing module ---
+# This makes sizing aware of the decision thresholds used by the strategy
+sizing.MODEL_SCORE_THRESHOLD_BUY_YES = linreg_strategy.MODEL_SCORE_THRESHOLD_BUY_YES
+sizing.MODEL_SCORE_THRESHOLD_BUY_NO = linreg_strategy.MODEL_SCORE_THRESHOLD_BUY_NO
+# Sizing specific parameters can remain here or be moved to sizing.py defaults
+sizing.MIN_MODEL_SCORE_FOR_SCALING = 1.0 
+sizing.CONFIDENCE_SCALING_FACTOR = 0.5 
 sizing.BASE_POSITION_SIZE = 1
 sizing.MAX_POSITION_SIZE = 3 
 
 # --- Logging Setup ---
 LOGS_DIR = os.path.join(BASE_PROJECT_DIR, "logs") 
 os.makedirs(LOGS_DIR, exist_ok=True)
-log_file_path = os.path.join(LOGS_DIR, f"backtest_log_ActualLR_{BACKTEST_DATE_YYMMMDD}_{dt.datetime.now().strftime('%Y%m%d_%H%M%S')}.txt")
+log_file_path = os.path.join(LOGS_DIR, f"backtest_log_RefactoredLR_{BACKTEST_DATE_YYMMMDD}_{dt.datetime.now().strftime('%Y%m%d_%H%M%S')}.txt")
 for handler in logging.root.handlers[:]: logging.root.removeHandler(handler)
 logging.basicConfig(
     level=logging.INFO, 
@@ -58,7 +46,7 @@ logger = logging.getLogger(__name__)
 def run_backtest():
     utils.clear_binance_cache() 
 
-    logger.info(f"Starting backtest with Actual LR model & Sizing for date: {BACKTEST_DATE_YYMMMDD}")
+    logger.info(f"Starting backtest with {os.path.basename(linreg_strategy.__file__)} & Sizing for date: {BACKTEST_DATE_YYMMMDD}")
     total_pnl_cents = 0; trades_executed = 0; markets_processed_total = 0
     markets_considered_for_trade = 0 
     markets_skipped_no_btc_data = 0; markets_skipped_no_kalshi_data = 0
@@ -102,7 +90,7 @@ def run_backtest():
             btc_signal_timestamp_s = decision_timestamp_s - 60 
 
             btc_features = utils.get_btc_features_for_signal(btc_signal_timestamp_s)
-            if btc_features is None: # get_btc_features_for_signal now checks for NaNs internally
+            if btc_features is None:
                 logger.warning(f"No/incomplete BTC features for {market_ticker} at {dt.datetime.fromtimestamp(btc_signal_timestamp_s, tz=timezone.utc).isoformat()}. Skip.")
                 markets_skipped_no_btc_data +=1; continue
             
@@ -131,29 +119,16 @@ def run_backtest():
                 logger.info(f"Market {market_ticker} invalid spread: Ask={yes_ask_price:.0f}, Bid={yes_bid_price:.0f}. Skip.")
                 markets_skipped_wide_spread +=1; continue
 
-            # --- Linear Regression Model Prediction ---
-            # Feature: distance from strike (normalized or scaled might be better in real model)
-            # Positive distance means BTC price is above Kalshi strike
-            distance_to_strike = btc_price_at_signal_time - kalshi_strike_price 
-
-            model_prediction_score = MODEL_PARAMS['intercept'] + \
-                                     (MODEL_PARAMS['coef_btc_price_change_1m'] * btc_features['btc_price_change_1m']) + \
-                                     (MODEL_PARAMS['coef_btc_price_change_5m'] * btc_features['btc_price_change_5m']) + \
-                                     (MODEL_PARAMS['coef_btc_price_change_15m'] * btc_features['btc_price_change_15m']) + \
-                                     (MODEL_PARAMS['coef_btc_volatility_15m'] * btc_features['btc_volatility_15m']) + \
-                                     (MODEL_PARAMS['coef_distance_to_strike'] * distance_to_strike)
+            # --- Get Model Prediction & Trade Decision ---
+            model_prediction_score = linreg_strategy.calculate_model_score(btc_features, kalshi_strike_price)
+            trade_action, _ = linreg_strategy.get_trade_decision(model_prediction_score) # Score is re-logged later
             
-            feature_str = (f"BTC Last={btc_price_at_signal_time:.2f}, Chg1m={btc_features['btc_price_change_1m']:.2f}, "
-                           f"Chg5m={btc_features['btc_price_change_5m']:.2f}, Chg15m={btc_features['btc_price_change_15m']:.2f}, "
-                           f"Vol15m={btc_features['btc_volatility_15m']:.2f}, DistToStrike={distance_to_strike:.2f}")
-            logger.debug(f"{market_ticker}: {feature_str}, ModelScore={model_prediction_score:.4f}")
-
-            trade_action = None; entry_price = 0; position_size = 0
-            if model_prediction_score > MODEL_SCORE_THRESHOLD_BUY_YES:
-                trade_action = "BUY_YES"; entry_price = yes_ask_price
+            entry_price = 0; position_size = 0
+            if trade_action == "BUY_YES":
+                entry_price = yes_ask_price
                 position_size = sizing.calculate_position_size(model_prediction_score)
-            elif model_prediction_score < MODEL_SCORE_THRESHOLD_BUY_NO:
-                trade_action = "BUY_NO"; entry_price = 100 - yes_bid_price
+            elif trade_action == "BUY_NO":
+                entry_price = 100 - yes_bid_price
                 position_size = sizing.calculate_position_size(model_prediction_score) 
             else:
                 markets_skipped_no_model_signal +=1
@@ -172,11 +147,16 @@ def run_backtest():
                 pnl_this_trade = pnl_per_contract * position_size
                 total_pnl_cents += pnl_this_trade; trades_executed += 1
                 total_contracts_traded += position_size
-                logging.info(f"TRADE (LR): {market_ticker} | Score={model_prediction_score:.2f} | {feature_str} | Strike: {kalshi_strike_price:.2f} | "
+                
+                feature_str = (f"BTC Last={btc_features['btc_price']:.2f}, Chg1m={btc_features['btc_price_change_1m']:.2f}, "
+                               f"Chg5m={btc_features['btc_price_change_5m']:.2f}, Chg15m={btc_features['btc_price_change_15m']:.2f}, "
+                               f"Vol15m={btc_features['btc_volatility_15m']:.2f}, DistToStrike={(btc_features['btc_price'] - kalshi_strike_price):.2f}")
+
+                logging.info(f"TRADE ({os.path.basename(linreg_strategy.__file__)}): {market_ticker} | Score={model_prediction_score:.2f} | {feature_str} | Strike: {kalshi_strike_price:.2f} | "
                              f"{trade_action} x{position_size} @ {entry_price:.0f}c (A:{yes_ask_price:.0f} B:{yes_bid_price:.0f}) | Outcome: {market_outcome_result.upper()} | P&L: {pnl_this_trade:.0f}c")
     
     # (Summary logging remains the same)
-    logger.info(f"\n--- Backtest Summary (Actual LR Model with Sizing) for Date: {BACKTEST_DATE_YYMMMDD} ---")
+    logger.info(f"\n--- Backtest Summary ({os.path.basename(linreg_strategy.__file__)} with Sizing) for Date: {BACKTEST_DATE_YYMMMDD} ---")
     logger.info(f"Total Kalshi market files found: {markets_processed_total}")
     logger.info(f"Markets skipped - Not NTM: {markets_skipped_relevance}")
     logger.info(f"Markets considered for trading (NTM): {markets_considered_for_trade}")
@@ -189,10 +169,11 @@ def run_backtest():
     logger.info(f"Total P&L: {total_pnl_cents:.2f} cents (${total_pnl_cents/100:.2f})")
     if trades_executed > 0:
         logger.info(f"Average P&L per trade: {total_pnl_cents/trades_executed:.2f} cents")
-        if total_contracts_traded > 0: # Avoid division by zero
+        if total_contracts_traded > 0: 
             logger.info(f"Average P&L per contract: {total_pnl_cents/total_contracts_traded:.2f} cents")
 
-    print(f"\n--- Backtest Summary (Actual LR Model with Sizing) for Date: {BACKTEST_DATE_YYMMMDD} ---")
+    print(f"\n--- Backtest Summary ({os.path.basename(linreg_strategy.__file__)} with Sizing) for Date: {BACKTEST_DATE_YYMMMDD} ---")
+    # (Print summary remains the same)
     print(f"Total Kalshi market files found: {markets_processed_total}")
     print(f"Markets skipped (Not NTM): {markets_skipped_relevance}")
     print(f"Markets considered for trading (NTM): {markets_considered_for_trade}")
@@ -209,6 +190,7 @@ def run_backtest():
              print(f"Avg P&L per Contract: ${total_pnl_cents/total_contracts_traded/100:.4f}")
     print(f"Detailed log saved to: {log_file_path}")
 
+
 if __name__ == "__main__":
     # (BASE_PROJECT_DIR auto-detection and final logging remains the same)
     script_path = os.path.abspath(__file__)
@@ -220,12 +202,12 @@ if __name__ == "__main__":
             BASE_PROJECT_DIR = os.path.dirname(script_path) 
             logger.warning(f"Could not find 'notebooks/organized_market_data'. Assuming BASE_PROJECT_DIR is script directory: {BASE_PROJECT_DIR}")
 
-    utils.BASE_PROJECT_DIR = BASE_PROJECT_DIR # Ensure utils uses the same base
+    utils.BASE_PROJECT_DIR = BASE_PROJECT_DIR 
     utils.BINANCE_DATA_PATH_TEMPLATE = os.path.join(BASE_PROJECT_DIR, "binance_data/BTCUSDT-1m-{date_nodash}/BTCUSDT-1m-{date_nodash}.csv")
     KALSHI_ORGANIZED_DATA_DIR = os.path.join(BASE_PROJECT_DIR, "organized_market_data")
     MARKET_OUTCOMES_CSV_PATH = os.path.join(BASE_PROJECT_DIR, "market_candlestick_data/kalshi_btc_hourly_market_outcomes.csv")
     LOGS_DIR = os.path.join(BASE_PROJECT_DIR, "logs"); os.makedirs(LOGS_DIR, exist_ok=True)
-    log_file_path = os.path.join(LOGS_DIR, f"backtest_log_ActualLR_Sizing_{BACKTEST_DATE_YYMMMDD}_{dt.datetime.now().strftime('%Y%m%d_%H%M%S')}.txt")
+    log_file_path = os.path.join(LOGS_DIR, f"backtest_log_RefactoredLR_{BACKTEST_DATE_YYMMMDD}_{dt.datetime.now().strftime('%Y%m%d_%H%M%S')}.txt")
     
     for handler in logging.root.handlers[:]: logging.root.removeHandler(handler)
     logging.basicConfig(level=logging.INFO,format='%(asctime)s - %(levelname)s - %(name)s.%(funcName)s:%(lineno)d - %(message)s',handlers=[logging.FileHandler(log_file_path), logging.StreamHandler()])

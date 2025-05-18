@@ -5,15 +5,15 @@ import re
 import datetime as dt
 from datetime import timezone, timedelta
 import logging
-import numpy as np # For np.nan when a feature can't be calculated
+import numpy as np
 
 logger = logging.getLogger(__name__) 
 BASE_PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 BINANCE_DATA_PATH_TEMPLATE = os.path.join(BASE_PROJECT_DIR, "binance_data/BTCUSDT-1m-{date_nodash}/BTCUSDT-1m-{date_nodash}.csv")
 _binance_data_cache = {} 
 
-# parse_kalshi_ticker_info remains the same
 def parse_kalshi_ticker_info(ticker_string: str):
+    # (Keep the version from your last successful run)
     match = re.match(r"^(.*?)-(\d{2}[A-Z]{3}\d{2})(\d{2})-(T(\d+\.?\d*))$", ticker_string)
     if match:
         series, date_str_yyMmmdd, hour_str_EDT, strike_full, strike_val_str = match.groups()
@@ -35,6 +35,7 @@ def parse_kalshi_ticker_info(ticker_string: str):
     return None
 
 def load_binance_data_for_date(date_nodash: str):
+    # (Keep the version from your last successful run - it adds features)
     global _binance_data_cache
     if date_nodash in _binance_data_cache:
         if _binance_data_cache[date_nodash] is not None: return _binance_data_cache[date_nodash].copy()
@@ -46,19 +47,15 @@ def load_binance_data_for_date(date_nodash: str):
                         "number_of_trades", "taker_buy_base_asset_volume", "taker_buy_quote_asset_volume", "ignore"]
         df = pd.read_csv(filepath, header=None, names=column_names)
         if df.empty: logger.warning(f"Binance data file {filepath} is empty."); _binance_data_cache[date_nodash] = None; return None
-        
         df['datetime_utc'] = pd.to_datetime(df['open_time_raw'], unit='us', utc=True)
         df['timestamp_s'] = (df['datetime_utc'] - pd.Timestamp("1970-01-01", tz="UTC")) // pd.Timedelta('1s')
         df.set_index('timestamp_s', inplace=True)
         df['close'] = pd.to_numeric(df['close'])
-        
-        # --- Feature Engineering ---
         df['btc_price_lag_1m'] = df['close'].shift(1)
         df['btc_price_change_1m'] = df['close'].diff(1)
         df['btc_price_change_5m'] = df['close'].diff(5)
         df['btc_price_change_15m'] = df['close'].diff(15)
-        df['btc_volatility_15m'] = df['close'].rolling(window=15).std() # 15-min rolling volatility
-
+        df['btc_volatility_15m'] = df['close'].rolling(window=15).std()
         min_ts, max_ts = df.index.min(), df.index.max()
         logger.info(f"Loaded Binance data for {date_nodash} ({len(df)} rows). Index (sec UTC): "
                      f"{dt.datetime.fromtimestamp(min_ts, tz=timezone.utc).isoformat()} to "
@@ -68,44 +65,32 @@ def load_binance_data_for_date(date_nodash: str):
     except Exception as e: logger.error(f"Error loading Binance data from {filepath}: {e}"); _binance_data_cache[date_nodash] = None; return None
 
 def get_btc_features_for_signal(signal_timestamp_s: int):
+    # (Keep the version from your last successful run)
     global _binance_data_cache
     signal_dt_utc = dt.datetime.fromtimestamp(signal_timestamp_s, tz=timezone.utc)
     date_nodash_needed = signal_dt_utc.strftime("%Y-%m-%d")
-
     if date_nodash_needed not in _binance_data_cache or _binance_data_cache[date_nodash_needed] is None:
         logger.info(f"Binance data for {date_nodash_needed} not in cache. Loading...")
         if load_binance_data_for_date(date_nodash_needed) is None: 
-             logger.warning(f"Failed to load Binance data for {date_nodash_needed} for signal at {signal_dt_utc.isoformat()}")
+             logger.warning(f"Failed to load Binance for {date_nodash_needed} for signal at {signal_dt_utc.isoformat()}")
              return None 
-    
     binance_df_for_date = _binance_data_cache.get(date_nodash_needed)
     if binance_df_for_date is None: return None
-
     try:
         if signal_timestamp_s in binance_df_for_date.index:
             row = binance_df_for_date.loc[signal_timestamp_s]
-            features = {
-                'btc_price': row['close'], # This is price at end of t-1 minute (current price)
-                'btc_price_change_1m': row.get('btc_price_change_1m'), # price[t-1] - price[t-2]
-                'btc_price_change_5m': row.get('btc_price_change_5m'), # price[t-1] - price[t-6]
-                'btc_price_change_15m': row.get('btc_price_change_15m'),# price[t-1] - price[t-16]
-                'btc_volatility_15m': row.get('btc_volatility_15m')   # std dev over [t-16...t-1]
-            }
-            # Check for NaNs which can occur due to rolling windows/diffs at start of data
+            features = {'btc_price': row['close'], 'btc_price_change_1m': row.get('btc_price_change_1m'), 
+                        'btc_price_change_5m': row.get('btc_price_change_5m'), 'btc_price_change_15m': row.get('btc_price_change_15m'),
+                        'btc_volatility_15m': row.get('btc_volatility_15m')}
             for key, val in features.items():
                 if pd.isna(val):
-                    logger.debug(f"NaN value for feature '{key}' at {signal_dt_utc.isoformat()}. Returning None for features.")
-                    return None
+                    logger.debug(f"NaN feature '{key}' at {signal_dt_utc.isoformat()}."); return None
             return features
-        else:
-            logger.debug(f"Exact BTC timestamp {signal_dt_utc.isoformat()} not in Binance index for {date_nodash_needed}.")
-            return None
-    except Exception as e:
-        logger.error(f"Error in get_btc_features_for_signal for {signal_timestamp_s} ({date_nodash_needed}): {e}")
-        return None
+        else: logger.debug(f"Exact BTC timestamp {signal_dt_utc.isoformat()} not in Binance index for {date_nodash_needed}."); return None
+    except Exception as e: logger.error(f"Error in get_btc_features for {signal_timestamp_s} ({date_nodash_needed}): {e}"); return None
 
-# load_kalshi_market_data and get_kalshi_prices_at_decision remain the same
 def load_kalshi_market_data(filepath: str):
+    # (Keep the version from your last successful run)
     if not os.path.exists(filepath): logger.warning(f"Kalshi file not found: {filepath}"); return None
     try:
         df = pd.read_csv(filepath)
@@ -118,6 +103,7 @@ def load_kalshi_market_data(filepath: str):
     except Exception as e: logger.error(f"Error loading Kalshi {filepath}: {e}"); return None
 
 def get_kalshi_prices_at_decision(kalshi_df: pd.DataFrame, decision_timestamp_s: int, max_staleness_seconds: int):
+    # (Keep the version from your last successful run)
     decision_dt_str = dt.datetime.fromtimestamp(decision_timestamp_s, tz=timezone.utc).isoformat()
     logger.debug(f"Attempting Kalshi prices for decision: {decision_dt_str}")
     if kalshi_df is None or kalshi_df.empty: logger.debug(f"Kalshi df is None or empty for {decision_dt_str}."); return None

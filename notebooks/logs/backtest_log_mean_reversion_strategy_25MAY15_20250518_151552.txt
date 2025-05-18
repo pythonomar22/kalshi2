@@ -1,0 +1,280 @@
+2025-05-18 15:15:52,877 - INFO - __main__.<module>:193 - Final BASE_PROJECT_DIR: /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks
+2025-05-18 15:15:52,877 - INFO - __main__.<module>:194 - Final Binance data template: /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks/binance_data/BTCUSDT-1m-{date_nodash}/BTCUSDT-1m-{date_nodash}.csv
+2025-05-18 15:15:52,877 - INFO - __main__.<module>:195 - Final Kalshi organized data: /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks/organized_market_data
+2025-05-18 15:15:52,877 - INFO - __main__.<module>:196 - Final Market outcomes CSV: /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks/market_candlestick_data/kalshi_btc_hourly_market_outcomes.csv
+2025-05-18 15:15:52,877 - INFO - __main__.<module>:197 - Final Log file: /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks/logs/backtest_log_mean_reversion_strategy_25MAY15_20250518_151552.txt
+2025-05-18 15:15:52,877 - INFO - __main__.<module>:198 - Running strategy: mean_reversion_strategy
+2025-05-18 15:15:52,877 - INFO - utils.clear_binance_cache:137 - Binance data cache cleared.
+2025-05-18 15:15:52,877 - INFO - __main__.run_backtest:55 - Starting backtest with mean_reversion_strategy & Sizing for date: 25MAY15
+2025-05-18 15:15:52,881 - INFO - utils.load_binance_data_for_date:60 - Loaded Binance data for 2025-05-15 (1440 rows). Index (sec UTC): 2025-05-15T00:00:00+00:00 to 2025-05-15T23:59:00+00:00
+2025-05-18 15:15:52,892 - INFO - __main__.run_backtest:71 - Loaded 36455 market outcomes.
+2025-05-18 15:15:52,892 - INFO - __main__.run_backtest:80 - --- Processing Event Resolution Hour (EDT): 09 ---
+2025-05-18 15:15:52,894 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T100249.99 invalid spread: Ask=100, Bid=71. Skip.
+2025-05-18 15:15:52,894 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T100499.99 invalid spread: Ask=100, Bid=88. Skip.
+2025-05-18 15:15:52,895 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T100749.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:52,896 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T100999.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:15:52,897 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T101249.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:52,898 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T101499.99 invalid spread: Ask=100, Bid=84. Skip.
+2025-05-18 15:15:52,899 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T101749.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:52,899 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T101999.99 invalid spread: Ask=100, Bid=93. Skip.
+2025-05-18 15:15:52,900 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T102249.99 invalid spread: Ask=100, Bid=95. Skip.
+2025-05-18 15:15:52,903 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T102999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:52,904 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T103249.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:52,904 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T103499.99 invalid spread: Ask=19, Bid=0. Skip.
+2025-05-18 15:15:52,905 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T103749.99 invalid spread: Ask=16, Bid=0. Skip.
+2025-05-18 15:15:52,906 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T103999.99 invalid spread: Ask=10, Bid=0. Skip.
+2025-05-18 15:15:52,907 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T104249.99 invalid spread: Ask=4, Bid=0. Skip.
+2025-05-18 15:15:52,908 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T104499.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:52,908 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T104749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:52,909 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1509-T104999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:52,911 - INFO - __main__.run_backtest:80 - --- Processing Event Resolution Hour (EDT): 10 ---
+2025-05-18 15:15:52,912 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1510-T100249.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:52,913 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1510-T100499.99 invalid spread: Ask=100, Bid=84. Skip.
+2025-05-18 15:15:52,914 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1510-T100749.99 invalid spread: Ask=100, Bid=83. Skip.
+2025-05-18 15:15:52,914 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1510-T100999.99 invalid spread: Ask=100, Bid=79. Skip.
+2025-05-18 15:15:52,915 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1510-T101249.99 invalid spread: Ask=100, Bid=83. Skip.
+2025-05-18 15:15:52,919 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1510-T102499.99 invalid spread: Ask=7, Bid=0. Skip.
+2025-05-18 15:15:52,920 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1510-T102749.99 invalid spread: Ask=8, Bid=0. Skip.
+2025-05-18 15:15:52,921 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1510-T102999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:52,921 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1510-T103249.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:15:52,922 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1510-T103499.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:15:52,923 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1510-T103749.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:15:52,924 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1510-T103999.99 invalid spread: Ask=3, Bid=0. Skip.
+2025-05-18 15:15:52,925 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1510-T104249.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:15:52,925 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1510-T104499.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:52,928 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1510-T99499.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:52,929 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1510-T99749.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:52,929 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1510-T99999.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:52,929 - INFO - __main__.run_backtest:80 - --- Processing Event Resolution Hour (EDT): 11 ---
+2025-05-18 15:15:52,930 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T100249.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:52,931 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T100499.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:52,932 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T100749.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:52,932 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T100999.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:52,933 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T101249.99 invalid spread: Ask=100, Bid=93. Skip.
+2025-05-18 15:15:52,935 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T101999.99 invalid spread: Ask=9, Bid=0. Skip.
+2025-05-18 15:15:52,936 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T102249.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:52,937 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T102499.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:52,937 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T102749.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:52,938 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T102999.99 invalid spread: Ask=3, Bid=0. Skip.
+2025-05-18 15:15:52,939 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T103249.99 invalid spread: Ask=4, Bid=0. Skip.
+2025-05-18 15:15:52,939 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T103499.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:15:52,940 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T103749.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:15:52,941 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T103999.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:15:52,943 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T99249.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:52,944 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T99499.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:52,945 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T99749.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:52,946 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1511-T99999.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:52,946 - INFO - __main__.run_backtest:80 - --- Processing Event Resolution Hour (EDT): 12 ---
+2025-05-18 15:15:52,946 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T100749.99 invalid spread: Ask=100, Bid=83. Skip.
+2025-05-18 15:15:52,947 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T100999.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:52,948 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T101249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:52,949 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T101499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:52,950 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T101749.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:52,951 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T101999.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:52,952 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T102249.99 invalid spread: Ask=100, Bid=93. Skip.
+2025-05-18 15:15:52,952 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T102499.99 invalid spread: Ask=100, Bid=93. Skip.
+2025-05-18 15:15:52,953 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T102749.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:15:52,956 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T103749.99 invalid spread: Ask=7, Bid=0. Skip.
+2025-05-18 15:15:52,957 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T103999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:52,958 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T104249.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:52,963 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T104499.99 invalid spread: Ask=30, Bid=0. Skip.
+2025-05-18 15:15:52,966 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T104749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:52,971 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T104999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:52,974 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T105249.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:52,979 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T105499.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:52,983 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1512-T105749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:52,991 - INFO - __main__.run_backtest:80 - --- Processing Event Resolution Hour (EDT): 13 ---
+2025-05-18 15:15:52,996 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T101249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:52,997 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T101499.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:52,998 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T101749.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:52,999 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T101999.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,000 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T102249.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:15:53,000 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T102499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,002 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T102999.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:53,003 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T103249.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:53,006 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T103499.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:15:53,013 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T104249.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,014 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T104499.99 invalid spread: Ask=7, Bid=0. Skip.
+2025-05-18 15:15:53,014 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T104749.99 invalid spread: Ask=7, Bid=0. Skip.
+2025-05-18 15:15:53,015 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T104999.99 invalid spread: Ask=7, Bid=0. Skip.
+2025-05-18 15:15:53,017 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T105249.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,018 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T105499.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,018 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T105749.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,019 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T105999.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,020 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1513-T106249.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,021 - INFO - __main__.run_backtest:80 - --- Processing Event Resolution Hour (EDT): 14 ---
+2025-05-18 15:15:53,022 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T101499.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:53,023 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T101749.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:53,024 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T101999.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:53,025 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T102249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:53,026 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T102499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,027 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T102749.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:15:53,027 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T102999.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:15:53,028 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T103249.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:15:53,029 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T103499.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:15:53,031 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T104249.99 invalid spread: Ask=7, Bid=0. Skip.
+2025-05-18 15:15:53,032 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T104499.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,032 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T104749.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,033 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T104999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,034 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T105249.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,035 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T105499.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,035 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T105749.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,036 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T105999.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,037 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T106249.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,038 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1514-T106499.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,039 - INFO - __main__.run_backtest:80 - --- Processing Event Resolution Hour (EDT): 15 ---
+2025-05-18 15:15:53,040 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T100499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,041 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T100749.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:15:53,042 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T100999.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:53,042 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T101249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:53,043 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T101499.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:15:53,044 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T101749.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:53,045 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T101999.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:53,045 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T102249.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:53,046 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T102499.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:53,049 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T103499.99 invalid spread: Ask=3, Bid=0. Skip.
+2025-05-18 15:15:53,050 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T103749.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,050 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T103999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,051 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T104249.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,052 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T104499.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,053 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T104749.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,053 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T104999.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,054 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T105249.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,055 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1515-T105499.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,057 - INFO - __main__.run_backtest:80 - --- Processing Event Resolution Hour (EDT): 16 ---
+2025-05-18 15:15:53,057 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T100499.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:53,058 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T100749.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,059 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T100999.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:53,060 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T101249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:53,060 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T101499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,061 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T101749.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:15:53,062 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T101999.99 invalid spread: Ask=100, Bid=74. Skip.
+2025-05-18 15:15:53,062 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T102249.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:53,063 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T102499.99 invalid spread: Ask=100, Bid=93. Skip.
+2025-05-18 15:15:53,066 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T103499.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,067 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T103749.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,068 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T103999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,069 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T104249.99 invalid spread: Ask=18, Bid=0. Skip.
+2025-05-18 15:15:53,069 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T104499.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,070 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T104749.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,071 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T104999.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,072 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T105249.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,072 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1516-T105499.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,074 - INFO - __main__.run_backtest:80 - --- Processing Event Resolution Hour (EDT): 17 ---
+2025-05-18 15:15:53,076 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1517-T100999.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:15:53,077 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1517-T101499.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:15:53,078 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1517-T101999.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:15:53,080 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1517-T102499.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:15:53,081 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1517-T102999.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:15:53,084 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1517-T103999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,086 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1517-T104499.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,087 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1517-T104999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,088 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1517-T105499.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,089 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1517-T105999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,090 - INFO - __main__.run_backtest:80 - --- Processing Event Resolution Hour (EDT): 18 ---
+2025-05-18 15:15:53,091 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T100749.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,092 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T100999.99 invalid spread: Ask=100, Bid=88. Skip.
+2025-05-18 15:15:53,093 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T101249.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:15:53,093 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T101499.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:15:53,094 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T101749.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:15:53,095 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T101999.99 invalid spread: Ask=100, Bid=86. Skip.
+2025-05-18 15:15:53,096 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T102249.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:15:53,096 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T102499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,097 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T102749.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,098 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T102999.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,100 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T103749.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,101 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T103999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,102 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T104249.99 invalid spread: Ask=16, Bid=0. Skip.
+2025-05-18 15:15:53,102 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T104499.99 invalid spread: Ask=30, Bid=0. Skip.
+2025-05-18 15:15:53,103 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T104749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,104 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T104999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,104 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T105249.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,105 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T105499.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,106 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1518-T105749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,108 - INFO - __main__.run_backtest:80 - --- Processing Event Resolution Hour (EDT): 19 ---
+2025-05-18 15:15:53,109 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T100999.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,109 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T101249.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,110 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T101499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,111 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T101749.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,111 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T101999.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:15:53,112 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T102249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:53,113 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T102499.99 invalid spread: Ask=100, Bid=84. Skip.
+2025-05-18 15:15:53,114 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T102749.99 invalid spread: Ask=100, Bid=93. Skip.
+2025-05-18 15:15:53,114 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T102999.99 invalid spread: Ask=100, Bid=93. Skip.
+2025-05-18 15:15:53,115 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T103249.99 invalid spread: Ask=100, Bid=95. Skip.
+2025-05-18 15:15:53,117 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T103749.99 invalid spread: Ask=3, Bid=0. Skip.
+2025-05-18 15:15:53,117 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T103999.99 invalid spread: Ask=5, Bid=0. Skip.
+2025-05-18 15:15:53,118 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T104249.99 invalid spread: Ask=16, Bid=0. Skip.
+2025-05-18 15:15:53,119 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T104499.99 invalid spread: Ask=30, Bid=0. Skip.
+2025-05-18 15:15:53,119 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T104749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,120 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T104999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,121 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T105249.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,122 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T105499.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,122 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T105749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,123 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1519-T105999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,125 - INFO - __main__.run_backtest:80 - --- Processing Event Resolution Hour (EDT): 20 ---
+2025-05-18 15:15:53,126 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T101249.99 invalid spread: Ask=100, Bid=92. Skip.
+2025-05-18 15:15:53,127 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T101499.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:15:53,127 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T101749.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:53,128 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T101999.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:15:53,129 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T102249.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,130 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T102499.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:15:53,130 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T102749.99 invalid spread: Ask=100, Bid=78. Skip.
+2025-05-18 15:15:53,131 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T102999.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:15:53,132 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T103249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:53,133 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T103499.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:15:53,134 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T103999.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:15:53,135 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T104249.99 invalid spread: Ask=4, Bid=0. Skip.
+2025-05-18 15:15:53,135 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T104499.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:15:53,136 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T104749.99 invalid spread: Ask=30, Bid=0. Skip.
+2025-05-18 15:15:53,137 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T104999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,138 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T105249.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,138 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T105499.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,139 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T105749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,140 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T105999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,141 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1520-T106249.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,143 - INFO - __main__.run_backtest:80 - --- Processing Event Resolution Hour (EDT): 21 ---
+2025-05-18 15:15:53,143 - INFO - utils.get_btc_features_for_signal:73 - Binance data for 2025-05-16 not in cache. Loading...
+2025-05-18 15:15:53,146 - INFO - utils.load_binance_data_for_date:60 - Loaded Binance data for 2025-05-16 (1440 rows). Index (sec UTC): 2025-05-16T00:00:00+00:00 to 2025-05-16T23:59:00+00:00
+2025-05-18 15:15:53,147 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T101249.99 invalid spread: Ask=100, Bid=86. Skip.
+2025-05-18 15:15:53,148 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T101499.99 invalid spread: Ask=100, Bid=86. Skip.
+2025-05-18 15:15:53,149 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T101749.99 invalid spread: Ask=100, Bid=92. Skip.
+2025-05-18 15:15:53,150 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T101999.99 invalid spread: Ask=100, Bid=90. Skip.
+2025-05-18 15:15:53,151 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T102249.99 invalid spread: Ask=100, Bid=86. Skip.
+2025-05-18 15:15:53,151 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T102499.99 invalid spread: Ask=100, Bid=86. Skip.
+2025-05-18 15:15:53,152 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T102749.99 invalid spread: Ask=100, Bid=84. Skip.
+2025-05-18 15:15:53,153 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T102999.99 invalid spread: Ask=100, Bid=84. Skip.
+2025-05-18 15:15:53,154 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T103249.99 invalid spread: Ask=100, Bid=93. Skip.
+2025-05-18 15:15:53,154 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T103499.99 invalid spread: Ask=100, Bid=95. Skip.
+2025-05-18 15:15:53,156 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T103999.99 invalid spread: Ask=3, Bid=0. Skip.
+2025-05-18 15:15:53,156 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T104249.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:15:53,157 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T104499.99 invalid spread: Ask=14, Bid=0. Skip.
+2025-05-18 15:15:53,158 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T104749.99 invalid spread: Ask=14, Bid=0. Skip.
+2025-05-18 15:15:53,159 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T104999.99 invalid spread: Ask=13, Bid=0. Skip.
+2025-05-18 15:15:53,160 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T105249.99 invalid spread: Ask=13, Bid=0. Skip.
+2025-05-18 15:15:53,161 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T105499.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,161 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T105749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,162 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T105999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,163 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1521-T106249.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:15:53,164 - INFO - __main__.run_backtest:80 - --- Processing Event Resolution Hour (EDT): 22 ---
+2025-05-18 15:15:53,165 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T101499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,166 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T101749.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:53,167 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T101999.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:15:53,168 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T102249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:53,169 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T102499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,169 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T102749.99 invalid spread: Ask=100, Bid=95. Skip.
+2025-05-18 15:15:53,170 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T102999.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:15:53,171 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T103249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:15:53,172 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T103499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:15:53,174 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T104249.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:15:53,175 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T104499.99 invalid spread: Ask=4, Bid=0. Skip.
+2025-05-18 15:15:53,176 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T104749.99 invalid spread: Ask=3, Bid=0. Skip.
+2025-05-18 15:15:53,176 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T104999.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:15:53,177 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T105249.99 invalid spread: Ask=5, Bid=0. Skip.
+2025-05-18 15:15:53,178 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T105499.99 invalid spread: Ask=5, Bid=0. Skip.
+2025-05-18 15:15:53,178 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T105749.99 invalid spread: Ask=5, Bid=0. Skip.
+2025-05-18 15:15:53,179 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T105999.99 invalid spread: Ask=5, Bid=0. Skip.
+2025-05-18 15:15:53,180 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T106249.99 invalid spread: Ask=5, Bid=0. Skip.
+2025-05-18 15:15:53,181 - INFO - __main__.run_backtest:127 - Market KXBTCD-25MAY1522-T106499.99 invalid spread: Ask=5, Bid=0. Skip.
+2025-05-18 15:15:53,182 - INFO - __main__.run_backtest:166 - 
+--- Backtest Summary (mean_reversion_strategy with Sizing) for Date: 25MAY15 ---
