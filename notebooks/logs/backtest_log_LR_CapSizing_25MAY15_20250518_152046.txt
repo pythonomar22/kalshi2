@@ -1,0 +1,324 @@
+2025-05-18 15:20:46,636 - INFO - __main__.<module>:235 - Final BASE_PROJECT_DIR: /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks
+2025-05-18 15:20:46,636 - INFO - __main__.<module>:236 - Final Binance data template: /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks/binance_data/BTCUSDT-1m-{date_nodash}/BTCUSDT-1m-{date_nodash}.csv
+2025-05-18 15:20:46,636 - INFO - __main__.<module>:237 - Final Kalshi organized data: /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks/organized_market_data
+2025-05-18 15:20:46,636 - INFO - __main__.<module>:238 - Final Market outcomes CSV: /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks/market_candlestick_data/kalshi_btc_hourly_market_outcomes.csv
+2025-05-18 15:20:46,636 - INFO - __main__.<module>:239 - Final Log file: /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks/logs/backtest_log_LR_CapSizing_25MAY15_20250518_152046.txt
+2025-05-18 15:20:46,636 - INFO - utils.clear_binance_cache:137 - Binance data cache cleared.
+2025-05-18 15:20:46,636 - INFO - __main__.run_backtest:51 - Starting backtest with LR model & Capital Sizing for date: 25MAY15. Initial Capital: $500.00
+2025-05-18 15:20:46,640 - INFO - utils.load_binance_data_for_date:60 - Loaded Binance data for 2025-05-15 (1440 rows). Index (sec UTC): 2025-05-15T00:00:00+00:00 to 2025-05-15T23:59:00+00:00
+2025-05-18 15:20:46,652 - INFO - __main__.run_backtest:65 - Loaded 36455 market outcomes.
+2025-05-18 15:20:46,652 - INFO - __main__.run_backtest:74 - --- Processing Event Resolution Hour (EDT): 09 ---
+2025-05-18 15:20:46,653 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T100249.99 invalid spread: Ask=100, Bid=71. Skip.
+2025-05-18 15:20:46,654 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T100499.99 invalid spread: Ask=100, Bid=88. Skip.
+2025-05-18 15:20:46,655 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T100749.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,656 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T100999.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:20:46,657 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T101249.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,658 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T101499.99 invalid spread: Ask=100, Bid=84. Skip.
+2025-05-18 15:20:46,659 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T101749.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,660 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T101999.99 invalid spread: Ask=100, Bid=93. Skip.
+2025-05-18 15:20:46,661 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T102249.99 invalid spread: Ask=100, Bid=95. Skip.
+2025-05-18 15:20:46,663 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1509-T102499.99 | Score=2.88 | BTC Last=102610.07, Chg1m=75.60, Chg5m=21.05, Chg15m=-109.89, Vol15m=82.20, DistToStrike=110.08 | Strike: 102499.99 | BUY_YES x18 @ 89c (A:89 B:85) | Outcome: YES | P&L: 198c | Capital: $501.98
+2025-05-18 15:20:46,664 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1509-T102749.99 | Score=2.85 | BTC Last=102610.07, Chg1m=75.60, Chg5m=21.05, Chg15m=-109.89, Vol15m=82.20, DistToStrike=-139.92 | Strike: 102749.99 | BUY_YES x100 @ 16c (A:16 B:11) | Outcome: NO | P&L: -1600c | Capital: $485.98
+2025-05-18 15:20:46,665 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T102999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,666 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T103249.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,666 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T103499.99 invalid spread: Ask=19, Bid=0. Skip.
+2025-05-18 15:20:46,667 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T103749.99 invalid spread: Ask=16, Bid=0. Skip.
+2025-05-18 15:20:46,668 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T103999.99 invalid spread: Ask=10, Bid=0. Skip.
+2025-05-18 15:20:46,669 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T104249.99 invalid spread: Ask=4, Bid=0. Skip.
+2025-05-18 15:20:46,670 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T104499.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,670 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T104749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,671 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1509-T104999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,672 - INFO - __main__.run_backtest:74 - --- Processing Event Resolution Hour (EDT): 10 ---
+2025-05-18 15:20:46,673 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1510-T100249.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,674 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1510-T100499.99 invalid spread: Ask=100, Bid=84. Skip.
+2025-05-18 15:20:46,675 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1510-T100749.99 invalid spread: Ask=100, Bid=83. Skip.
+2025-05-18 15:20:46,676 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1510-T100999.99 invalid spread: Ask=100, Bid=79. Skip.
+2025-05-18 15:20:46,677 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1510-T101249.99 invalid spread: Ask=100, Bid=83. Skip.
+2025-05-18 15:20:46,677 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1510-T101499.99 | Score=25.87 | BTC Last=102041.74, Chg1m=8.01, Chg5m=300.93, Chg15m=-130.26, Vol15m=207.58, DistToStrike=541.75 | Strike: 101499.99 | BUY_YES x25 @ 98c (A:98 B:96) | Outcome: YES | P&L: 50c | Capital: $486.48
+2025-05-18 15:20:46,678 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1510-T101749.99 | Score=25.84 | BTC Last=102041.74, Chg1m=8.01, Chg5m=300.93, Chg15m=-130.26, Vol15m=207.58, DistToStrike=291.75 | Strike: 101749.99 | BUY_YES x26 @ 96c (A:96 B:89) | Outcome: YES | P&L: 104c | Capital: $487.52
+2025-05-18 15:20:46,679 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1510-T101999.99 | Score=25.82 | BTC Last=102041.74, Chg1m=8.01, Chg5m=300.93, Chg15m=-130.26, Vol15m=207.58, DistToStrike=41.75 | Strike: 101999.99 | BUY_YES x36 @ 68c (A:68 B:60) | Outcome: YES | P&L: 1152c | Capital: $499.04
+2025-05-18 15:20:46,680 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1510-T102249.99 | Score=25.79 | BTC Last=102041.74, Chg1m=8.01, Chg5m=300.93, Chg15m=-130.26, Vol15m=207.58, DistToStrike=-208.25 | Strike: 102249.99 | BUY_YES x131 @ 19c (A:19 B:14) | Outcome: NO | P&L: -2489c | Capital: $474.15
+2025-05-18 15:20:46,681 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1510-T102499.99 invalid spread: Ask=7, Bid=0. Skip.
+2025-05-18 15:20:46,682 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1510-T102749.99 invalid spread: Ask=8, Bid=0. Skip.
+2025-05-18 15:20:46,683 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1510-T102999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,684 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1510-T103249.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:20:46,685 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1510-T103499.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:20:46,685 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1510-T103749.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:20:46,686 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1510-T103999.99 invalid spread: Ask=3, Bid=0. Skip.
+2025-05-18 15:20:46,687 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1510-T104249.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:20:46,688 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1510-T104499.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,690 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1510-T99499.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,691 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1510-T99749.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,692 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1510-T99999.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,692 - INFO - __main__.run_backtest:74 - --- Processing Event Resolution Hour (EDT): 11 ---
+2025-05-18 15:20:46,693 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T100249.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,694 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T100499.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,694 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T100749.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,695 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T100999.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,696 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T101249.99 invalid spread: Ask=100, Bid=93. Skip.
+2025-05-18 15:20:46,697 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1511-T101499.99 | Score=0.33 | BTC Last=101657.41, Chg1m=10.29, Chg5m=3.29, Chg15m=14.56, Vol15m=81.60, DistToStrike=157.42 | Strike: 101499.99 | BUY_YES x5 @ 96c (A:96 B:84) | Outcome: YES | P&L: 20c | Capital: $474.35
+2025-05-18 15:20:46,698 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1511-T101749.99 | Score=0.31 | BTC Last=101657.41, Chg1m=10.29, Chg5m=3.29, Chg15m=14.56, Vol15m=81.60, DistToStrike=-92.58 | Strike: 101749.99 | BUY_YES x18 @ 30c (A:30 B:25) | Outcome: YES | P&L: 1260c | Capital: $486.95
+2025-05-18 15:20:46,699 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T101999.99 invalid spread: Ask=9, Bid=0. Skip.
+2025-05-18 15:20:46,700 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T102249.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,700 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T102499.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,701 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T102749.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,702 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T102999.99 invalid spread: Ask=3, Bid=0. Skip.
+2025-05-18 15:20:46,702 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T103249.99 invalid spread: Ask=4, Bid=0. Skip.
+2025-05-18 15:20:46,703 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T103499.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:20:46,704 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T103749.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:20:46,705 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T103999.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:20:46,707 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T99249.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,708 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T99499.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,709 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T99749.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,710 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1511-T99999.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,710 - INFO - __main__.run_backtest:74 - --- Processing Event Resolution Hour (EDT): 12 ---
+2025-05-18 15:20:46,711 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T100749.99 invalid spread: Ask=100, Bid=83. Skip.
+2025-05-18 15:20:46,711 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T100999.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,712 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T101249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,713 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T101499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,714 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T101749.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,714 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T101999.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,715 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T102249.99 invalid spread: Ask=100, Bid=93. Skip.
+2025-05-18 15:20:46,716 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T102499.99 invalid spread: Ask=100, Bid=93. Skip.
+2025-05-18 15:20:46,717 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T102749.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:20:46,718 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1512-T102999.99 | Score=29.10 | BTC Last=103262.11, Chg1m=96.12, Chg5m=156.26, Chg15m=515.91, Vol15m=167.44, DistToStrike=262.12 | Strike: 102999.99 | BUY_YES x25 @ 98c (A:98 B:94) | Outcome: YES | P&L: 50c | Capital: $487.45
+2025-05-18 15:20:46,718 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1512-T103249.99 | Score=29.08 | BTC Last=103262.11, Chg1m=96.12, Chg5m=156.26, Chg15m=515.91, Vol15m=167.44, DistToStrike=12.12 | Strike: 103249.99 | BUY_YES x38 @ 65c (A:65 B:57) | Outcome: YES | P&L: 1330c | Capital: $500.75
+2025-05-18 15:20:46,719 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1512-T103499.99 | Score=29.05 | BTC Last=103262.11, Chg1m=96.12, Chg5m=156.26, Chg15m=515.91, Vol15m=167.44, DistToStrike=-237.88 | Strike: 103499.99 | BUY_YES x200 @ 11c (A:11 B:8) | Outcome: NO | P&L: -2200c | Capital: $478.75
+2025-05-18 15:20:46,720 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T103749.99 invalid spread: Ask=7, Bid=0. Skip.
+2025-05-18 15:20:46,720 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T103999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,721 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T104249.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,722 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T104499.99 invalid spread: Ask=30, Bid=0. Skip.
+2025-05-18 15:20:46,723 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T104749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,723 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T104999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,724 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T105249.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,725 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T105499.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,726 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1512-T105749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,727 - INFO - __main__.run_backtest:74 - --- Processing Event Resolution Hour (EDT): 13 ---
+2025-05-18 15:20:46,729 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T101249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,729 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T101499.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,730 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T101749.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,731 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T101999.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,732 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T102249.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:20:46,733 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T102499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,734 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1513-T102749.99 | Score=22.82 | BTC Last=103833.70, Chg1m=64.17, Chg5m=119.42, Chg15m=439.89, Vol15m=123.36, DistToStrike=1083.71 | Strike: 102749.99 | BUY_YES x25 @ 99c (A:99 B:97) | Outcome: YES | P&L: 25c | Capital: $479.00
+2025-05-18 15:20:46,734 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T102999.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,735 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T103249.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,736 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T103499.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:20:46,737 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1513-T103749.99 | Score=22.72 | BTC Last=103833.70, Chg1m=64.17, Chg5m=119.42, Chg15m=439.89, Vol15m=123.36, DistToStrike=83.71 | Strike: 103749.99 | BUY_YES x32 @ 78c (A:78 B:74) | Outcome: YES | P&L: 704c | Capital: $486.04
+2025-05-18 15:20:46,737 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1513-T103999.99 | Score=22.70 | BTC Last=103833.70, Chg1m=64.17, Chg5m=119.42, Chg15m=439.89, Vol15m=123.36, DistToStrike=-166.29 | Strike: 103999.99 | BUY_YES x166 @ 15c (A:15 B:12) | Outcome: NO | P&L: -2490c | Capital: $461.14
+2025-05-18 15:20:46,738 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T104249.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,739 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T104499.99 invalid spread: Ask=7, Bid=0. Skip.
+2025-05-18 15:20:46,739 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T104749.99 invalid spread: Ask=7, Bid=0. Skip.
+2025-05-18 15:20:46,740 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T104999.99 invalid spread: Ask=7, Bid=0. Skip.
+2025-05-18 15:20:46,741 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T105249.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,742 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T105499.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,743 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T105749.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,743 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T105999.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,744 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1513-T106249.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,746 - INFO - __main__.run_backtest:74 - --- Processing Event Resolution Hour (EDT): 14 ---
+2025-05-18 15:20:46,746 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T101499.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,747 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T101749.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,748 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T101999.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,749 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T102249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,750 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T102499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,751 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T102749.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:20:46,752 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T102999.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:20:46,752 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T103249.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:20:46,753 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T103499.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:20:46,754 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1514-T103749.99 | Score=-0.90 | BTC Last=103987.32, Chg1m=-55.60, Chg5m=4.46, Chg15m=92.64, Vol15m=44.60, DistToStrike=237.33 | Strike: 103749.99 | BUY_NO x113 @ 7c (A:99 B:93) | Outcome: YES | P&L: -791c | Capital: $453.23
+2025-05-18 15:20:46,755 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1514-T103999.99 | Score=-0.93 | BTC Last=103987.32, Chg1m=-55.60, Chg5m=4.46, Chg15m=92.64, Vol15m=44.60, DistToStrike=-12.67 | Strike: 103999.99 | BUY_NO x16 @ 49c (A:57 B:51) | Outcome: NO | P&L: 816c | Capital: $461.39
+2025-05-18 15:20:46,755 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T104249.99 invalid spread: Ask=7, Bid=0. Skip.
+2025-05-18 15:20:46,756 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T104499.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,757 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T104749.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,758 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T104999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,759 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T105249.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,760 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T105499.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,760 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T105749.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,761 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T105999.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,762 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T106249.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,763 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1514-T106499.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,764 - INFO - __main__.run_backtest:74 - --- Processing Event Resolution Hour (EDT): 15 ---
+2025-05-18 15:20:46,765 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T100499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,766 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T100749.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:20:46,767 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T100999.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,768 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T101249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,769 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T101499.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:20:46,769 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T101749.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,770 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T101999.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,771 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T102249.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,772 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T102499.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,772 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1515-T102749.99 | Score=-7.64 | BTC Last=102977.14, Chg1m=4.16, Chg5m=-27.75, Chg15m=-178.57, Vol15m=152.28, DistToStrike=227.15 | Strike: 102749.99 | BUY_NO x200 @ 4c (A:99 B:96) | Outcome: NO | P&L: 19200c | Capital: $653.39
+2025-05-18 15:20:46,773 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1515-T102999.99 | Score=-7.66 | BTC Last=102977.14, Chg1m=4.16, Chg5m=-27.75, Chg15m=-178.57, Vol15m=152.28, DistToStrike=-22.85 | Strike: 102999.99 | BUY_NO x53 @ 47c (A:57 B:53) | Outcome: NO | P&L: 2809c | Capital: $681.48
+2025-05-18 15:20:46,774 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1515-T103249.99 | Score=-7.69 | BTC Last=102977.14, Chg1m=4.16, Chg5m=-27.75, Chg15m=-178.57, Vol15m=152.28, DistToStrike=-272.85 | Strike: 103249.99 | BUY_NO x25 @ 98c (A:7 B:2) | Outcome: NO | P&L: 50c | Capital: $681.98
+2025-05-18 15:20:46,775 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T103499.99 invalid spread: Ask=3, Bid=0. Skip.
+2025-05-18 15:20:46,776 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T103749.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,776 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T103999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,777 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T104249.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,778 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T104499.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,778 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T104749.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,779 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T104999.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,780 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T105249.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,781 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1515-T105499.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,782 - INFO - __main__.run_backtest:74 - --- Processing Event Resolution Hour (EDT): 16 ---
+2025-05-18 15:20:46,783 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T100499.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,784 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T100749.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,785 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T100999.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,786 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T101249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,786 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T101499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,787 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T101749.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:20:46,788 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T101999.99 invalid spread: Ask=100, Bid=74. Skip.
+2025-05-18 15:20:46,789 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T102249.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,789 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T102499.99 invalid spread: Ask=100, Bid=93. Skip.
+2025-05-18 15:20:46,790 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1516-T102749.99 | Score=-9.02 | BTC Last=103048.25, Chg1m=-40.84, Chg5m=-73.60, Chg15m=46.28, Vol15m=57.05, DistToStrike=298.26 | Strike: 102749.99 | BUY_NO x200 @ 7c (A:94 B:93) | Outcome: YES | P&L: -1400c | Capital: $667.98
+2025-05-18 15:20:46,791 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1516-T102999.99 | Score=-9.04 | BTC Last=103048.25, Chg1m=-40.84, Chg5m=-73.60, Chg15m=46.28, Vol15m=57.05, DistToStrike=48.26 | Strike: 102999.99 | BUY_NO x73 @ 34c (A:71 B:66) | Outcome: YES | P&L: -2482c | Capital: $643.16
+2025-05-18 15:20:46,792 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1516-T103249.99 | Score=-9.07 | BTC Last=103048.25, Chg1m=-40.84, Chg5m=-73.60, Chg15m=46.28, Vol15m=57.05, DistToStrike=-201.74 | Strike: 103249.99 | BUY_NO x28 @ 89c (A:15 B:11) | Outcome: NO | P&L: 308c | Capital: $646.24
+2025-05-18 15:20:46,792 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T103499.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,793 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T103749.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,794 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T103999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,795 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T104249.99 invalid spread: Ask=18, Bid=0. Skip.
+2025-05-18 15:20:46,795 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T104499.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,796 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T104749.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,797 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T104999.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,797 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T105249.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,798 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1516-T105499.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,800 - INFO - __main__.run_backtest:74 - --- Processing Event Resolution Hour (EDT): 17 ---
+2025-05-18 15:20:46,802 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1517-T100999.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:20:46,803 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1517-T101499.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:20:46,805 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1517-T101999.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:20:46,807 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1517-T102499.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:20:46,808 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1517-T102999.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:20:46,810 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1517-T103499.99 | Score=-2.84 | BTC Last=103419.32, Chg1m=-31.85, Chg5m=-30.87, Chg15m=123.93, Vol15m=63.19, DistToStrike=-80.67 | Strike: 103499.99 | BUY_NO x18 @ 85c (A:20 B:15) | Outcome: NO | P&L: 270c | Capital: $648.94
+2025-05-18 15:20:46,812 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1517-T103999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,813 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1517-T104499.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,814 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1517-T104999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,816 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1517-T105499.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,817 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1517-T105999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,818 - INFO - __main__.run_backtest:74 - --- Processing Event Resolution Hour (EDT): 18 ---
+2025-05-18 15:20:46,819 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T100749.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,820 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T100999.99 invalid spread: Ask=100, Bid=88. Skip.
+2025-05-18 15:20:46,821 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T101249.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:20:46,822 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T101499.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:20:46,823 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T101749.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:20:46,824 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T101999.99 invalid spread: Ask=100, Bid=86. Skip.
+2025-05-18 15:20:46,825 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T102249.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:20:46,825 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T102499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,826 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T102749.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,827 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T102999.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,828 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1518-T103249.99 | Score=18.81 | BTC Last=103309.89, Chg1m=8.30, Chg5m=142.19, Chg15m=243.89, Vol15m=70.58, DistToStrike=59.90 | Strike: 103249.99 | BUY_YES x29 @ 85c (A:85 B:78) | Outcome: YES | P&L: 435c | Capital: $653.29
+2025-05-18 15:20:46,828 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1518-T103499.99 | Score=18.79 | BTC Last=103309.89, Chg1m=8.30, Chg5m=142.19, Chg15m=243.89, Vol15m=70.58, DistToStrike=-190.10 | Strike: 103499.99 | BUY_YES x200 @ 6c (A:6 B:2) | Outcome: NO | P&L: -1200c | Capital: $641.29
+2025-05-18 15:20:46,829 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T103749.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,830 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T103999.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,831 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T104249.99 invalid spread: Ask=16, Bid=0. Skip.
+2025-05-18 15:20:46,832 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T104499.99 invalid spread: Ask=30, Bid=0. Skip.
+2025-05-18 15:20:46,832 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T104749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,833 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T104999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,834 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T105249.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,835 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T105499.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,835 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1518-T105749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,837 - INFO - __main__.run_backtest:74 - --- Processing Event Resolution Hour (EDT): 19 ---
+2025-05-18 15:20:46,838 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T100999.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,839 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T101249.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,839 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T101499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,840 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T101749.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,841 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T101999.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:20:46,842 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T102249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,843 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T102499.99 invalid spread: Ask=100, Bid=84. Skip.
+2025-05-18 15:20:46,843 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T102749.99 invalid spread: Ask=100, Bid=93. Skip.
+2025-05-18 15:20:46,844 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T102999.99 invalid spread: Ask=100, Bid=93. Skip.
+2025-05-18 15:20:46,845 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T103249.99 invalid spread: Ask=100, Bid=95. Skip.
+2025-05-18 15:20:46,846 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1519-T103499.99 | Score=-14.46 | BTC Last=103482.20, Chg1m=-24.08, Chg5m=-89.73, Chg15m=-177.79, Vol15m=72.86, DistToStrike=-17.79 | Strike: 103499.99 | BUY_NO x49 @ 51c (A:59 B:49) | Outcome: YES | P&L: -2499c | Capital: $616.30
+2025-05-18 15:20:46,846 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T103749.99 invalid spread: Ask=3, Bid=0. Skip.
+2025-05-18 15:20:46,847 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T103999.99 invalid spread: Ask=5, Bid=0. Skip.
+2025-05-18 15:20:46,848 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T104249.99 invalid spread: Ask=16, Bid=0. Skip.
+2025-05-18 15:20:46,849 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T104499.99 invalid spread: Ask=30, Bid=0. Skip.
+2025-05-18 15:20:46,850 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T104749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,850 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T104999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,851 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T105249.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,852 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T105499.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,853 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T105749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,853 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1519-T105999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,855 - INFO - __main__.run_backtest:74 - --- Processing Event Resolution Hour (EDT): 20 ---
+2025-05-18 15:20:46,856 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T101249.99 invalid spread: Ask=100, Bid=92. Skip.
+2025-05-18 15:20:46,856 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T101499.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:20:46,857 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T101749.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,858 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T101999.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:20:46,859 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T102249.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,860 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T102499.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:20:46,861 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T102749.99 invalid spread: Ask=100, Bid=78. Skip.
+2025-05-18 15:20:46,861 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T102999.99 invalid spread: Ask=100, Bid=99. Skip.
+2025-05-18 15:20:46,862 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T103249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,863 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T103499.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:20:46,864 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1520-T103749.99 | Score=-7.40 | BTC Last=103720.00, Chg1m=21.94, Chg5m=-55.57, Chg15m=-118.16, Vol15m=57.58, DistToStrike=-29.99 | Strike: 103749.99 | BUY_NO x47 @ 53c (A:54 B:47) | Outcome: YES | P&L: -2491c | Capital: $591.39
+2025-05-18 15:20:46,865 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T103999.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:20:46,866 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T104249.99 invalid spread: Ask=4, Bid=0. Skip.
+2025-05-18 15:20:46,867 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T104499.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:20:46,868 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T104749.99 invalid spread: Ask=30, Bid=0. Skip.
+2025-05-18 15:20:46,868 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T104999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,869 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T105249.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,870 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T105499.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,871 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T105749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,871 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T105999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,872 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1520-T106249.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,874 - INFO - __main__.run_backtest:74 - --- Processing Event Resolution Hour (EDT): 21 ---
+2025-05-18 15:20:46,874 - INFO - utils.get_btc_features_for_signal:73 - Binance data for 2025-05-16 not in cache. Loading...
+2025-05-18 15:20:46,877 - INFO - utils.load_binance_data_for_date:60 - Loaded Binance data for 2025-05-16 (1440 rows). Index (sec UTC): 2025-05-16T00:00:00+00:00 to 2025-05-16T23:59:00+00:00
+2025-05-18 15:20:46,878 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T101249.99 invalid spread: Ask=100, Bid=86. Skip.
+2025-05-18 15:20:46,879 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T101499.99 invalid spread: Ask=100, Bid=86. Skip.
+2025-05-18 15:20:46,880 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T101749.99 invalid spread: Ask=100, Bid=92. Skip.
+2025-05-18 15:20:46,881 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T101999.99 invalid spread: Ask=100, Bid=90. Skip.
+2025-05-18 15:20:46,882 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T102249.99 invalid spread: Ask=100, Bid=86. Skip.
+2025-05-18 15:20:46,883 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T102499.99 invalid spread: Ask=100, Bid=86. Skip.
+2025-05-18 15:20:46,883 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T102749.99 invalid spread: Ask=100, Bid=84. Skip.
+2025-05-18 15:20:46,884 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T102999.99 invalid spread: Ask=100, Bid=84. Skip.
+2025-05-18 15:20:46,885 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T103249.99 invalid spread: Ask=100, Bid=93. Skip.
+2025-05-18 15:20:46,886 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T103499.99 invalid spread: Ask=100, Bid=95. Skip.
+2025-05-18 15:20:46,887 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1521-T103749.99 | Score=-22.12 | BTC Last=103691.52, Chg1m=-36.26, Chg5m=-143.08, Chg15m=-246.59, Vol15m=105.95, DistToStrike=-58.47 | Strike: 103749.99 | BUY_NO x36 @ 69c (A:35 B:31) | Outcome: YES | P&L: -2484c | Capital: $566.55
+2025-05-18 15:20:46,887 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T103999.99 invalid spread: Ask=3, Bid=0. Skip.
+2025-05-18 15:20:46,888 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T104249.99 invalid spread: Ask=2, Bid=0. Skip.
+2025-05-18 15:20:46,889 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T104499.99 invalid spread: Ask=14, Bid=0. Skip.
+2025-05-18 15:20:46,890 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T104749.99 invalid spread: Ask=14, Bid=0. Skip.
+2025-05-18 15:20:46,891 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T104999.99 invalid spread: Ask=13, Bid=0. Skip.
+2025-05-18 15:20:46,891 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T105249.99 invalid spread: Ask=13, Bid=0. Skip.
+2025-05-18 15:20:46,892 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T105499.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,893 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T105749.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,894 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T105999.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,894 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1521-T106249.99 invalid spread: Ask=29, Bid=0. Skip.
+2025-05-18 15:20:46,896 - INFO - __main__.run_backtest:74 - --- Processing Event Resolution Hour (EDT): 22 ---
+2025-05-18 15:20:46,897 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T101499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,898 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T101749.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,899 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T101999.99 invalid spread: Ask=100, Bid=96. Skip.
+2025-05-18 15:20:46,900 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T102249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,900 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T102499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,901 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T102749.99 invalid spread: Ask=100, Bid=95. Skip.
+2025-05-18 15:20:46,902 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T102999.99 invalid spread: Ask=100, Bid=94. Skip.
+2025-05-18 15:20:46,903 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T103249.99 invalid spread: Ask=100, Bid=98. Skip.
+2025-05-18 15:20:46,903 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T103499.99 invalid spread: Ask=100, Bid=97. Skip.
+2025-05-18 15:20:46,904 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1522-T103749.99 | Score=3.63 | BTC Last=103999.99, Chg1m=63.33, Chg5m=23.40, Chg15m=-72.53, Vol15m=45.48, DistToStrike=250.00 | Strike: 103749.99 | BUY_YES x19 @ 99c (A:99 B:97) | Outcome: YES | P&L: 19c | Capital: $566.74
+2025-05-18 15:20:46,905 - INFO - root.run_backtest:167 - TRADE (linreg_strategy.py): KXBTCD-25MAY1522-T103999.99 | Score=3.60 | BTC Last=103999.99, Chg1m=63.33, Chg5m=23.40, Chg15m=-72.53, Vol15m=45.48, DistToStrike=0.00 | Strike: 103999.99 | BUY_YES x35 @ 54c (A:54 B:50) | Outcome: YES | P&L: 1610c | Capital: $582.84
+2025-05-18 15:20:46,905 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T104249.99 invalid spread: Ask=1, Bid=0. Skip.
+2025-05-18 15:20:46,906 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T104499.99 invalid spread: Ask=4, Bid=0. Skip.
+2025-05-18 15:20:46,907 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T104749.99 invalid spread: Ask=3, Bid=0. Skip.
+2025-05-18 15:20:46,908 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T104999.99 invalid spread: Ask=6, Bid=0. Skip.
+2025-05-18 15:20:46,909 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T105249.99 invalid spread: Ask=5, Bid=0. Skip.
+2025-05-18 15:20:46,910 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T105499.99 invalid spread: Ask=5, Bid=0. Skip.
+2025-05-18 15:20:46,910 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T105749.99 invalid spread: Ask=5, Bid=0. Skip.
+2025-05-18 15:20:46,911 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T105999.99 invalid spread: Ask=5, Bid=0. Skip.
+2025-05-18 15:20:46,912 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T106249.99 invalid spread: Ask=5, Bid=0. Skip.
+2025-05-18 15:20:46,912 - INFO - __main__.run_backtest:115 - Market KXBTCD-25MAY1522-T106499.99 invalid spread: Ask=5, Bid=0. Skip.
+2025-05-18 15:20:46,914 - INFO - __main__.run_backtest:175 - 
+--- Backtest Summary (linreg_strategy.py with Capital Sizing) for Date: 25MAY15 ---
+2025-05-18 15:20:46,914 - INFO - __main__.run_backtest:176 - Initial Capital: $500.00
+2025-05-18 15:20:46,914 - INFO - __main__.run_backtest:177 - Final Capital: $582.84
+2025-05-18 15:20:46,914 - INFO - __main__.run_backtest:178 - Total Kalshi market files found: 999
+2025-05-18 15:20:46,914 - INFO - __main__.run_backtest:179 - Markets skipped - Not NTM: 717
+2025-05-18 15:20:46,914 - INFO - __main__.run_backtest:180 - Markets considered for trading (NTM): 282
+2025-05-18 15:20:46,914 - INFO - __main__.run_backtest:181 -   Of NTM, skipped - No BTC data/features: 0
+2025-05-18 15:20:46,914 - INFO - __main__.run_backtest:182 -   Of NTM, skipped - No/Stale Kalshi data: 0
+2025-05-18 15:20:46,914 - INFO - __main__.run_backtest:183 -   Of NTM, skipped - Wide Spread: 252
+2025-05-18 15:20:46,914 - INFO - __main__.run_backtest:184 -   Of NTM, skipped - No Model Signal (score too low/neutral): 0
+2025-05-18 15:20:46,914 - INFO - __main__.run_backtest:185 -   Of NTM, skipped - Insufficient Capital or Size=0: 0
+2025-05-18 15:20:46,914 - INFO - __main__.run_backtest:186 - Total trades executed: 30
+2025-05-18 15:20:46,914 - INFO - __main__.run_backtest:187 - Total contracts traded: 1986
+2025-05-18 15:20:46,914 - INFO - __main__.run_backtest:188 - Total P&L: 8284.00 cents ($82.84)
+2025-05-18 15:20:46,914 - INFO - __main__.run_backtest:190 - Average P&L per trade: 276.13 cents
+2025-05-18 15:20:46,914 - INFO - __main__.run_backtest:192 - Average P&L per contract: 4.17 cents
