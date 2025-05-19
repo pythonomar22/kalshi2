@@ -1,0 +1,235 @@
+2025-05-19 14:32:08,934 - INFO - __main__.<module>:82 - Final BASE_PROJECT_DIR: /Users/omarabul-hassan/Desktop/projects/kalshi
+2025-05-19 14:32:08,934 - INFO - __main__.<module>:83 - Notebooks Dir: /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks
+2025-05-19 14:32:08,934 - INFO - __main__.<module>:84 - Kalshi Data Dir: /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks/kalshi_data
+2025-05-19 14:32:08,934 - INFO - __main__.<module>:85 - Binance Data Dir: /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks/binance_data
+2025-05-19 14:32:08,934 - INFO - __main__.<module>:86 - Model Artifacts Dir: /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks/trained_models
+2025-05-19 14:32:08,934 - INFO - __main__.<module>:87 - Logs will be saved in: /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks/logs
+2025-05-19 14:32:09,306 - INFO - linreg_strategy_v2.<module>:25 - Strategy: Loaded scaler from trained_models/feature_scaler_v1.joblib
+2025-05-19 14:32:09,307 - INFO - linreg_strategy_v2.<module>:35 - Strategy: Loaded model parameters from trained_models/lr_model_params_v1.json
+2025-05-19 14:32:09,307 - INFO - linreg_strategy_v2.<module>:37 - Strategy: Expected feature order (25 features): ['btc_price_t_minus_1', 'btc_mom_5m', 'btc_mom_10m', 'btc_mom_15m', 'btc_mom_30m']...
+2025-05-19 14:32:09,307 - INFO - __main__.<module>:109 - Backtest: Using market outcomes from /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks/kalshi_data/kalshi_btc_hourly_NTM_filtered_market_outcomes_20250519_014250.csv
+2025-05-19 14:32:09,307 - INFO - __main__.<module>:288 - Starting Backtest V2 with Trained Linear Regression Model...
+2025-05-19 14:32:09,321 - INFO - __main__.run_backtest:159 - Backtest: Loaded 9192 market details from outcomes CSV.
+2025-05-19 14:32:09,321 - INFO - __main__.run_backtest:176 - Backtest: Processing 1931 markets for period 2025-05-10 to 2025-05-15.
+2025-05-19 14:32:09,322 - INFO - utils.clear_binance_cache:42 - Utils: All Binance data caches cleared.
+2025-05-19 14:32:09,322 - INFO - utils.clear_kalshi_cache:47 - Utils: Kalshi market minute data cache cleared.
+2025-05-19 14:32:09,322 - INFO - __main__.run_backtest:198 - Backtest: Pre-loading Binance data with features from 2025-05-09 to 2025-05-16.
+2025-05-19 14:32:09,322 - INFO - utils.load_and_prepare_binance_range_with_features:172 - Utils: Preparing Binance data with features for range: 2025-05-09 to 2025-05-16
+2025-05-19 14:32:09,338 - INFO - utils.load_and_prepare_binance_range_with_features:193 - Utils: Calculating TA features on combined Binance data (11520 rows)...
+2025-05-19 14:32:09,341 - INFO - utils.load_and_prepare_binance_range_with_features:199 - Utils: Binance features calculated and cached for the range.
+2025-05-19 14:32:09,381 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY0920-T102999.99 | PredD:-67.52 | BUY_NO x25@83c (B:17,A:23) | Outcome:NO | PNL:425c | Cap:$1004.25
+2025-05-19 14:32:09,437 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY0921-T102999.99 | PredD:-316.54 | BUY_NO x43@97c (B:3,A:8) | Outcome:NO | PNL:129c | Cap:$1005.54
+2025-05-19 14:32:09,500 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY0923-T103249.99 | PredD:-219.27 | BUY_NO x34@98c (B:2,A:6) | Outcome:NO | PNL:68c | Cap:$1006.22
+2025-05-19 14:32:09,523 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY0923-T102999.99 | PredD:1419.93 | BUY_YES x102@98c (B:95,A:98) | Outcome:YES | PNL:204c | Cap:$1008.26
+2025-05-19 14:32:09,583 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1000-T103249.99 | PredD:-378.34 | BUY_NO x48@99c (B:1,A:4) | Outcome:NO | PNL:48c | Cap:$1008.74
+2025-05-19 14:32:09,638 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1009-T103749.99 | PredD:232.71 | BUY_YES x104@34c (B:26,A:34) | Outcome:NO | PNL:-3536c | Cap:$973.38
+2025-05-19 14:32:09,690 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1010-T103499.99 | PredD:1428.17 | BUY_YES x102@98c (B:95,A:98) | Outcome:YES | PNL:204c | Cap:$975.42
+2025-05-19 14:32:09,702 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1010-T103749.99 | PredD:-147.24 | BUY_NO x29@97c (B:3,A:7) | Outcome:NO | PNL:87c | Cap:$976.29
+2025-05-19 14:32:09,734 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1011-T103999.99 | PredD:-656.90 | BUY_NO x71@99c (B:1,A:2) | Outcome:NO | PNL:71c | Cap:$977.00
+2025-05-19 14:32:09,738 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1011-T103499.99 | PredD:466.32 | BUY_YES x67@81c (B:78,A:81) | Outcome:YES | PNL:1273c | Cap:$989.73
+2025-05-19 14:32:09,784 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1012-T103249.99 | PredD:611.84 | BUY_YES x164@41c (B:37,A:41) | Outcome:NO | PNL:-6724c | Cap:$922.49
+2025-05-19 14:32:09,827 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1013-T103499.99 | PredD:-549.45 | BUY_NO x62@99c (B:1,A:2) | Outcome:NO | PNL:62c | Cap:$923.11
+2025-05-19 14:32:09,843 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1013-T103249.99 | PredD:1171.03 | BUY_YES x103@97c (B:87,A:97) | Outcome:YES | PNL:309c | Cap:$926.20
+2025-05-19 14:32:09,898 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1014-T103249.99 | PredD:832.29 | BUY_YES x97@88c (B:79,A:88) | Outcome:NO | PNL:-8536c | Cap:$840.84
+2025-05-19 14:32:09,926 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1015-T103249.99 | PredD:320.89 | BUY_YES x62@68c (B:64,A:68) | Outcome:YES | PNL:1984c | Cap:$860.68
+2025-05-19 14:32:09,992 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1016-T103249.99 | PredD:680.79 | BUY_YES x97@75c (B:68,A:75) | Outcome:NO | PNL:-7275c | Cap:$787.93
+2025-05-19 14:32:10,010 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1017-T103249.99 | PredD:1183.52 | BUY_YES x103@97c (B:90,A:97) | Outcome:NO | PNL:-9991c | Cap:$688.02
+2025-05-19 14:32:10,026 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1018-T103749.99 | PredD:-479.50 | BUY_NO x57@97c (B:3,A:6) | Outcome:YES | PNL:-5529c | Cap:$632.73
+2025-05-19 14:32:10,045 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1018-T103499.99 | PredD:269.98 | BUY_YES x50@76c (B:72,A:76) | Outcome:YES | PNL:1200c | Cap:$644.73
+2025-05-19 14:32:10,098 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1019-T103499.99 | PredD:1435.61 | BUY_YES x101@99c (B:97,A:99) | Outcome:YES | PNL:101c | Cap:$645.74
+2025-05-19 14:32:10,121 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1019-T103749.99 | PredD:-207.14 | BUY_NO x45@73c (B:27,A:30) | Outcome:NO | PNL:1215c | Cap:$657.89
+2025-05-19 14:32:10,134 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1020-T104999.99 | PredD:-431.09 | BUY_NO x52@99c (B:1,A:5) | Outcome:NO | PNL:52c | Cap:$658.41
+2025-05-19 14:32:10,139 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1020-T104499.99 | PredD:1173.00 | BUY_YES x107@93c (B:91,A:93) | Outcome:YES | PNL:749c | Cap:$665.90
+2025-05-19 14:32:10,197 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1021-T104499.99 | PredD:461.51 | BUY_YES x109@50c (B:45,A:50) | Outcome:NO | PNL:-5450c | Cap:$611.40
+2025-05-19 14:32:10,211 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1021-T104749.99 | PredD:-446.52 | BUY_NO x54@98c (B:2,A:6) | Outcome:NO | PNL:108c | Cap:$612.48
+2025-05-19 14:32:10,222 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1021-T104249.99 | PredD:1377.75 | BUY_YES x104@96c (B:90,A:96) | Outcome:YES | PNL:416c | Cap:$616.64
+2025-05-19 14:32:10,250 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1022-T103999.99 | PredD:1150.31 | BUY_YES x158@63c (B:60,A:63) | Outcome:YES | PNL:5846c | Cap:$675.10
+2025-05-19 14:32:10,253 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1022-T103749.99 | PredD:1447.22 | BUY_YES x103@97c (B:94,A:97) | Outcome:YES | PNL:309c | Cap:$678.19
+2025-05-19 14:32:10,272 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1022-T104249.99 | PredD:142.38 | BUY_YES x200@10c (B:4,A:10) | Outcome:NO | PNL:-2000c | Cap:$658.19
+2025-05-19 14:32:10,302 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1023-T103749.99 | PredD:897.54 | BUY_YES x200@9c (B:1,A:9) | Outcome:YES | PNL:18200c | Cap:$840.19
+2025-05-19 14:32:10,304 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1023-T103999.99 | PredD:56.35 | BUY_YES x200@6c (B:0,A:6) | Outcome:NO | PNL:-1200c | Cap:$828.19
+2025-05-19 14:32:10,318 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1023-T103249.99 | PredD:1209.06 | BUY_YES x105@95c (B:80,A:95) | Outcome:YES | PNL:525c | Cap:$833.44
+2025-05-19 14:32:10,321 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1023-T103499.99 | PredD:1227.21 | BUY_YES x138@72c (B:42,A:72) | Outcome:YES | PNL:3864c | Cap:$872.08
+2025-05-19 14:32:10,325 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1100-T103999.99 | PredD:1251.50 | BUY_YES x103@97c (B:91,A:97) | Outcome:YES | PNL:309c | Cap:$875.17
+2025-05-19 14:32:10,344 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1100-T104249.99 | PredD:-303.24 | BUY_NO x44@93c (B:7,A:10) | Outcome:NO | PNL:308c | Cap:$878.25
+2025-05-19 14:32:10,348 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1100-T103749.99 | PredD:1470.31 | BUY_YES x102@98c (B:97,A:98) | Outcome:YES | PNL:204c | Cap:$880.29
+2025-05-19 14:32:10,400 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1109-T104499.99 | PredD:1498.91 | BUY_YES x101@99c (B:97,A:99) | Outcome:YES | PNL:101c | Cap:$881.30
+2025-05-19 14:32:10,423 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1109-T104749.99 | PredD:261.85 | BUY_YES x72@52c (B:46,A:52) | Outcome:NO | PNL:-3744c | Cap:$843.86
+2025-05-19 14:32:10,455 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1110-T104249.99 | PredD:994.58 | BUY_YES x103@96c (B:95,A:96) | Outcome:NO | PNL:-9888c | Cap:$744.98
+2025-05-19 14:32:10,477 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1110-T104499.99 | PredD:-327.51 | BUY_NO x49@88c (B:12,A:14) | Outcome:NO | PNL:588c | Cap:$750.86
+2025-05-19 14:32:10,495 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1111-T104249.99 | PredD:455.76 | BUY_YES x200@23c (B:16,A:23) | Outcome:NO | PNL:-4600c | Cap:$704.86
+2025-05-19 14:32:10,524 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1111-T103999.99 | PredD:1439.80 | BUY_YES x104@96c (B:92,A:96) | Outcome:YES | PNL:416c | Cap:$709.02
+2025-05-19 14:32:10,571 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1112-T104249.99 | PredD:-253.58 | BUY_NO x47@79c (B:21,A:23) | Outcome:NO | PNL:987c | Cap:$718.89
+2025-05-19 14:32:10,578 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1112-T103999.99 | PredD:972.39 | BUY_YES x107@91c (B:89,A:91) | Outcome:YES | PNL:963c | Cap:$728.52
+2025-05-19 14:32:10,623 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1113-T103999.99 | PredD:-147.25 | BUY_NO x38@74c (B:26,A:33) | Outcome:NO | PNL:988c | Cap:$738.40
+2025-05-19 14:32:10,641 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1113-T103749.99 | PredD:1228.54 | BUY_YES x103@97c (B:94,A:97) | Outcome:YES | PNL:309c | Cap:$741.49
+2025-05-19 14:32:10,666 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1114-T104249.99 | PredD:-482.07 | BUY_NO x59@94c (B:6,A:7) | Outcome:NO | PNL:354c | Cap:$745.03
+2025-05-19 14:32:10,688 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1114-T103999.99 | PredD:686.71 | BUY_YES x84@87c (B:82,A:87) | Outcome:YES | PNL:1092c | Cap:$755.95
+2025-05-19 14:32:10,693 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1115-T104749.99 | PredD:554.35 | BUY_YES x115@54c (B:50,A:54) | Outcome:NO | PNL:-6210c | Cap:$693.85
+2025-05-19 14:32:10,695 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1115-T104999.99 | PredD:-315.94 | BUY_NO x45@94c (B:6,A:9) | Outcome:NO | PNL:270c | Cap:$696.55
+2025-05-19 14:32:10,706 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1115-T104499.99 | PredD:1411.08 | BUY_YES x102@98c (B:95,A:98) | Outcome:YES | PNL:204c | Cap:$698.59
+2025-05-19 14:32:10,737 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1115-T103999.99 | PredD:1673.59 | BUY_YES x101@99c (B:97,A:99) | Outcome:YES | PNL:101c | Cap:$699.60
+2025-05-19 14:32:10,760 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1116-T104749.99 | PredD:-527.40 | BUY_NO x60@99c (B:1,A:3) | Outcome:NO | PNL:60c | Cap:$700.20
+2025-05-19 14:32:10,785 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1116-T104499.99 | PredD:956.86 | BUY_YES x135@71c (B:59,A:71) | Outcome:NO | PNL:-9585c | Cap:$604.35
+2025-05-19 14:32:10,835 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1118-T104499.99 | PredD:-472.15 | BUY_NO x57@96c (B:4,A:5) | Outcome:NO | PNL:228c | Cap:$606.63
+2025-05-19 14:32:10,859 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1118-T104249.99 | PredD:173.11 | BUY_YES x34@88c (B:77,A:88) | Outcome:YES | PNL:408c | Cap:$610.71
+2025-05-19 14:32:10,889 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1119-T103999.99 | PredD:-496.36 | BUY_NO x60@95c (B:5,A:6) | Outcome:NO | PNL:300c | Cap:$613.71
+2025-05-19 14:32:10,891 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1119-T103749.99 | PredD:337.67 | BUY_YES x70@63c (B:57,A:63) | Outcome:YES | PNL:2590c | Cap:$639.61
+2025-05-19 14:32:10,893 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1119-T103499.99 | PredD:1191.99 | BUY_YES x102@98c (B:92,A:98) | Outcome:YES | PNL:204c | Cap:$641.65
+2025-05-19 14:32:10,910 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1119-T104249.99 | PredD:-629.92 | BUY_NO x69@99c (B:1,A:5) | Outcome:NO | PNL:69c | Cap:$642.34
+2025-05-19 14:32:10,930 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1120-T103999.99 | PredD:543.62 | BUY_YES x104@59c (B:51,A:59) | Outcome:YES | PNL:4264c | Cap:$684.98
+2025-05-19 14:32:10,933 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1120-T104249.99 | PredD:-481.68 | BUY_NO x56@99c (B:1,A:8) | Outcome:NO | PNL:56c | Cap:$685.54
+2025-05-19 14:32:10,935 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1120-T103499.99 | PredD:1528.25 | BUY_YES x101@99c (B:97,A:99) | Outcome:YES | PNL:101c | Cap:$686.55
+2025-05-19 14:32:10,937 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1120-T103749.99 | PredD:1386.60 | BUY_YES x101@99c (B:97,A:99) | Outcome:YES | PNL:101c | Cap:$687.56
+2025-05-19 14:32:10,960 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1121-T104499.99 | PredD:680.37 | BUY_YES x112@65c (B:59,A:65) | Outcome:YES | PNL:3920c | Cap:$726.76
+2025-05-19 14:32:10,976 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1121-T104749.99 | PredD:-324.78 | BUY_NO x44@96c (B:4,A:8) | Outcome:NO | PNL:176c | Cap:$728.52
+2025-05-19 14:32:11,033 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1122-T103999.99 | PredD:307.10 | BUY_YES x67@62c (B:55,A:62) | Outcome:NO | PNL:-4154c | Cap:$686.98
+2025-05-19 14:32:11,035 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1122-T103749.99 | PredD:1249.62 | BUY_YES x102@98c (B:93,A:98) | Outcome:YES | PNL:204c | Cap:$689.02
+2025-05-19 14:32:11,053 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1122-T104249.99 | PredD:-518.99 | BUY_NO x60@98c (B:2,A:8) | Outcome:NO | PNL:120c | Cap:$690.22
+2025-05-19 14:32:11,064 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1123-T104249.99 | PredD:-616.83 | BUY_NO x68@99c (B:1,A:3) | Outcome:NO | PNL:68c | Cap:$690.90
+2025-05-19 14:32:11,073 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1123-T103999.99 | PredD:-81.34 | BUY_NO x24@92c (B:8,A:14) | Outcome:NO | PNL:192c | Cap:$692.82
+2025-05-19 14:32:11,081 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1123-T103749.99 | PredD:1174.13 | BUY_YES x120@83c (B:82,A:83) | Outcome:YES | PNL:2040c | Cap:$713.22
+2025-05-19 14:32:11,090 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1123-T104499.99 | PredD:-729.81 | BUY_NO x78@99c (B:1,A:3) | Outcome:NO | PNL:78c | Cap:$714.00
+2025-05-19 14:32:11,119 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1200-T103999.99 | PredD:680.86 | BUY_YES x90@81c (B:75,A:81) | Outcome:YES | PNL:1710c | Cap:$731.10
+2025-05-19 14:32:11,144 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1200-T103749.99 | PredD:1470.32 | BUY_YES x101@99c (B:96,A:99) | Outcome:YES | PNL:101c | Cap:$732.11
+2025-05-19 14:32:11,147 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1200-T104249.99 | PredD:-481.80 | BUY_NO x58@96c (B:4,A:7) | Outcome:NO | PNL:232c | Cap:$734.43
+2025-05-19 14:32:11,169 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1209-T104249.99 | PredD:-489.49 | BUY_NO x58@98c (B:2,A:3) | Outcome:NO | PNL:116c | Cap:$735.59
+2025-05-19 14:32:11,173 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1209-T103749.99 | PredD:1459.27 | BUY_YES x101@99c (B:96,A:99) | Outcome:YES | PNL:101c | Cap:$736.60
+2025-05-19 14:32:11,193 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1209-T103999.99 | PredD:656.82 | BUY_YES x103@69c (B:65,A:69) | Outcome:NO | PNL:-7107c | Cap:$665.53
+2025-05-19 14:32:11,195 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1210-T104999.99 | PredD:-535.93 | BUY_NO x63@96c (B:4,A:8) | Outcome:NO | PNL:252c | Cap:$668.05
+2025-05-19 14:32:11,209 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1210-T104499.99 | PredD:-179.80 | BUY_NO x88@35c (B:65,A:67) | Outcome:NO | PNL:5720c | Cap:$725.25
+2025-05-19 14:32:11,214 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1210-T104249.99 | PredD:232.48 | BUY_YES x38@93c (B:92,A:93) | Outcome:YES | PNL:266c | Cap:$727.91
+2025-05-19 14:32:11,216 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1210-T104749.99 | PredD:-412.65 | BUY_NO x66@76c (B:24,A:29) | Outcome:NO | PNL:1584c | Cap:$743.75
+2025-05-19 14:32:11,221 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1210-T103999.99 | PredD:799.41 | BUY_YES x84@98c (B:96,A:98) | Outcome:YES | PNL:168c | Cap:$745.43
+2025-05-19 14:32:11,275 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1211-T102499.99 | PredD:1254.64 | BUY_YES x103@97c (B:94,A:97) | Outcome:YES | PNL:309c | Cap:$748.52
+2025-05-19 14:32:11,280 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1211-T102999.99 | PredD:253.51 | BUY_YES x142@26c (B:23,A:26) | Outcome:NO | PNL:-3692c | Cap:$711.60
+2025-05-19 14:32:11,282 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1211-T103249.99 | PredD:-469.61 | BUY_NO x56@98c (B:2,A:5) | Outcome:NO | PNL:112c | Cap:$712.72
+2025-05-19 14:32:11,289 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1211-T102749.99 | PredD:975.67 | BUY_YES x128@76c (B:72,A:76) | Outcome:YES | PNL:3072c | Cap:$743.44
+2025-05-19 14:32:11,292 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1212-T102999.99 | PredD:-582.80 | BUY_NO x66@98c (B:2,A:5) | Outcome:NO | PNL:132c | Cap:$744.76
+2025-05-19 14:32:11,315 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1212-T102749.99 | PredD:-286.25 | BUY_NO x46@86c (B:14,A:17) | Outcome:NO | PNL:644c | Cap:$751.20
+2025-05-19 14:32:11,317 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1212-T102249.99 | PredD:1246.96 | BUY_YES x104@96c (B:95,A:96) | Outcome:YES | PNL:416c | Cap:$755.36
+2025-05-19 14:32:11,338 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1212-T102499.99 | PredD:535.02 | BUY_YES x89@68c (B:64,A:68) | Outcome:NO | PNL:-6052c | Cap:$694.84
+2025-05-19 14:32:11,340 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1213-T102999.99 | PredD:414.01 | BUY_YES x126@40c (B:34,A:40) | Outcome:NO | PNL:-5040c | Cap:$644.44
+2025-05-19 14:32:11,361 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1213-T102749.99 | PredD:1371.01 | BUY_YES x104@96c (B:92,A:96) | Outcome:YES | PNL:416c | Cap:$648.60
+2025-05-19 14:32:11,409 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1214-T102499.99 | PredD:1086.64 | BUY_YES x112@89c (B:88,A:89) | Outcome:YES | PNL:1232c | Cap:$660.92
+2025-05-19 14:32:11,430 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1214-T102749.99 | PredD:-153.23 | BUY_NO x33@85c (B:15,A:21) | Outcome:NO | PNL:495c | Cap:$665.87
+2025-05-19 14:32:11,444 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1215-T101249.99 | PredD:141.87 | BUY_YES x40@68c (B:67,A:68) | Outcome:YES | PNL:1280c | Cap:$678.67
+2025-05-19 14:32:11,470 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1215-T101499.99 | PredD:-348.71 | BUY_NO x60@75c (B:25,A:28) | Outcome:YES | PNL:-4500c | Cap:$633.67
+2025-05-19 14:32:11,472 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1215-T100999.99 | PredD:827.11 | BUY_YES x87@98c (B:91,A:98) | Outcome:YES | PNL:174c | Cap:$635.41
+2025-05-19 14:32:11,495 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1216-T101749.99 | PredD:874.05 | BUY_YES x116@77c (B:76,A:77) | Outcome:YES | PNL:2668c | Cap:$662.09
+2025-05-19 14:32:11,503 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1216-T102249.99 | PredD:-528.64 | BUY_NO x60@99c (B:1,A:11) | Outcome:NO | PNL:60c | Cap:$662.69
+2025-05-19 14:32:11,518 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1216-T101499.99 | PredD:1353.94 | BUY_YES x103@97c (B:93,A:97) | Outcome:YES | PNL:309c | Cap:$665.78
+2025-05-19 14:32:11,579 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1218-T102499.99 | PredD:195.27 | BUY_YES x61@52c (B:48,A:52) | Outcome:YES | PNL:2928c | Cap:$695.06
+2025-05-19 14:32:11,614 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1219-T102999.99 | PredD:-158.84 | BUY_NO x30@96c (B:4,A:9) | Outcome:NO | PNL:120c | Cap:$696.26
+2025-05-19 14:32:11,617 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1219-T102749.99 | PredD:1297.60 | BUY_YES x105@95c (B:91,A:95) | Outcome:YES | PNL:525c | Cap:$701.51
+2025-05-19 14:32:11,677 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1220-T102749.99 | PredD:1323.90 | BUY_YES x105@95c (B:90,A:95) | Outcome:YES | PNL:525c | Cap:$706.76
+2025-05-19 14:32:11,698 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1220-T102999.99 | PredD:-325.70 | BUY_NO x45@96c (B:4,A:6) | Outcome:NO | PNL:180c | Cap:$708.56
+2025-05-19 14:32:11,745 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1221-T101999.99 | PredD:1434.23 | BUY_YES x105@95c (B:90,A:95) | Outcome:YES | PNL:525c | Cap:$713.81
+2025-05-19 14:32:11,747 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1221-T102249.99 | PredD:1045.14 | BUY_YES x200@43c (B:37,A:43) | Outcome:YES | PNL:11400c | Cap:$827.81
+2025-05-19 14:32:11,789 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1222-T102249.99 | PredD:1202.90 | BUY_YES x101@99c (B:97,A:99) | Outcome:YES | PNL:101c | Cap:$828.82
+2025-05-19 14:32:11,839 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1223-T101749.99 | PredD:1039.89 | BUY_YES x103@97c (B:95,A:97) | Outcome:YES | PNL:309c | Cap:$831.91
+2025-05-19 14:32:11,841 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1223-T101999.99 | PredD:-112.92 | BUY_NO x40@62c (B:38,A:43) | Outcome:YES | PNL:-2480c | Cap:$807.11
+2025-05-19 14:32:11,878 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1300-T101749.99 | PredD:285.44 | BUY_YES x90@44c (B:39,A:44) | Outcome:NO | PNL:-3960c | Cap:$767.51
+2025-05-19 14:32:11,915 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1309-T103999.99 | PredD:-441.92 | BUY_NO x54@97c (B:3,A:8) | Outcome:NO | PNL:162c | Cap:$769.13
+2025-05-19 14:32:11,932 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1309-T103749.99 | PredD:529.98 | BUY_YES x92@65c (B:58,A:65) | Outcome:NO | PNL:-5980c | Cap:$709.33
+2025-05-19 14:32:11,946 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1310-T104249.99 | PredD:-571.62 | BUY_NO x64@99c (B:1,A:3) | Outcome:NO | PNL:64c | Cap:$709.97
+2025-05-19 14:32:11,967 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1310-T103999.99 | PredD:-444.70 | BUY_NO x55@96c (B:4,A:8) | Outcome:NO | PNL:220c | Cap:$712.17
+2025-05-19 14:32:11,972 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1310-T103499.99 | PredD:944.02 | BUY_YES x102@93c (B:88,A:93) | Outcome:YES | PNL:714c | Cap:$719.31
+2025-05-19 14:32:12,019 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1311-T103499.99 | PredD:-590.37 | BUY_NO x66@98c (B:2,A:5) | Outcome:NO | PNL:132c | Cap:$720.63
+2025-05-19 14:32:12,021 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1311-T103249.99 | PredD:-242.37 | BUY_NO x56@64c (B:36,A:40) | Outcome:NO | PNL:2016c | Cap:$740.79
+2025-05-19 14:32:12,024 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1311-T102999.99 | PredD:774.71 | BUY_YES x83@97c (B:91,A:97) | Outcome:YES | PNL:249c | Cap:$743.28
+2025-05-19 14:32:12,046 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1312-T103999.99 | PredD:-647.97 | BUY_NO x71@99c (B:1,A:3) | Outcome:NO | PNL:71c | Cap:$743.99
+2025-05-19 14:32:12,069 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1312-T103499.99 | PredD:604.62 | BUY_YES x133@50c (B:47,A:50) | Outcome:YES | PNL:6650c | Cap:$810.49
+2025-05-19 14:32:12,088 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1312-T103249.99 | PredD:1418.57 | BUY_YES x102@98c (B:95,A:98) | Outcome:YES | PNL:204c | Cap:$812.53
+2025-05-19 14:32:12,118 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1313-T103999.99 | PredD:-147.97 | BUY_NO x31@91c (B:9,A:10) | Outcome:NO | PNL:279c | Cap:$815.32
+2025-05-19 14:32:12,120 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1313-T103749.99 | PredD:1176.07 | BUY_YES x114@87c (B:85,A:87) | Outcome:YES | PNL:1482c | Cap:$830.14
+2025-05-19 14:32:12,146 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1314-T104249.99 | PredD:474.96 | BUY_YES x146@38c (B:30,A:38) | Outcome:YES | PNL:9052c | Cap:$920.66
+2025-05-19 14:32:12,164 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1314-T104499.99 | PredD:-465.89 | BUY_NO x55@99c (B:1,A:5) | Outcome:NO | PNL:55c | Cap:$921.21
+2025-05-19 14:32:12,167 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1314-T103999.99 | PredD:1372.62 | BUY_YES x103@97c (B:92,A:97) | Outcome:YES | PNL:309c | Cap:$924.30
+2025-05-19 14:32:12,216 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1315-T104499.99 | PredD:-412.11 | BUY_NO x53@94c (B:6,A:11) | Outcome:NO | PNL:318c | Cap:$927.48
+2025-05-19 14:32:12,224 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1315-T104249.99 | PredD:755.61 | BUY_YES x96@82c (B:80,A:82) | Outcome:YES | PNL:1728c | Cap:$944.76
+2025-05-19 14:32:12,249 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1316-T104749.99 | PredD:814.56 | BUY_YES x200@35c (B:27,A:35) | Outcome:YES | PNL:13000c | Cap:$1074.76
+2025-05-19 14:32:12,266 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1316-T104999.99 | PredD:93.17 | BUY_YES x98@24c (B:2,A:24) | Outcome:NO | PNL:-2352c | Cap:$1051.24
+2025-05-19 14:32:12,268 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1316-T104499.99 | PredD:1316.31 | BUY_YES x116@86c (B:80,A:86) | Outcome:YES | PNL:1624c | Cap:$1067.48
+2025-05-19 14:32:12,310 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1317-T104499.99 | PredD:1306.51 | BUY_YES x108@92c (B:90,A:92) | Outcome:YES | PNL:864c | Cap:$1076.12
+2025-05-19 14:32:12,326 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1317-T104999.99 | PredD:-590.52 | BUY_NO x66@99c (B:1,A:3) | Outcome:NO | PNL:66c | Cap:$1076.78
+2025-05-19 14:32:12,346 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1318-T104749.99 | PredD:-572.69 | BUY_NO x64@99c (B:1,A:5) | Outcome:NO | PNL:64c | Cap:$1077.42
+2025-05-19 14:32:12,351 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1318-T104249.99 | PredD:1239.10 | BUY_YES x103@97c (B:92,A:97) | Outcome:YES | PNL:309c | Cap:$1080.51
+2025-05-19 14:32:12,354 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1318-T104499.99 | PredD:-167.25 | BUY_NO x33@89c (B:11,A:18) | Outcome:NO | PNL:363c | Cap:$1084.14
+2025-05-19 14:32:12,420 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1319-T103999.99 | PredD:1377.90 | BUY_YES x102@98c (B:94,A:98) | Outcome:YES | PNL:204c | Cap:$1086.18
+2025-05-19 14:32:12,448 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1320-T104249.99 | PredD:399.70 | BUY_YES x95@52c (B:49,A:52) | Outcome:NO | PNL:-4940c | Cap:$1036.78
+2025-05-19 14:32:12,495 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1321-T103749.99 | PredD:1072.24 | BUY_YES x108@92c (B:86,A:92) | Outcome:YES | PNL:864c | Cap:$1045.42
+2025-05-19 14:32:12,507 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1321-T103999.99 | PredD:-331.49 | BUY_NO x46@94c (B:6,A:11) | Outcome:NO | PNL:276c | Cap:$1048.18
+2025-05-19 14:32:12,543 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1322-T103749.99 | PredD:996.03 | BUY_YES x155@64c (B:58,A:64) | Outcome:YES | PNL:5580c | Cap:$1103.98
+2025-05-19 14:32:12,546 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1322-T103499.99 | PredD:1419.85 | BUY_YES x101@99c (B:93,A:99) | Outcome:YES | PNL:101c | Cap:$1104.99
+2025-05-19 14:32:12,595 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1323-T103499.99 | PredD:1331.98 | BUY_YES x106@94c (B:90,A:94) | Outcome:YES | PNL:636c | Cap:$1111.35
+2025-05-19 14:32:12,597 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1323-T103749.99 | PredD:-322.11 | BUY_NO x43@98c (B:2,A:7) | Outcome:NO | PNL:86c | Cap:$1112.21
+2025-05-19 14:32:12,654 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1400-T103499.99 | PredD:1070.71 | BUY_YES x116@86c (B:80,A:86) | Outcome:YES | PNL:1624c | Cap:$1128.45
+2025-05-19 14:32:12,686 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1409-T104249.99 | PredD:-248.60 | BUY_NO x40@90c (B:10,A:17) | Outcome:NO | PNL:400c | Cap:$1132.45
+2025-05-19 14:32:12,711 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1409-T103999.99 | PredD:1102.78 | BUY_YES x111@90c (B:88,A:90) | Outcome:YES | PNL:1110c | Cap:$1143.55
+2025-05-19 14:32:12,723 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1410-T104499.99 | PredD:-681.18 | BUY_NO x73@99c (B:1,A:3) | Outcome:NO | PNL:73c | Cap:$1144.28
+2025-05-19 14:32:12,740 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1410-T103749.99 | PredD:343.58 | BUY_YES x68@65c (B:58,A:65) | Outcome:YES | PNL:2380c | Cap:$1168.08
+2025-05-19 14:32:12,742 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1410-T103499.99 | PredD:1057.48 | BUY_YES x104@96c (B:93,A:96) | Outcome:YES | PNL:416c | Cap:$1172.24
+2025-05-19 14:32:12,761 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1410-T103999.99 | PredD:-361.41 | BUY_NO x50@91c (B:9,A:14) | Outcome:NO | PNL:450c | Cap:$1176.74
+2025-05-19 14:32:12,787 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1411-T103749.99 | PredD:-556.65 | BUY_NO x64@97c (B:3,A:6) | Outcome:NO | PNL:192c | Cap:$1178.66
+2025-05-19 14:32:12,801 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1411-T102749.99 | PredD:1602.14 | BUY_YES x101@99c (B:97,A:99) | Outcome:YES | PNL:101c | Cap:$1179.67
+2025-05-19 14:32:12,803 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1411-T102999.99 | PredD:1464.03 | BUY_YES x101@99c (B:97,A:99) | Outcome:YES | PNL:101c | Cap:$1180.68
+2025-05-19 14:32:12,805 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1411-T103249.99 | PredD:920.89 | BUY_YES x95@98c (B:95,A:98) | Outcome:YES | PNL:190c | Cap:$1182.58
+2025-05-19 14:32:12,808 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1411-T103499.99 | PredD:-174.93 | BUY_NO x47@64c (B:36,A:39) | Outcome:NO | PNL:1692c | Cap:$1199.50
+2025-05-19 14:32:12,813 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1412-T103749.99 | PredD:-591.63 | BUY_NO x66@99c (B:1,A:6) | Outcome:NO | PNL:66c | Cap:$1200.16
+2025-05-19 14:32:12,831 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1412-T103499.99 | PredD:-335.55 | BUY_NO x53@83c (B:17,A:19) | Outcome:YES | PNL:-4399c | Cap:$1156.17
+2025-05-19 14:32:12,848 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1412-T103249.99 | PredD:782.58 | BUY_YES x90@90c (B:86,A:90) | Outcome:YES | PNL:900c | Cap:$1165.17
+2025-05-19 14:32:12,884 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1413-T103499.99 | PredD:-403.92 | BUY_NO x51@96c (B:4,A:7) | Outcome:NO | PNL:204c | Cap:$1167.21
+2025-05-19 14:32:12,908 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1413-T103249.99 | PredD:871.08 | BUY_YES x122@73c (B:66,A:73) | Outcome:YES | PNL:3294c | Cap:$1200.15
+2025-05-19 14:32:12,936 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1414-T102999.99 | PredD:1205.57 | BUY_YES x101@99c (B:96,A:99) | Outcome:YES | PNL:101c | Cap:$1201.16
+2025-05-19 14:32:12,975 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1415-T103499.99 | PredD:-177.08 | BUY_NO x38@79c (B:21,A:23) | Outcome:NO | PNL:798c | Cap:$1209.14
+2025-05-19 14:32:13,003 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1415-T103249.99 | PredD:1262.06 | BUY_YES x102@98c (B:94,A:98) | Outcome:YES | PNL:204c | Cap:$1211.18
+2025-05-19 14:32:13,031 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1416-T103249.99 | PredD:1209.33 | BUY_YES x113@88c (B:87,A:88) | Outcome:YES | PNL:1356c | Cap:$1224.74
+2025-05-19 14:32:13,083 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1417-T103499.99 | PredD:1138.83 | BUY_YES x104@96c (B:95,A:96) | Outcome:YES | PNL:416c | Cap:$1228.90
+2025-05-19 14:32:13,106 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1418-T103749.99 | PredD:-395.12 | BUY_NO x55@89c (B:11,A:14) | Outcome:NO | PNL:605c | Cap:$1234.95
+2025-05-19 14:32:13,115 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1418-T103499.99 | PredD:1262.42 | BUY_YES x101@99c (B:95,A:99) | Outcome:YES | PNL:101c | Cap:$1235.96
+2025-05-19 14:32:13,160 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1419-T103499.99 | PredD:413.06 | BUY_YES x84@60c (B:56,A:60) | Outcome:YES | PNL:3360c | Cap:$1269.56
+2025-05-19 14:32:13,206 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1420-T103499.99 | PredD:1290.81 | BUY_YES x103@97c (B:94,A:97) | Outcome:YES | PNL:309c | Cap:$1272.65
+2025-05-19 14:32:13,251 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1421-T103749.99 | PredD:1234.51 | BUY_YES x106@94c (B:90,A:94) | Outcome:YES | PNL:636c | Cap:$1279.01
+2025-05-19 14:32:13,307 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1422-T102999.99 | PredD:1137.64 | BUY_YES x116@86c (B:79,A:86) | Outcome:YES | PNL:1624c | Cap:$1295.25
+2025-05-19 14:32:13,312 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1422-T103249.99 | PredD:-180.01 | BUY_NO x32@95c (B:5,A:8) | Outcome:NO | PNL:160c | Cap:$1296.85
+2025-05-19 14:32:13,353 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1423-T103249.99 | PredD:-470.97 | BUY_NO x56@99c (B:1,A:9) | Outcome:NO | PNL:56c | Cap:$1297.41
+2025-05-19 14:32:13,360 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1423-T102999.99 | PredD:1167.51 | BUY_YES x108@92c (B:87,A:92) | Outcome:YES | PNL:864c | Cap:$1306.05
+2025-05-19 14:32:13,404 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1500-T103249.99 | PredD:-723.27 | BUY_NO x77@99c (B:1,A:3) | Outcome:NO | PNL:77c | Cap:$1306.82
+2025-05-19 14:32:13,409 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1500-T102749.99 | PredD:1221.94 | BUY_YES x116@86c (B:80,A:86) | Outcome:YES | PNL:1624c | Cap:$1323.06
+2025-05-19 14:32:13,435 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1509-T102749.99 | PredD:-202.97 | BUY_NO x33@97c (B:3,A:10) | Outcome:NO | PNL:99c | Cap:$1324.05
+2025-05-19 14:32:13,458 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1509-T102499.99 | PredD:947.70 | BUY_YES x130@73c (B:66,A:73) | Outcome:YES | PNL:3510c | Cap:$1359.15
+2025-05-19 14:32:13,507 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1510-T102249.99 | PredD:-414.24 | BUY_NO x61@83c (B:17,A:20) | Outcome:NO | PNL:1037c | Cap:$1369.52
+2025-05-19 14:32:13,509 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1510-T101999.99 | PredD:109.03 | BUY_YES x37@67c (B:66,A:67) | Outcome:YES | PNL:1221c | Cap:$1381.73
+2025-05-19 14:32:13,528 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1510-T101749.99 | PredD:820.03 | BUY_YES x90@94c (B:88,A:94) | Outcome:YES | PNL:540c | Cap:$1387.13
+2025-05-19 14:32:13,557 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1511-T101999.99 | PredD:-539.50 | BUY_NO x61@99c (B:1,A:7) | Outcome:NO | PNL:61c | Cap:$1387.74
+2025-05-19 14:32:13,579 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1511-T101499.99 | PredD:901.56 | BUY_YES x106@86c (B:79,A:86) | Outcome:YES | PNL:1484c | Cap:$1402.58
+2025-05-19 14:32:13,581 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1512-T102999.99 | PredD:1304.78 | BUY_YES x111@90c (B:87,A:90) | Outcome:YES | PNL:1110c | Cap:$1413.68
+2025-05-19 14:32:13,596 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1512-T103499.99 | PredD:-350.76 | BUY_NO x46@97c (B:3,A:8) | Outcome:NO | PNL:138c | Cap:$1415.06
+2025-05-19 14:32:13,599 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1512-T103249.99 | PredD:313.19 | BUY_YES x110@38c (B:34,A:38) | Outcome:YES | PNL:6820c | Cap:$1483.26
+2025-05-19 14:32:13,630 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1513-T103999.99 | PredD:-365.63 | BUY_NO x50@93c (B:7,A:8) | Outcome:NO | PNL:350c | Cap:$1486.76
+2025-05-19 14:32:13,650 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1513-T103499.99 | PredD:1370.88 | BUY_YES x102@98c (B:96,A:98) | Outcome:YES | PNL:204c | Cap:$1488.80
+2025-05-19 14:32:13,652 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1513-T103749.99 | PredD:471.84 | BUY_YES x92@60c (B:58,A:60) | Outcome:YES | PNL:3680c | Cap:$1525.60
+2025-05-19 14:32:13,674 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1513-T102749.99 | PredD:1749.22 | BUY_YES x101@99c (B:97,A:99) | Outcome:YES | PNL:101c | Cap:$1526.61
+2025-05-19 14:32:13,696 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1514-T104249.99 | PredD:-349.81 | BUY_NO x48@94c (B:6,A:10) | Outcome:NO | PNL:288c | Cap:$1529.49
+2025-05-19 14:32:13,698 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1514-T103999.99 | PredD:832.18 | BUY_YES x119@72c (B:66,A:72) | Outcome:NO | PNL:-8568c | Cap:$1443.81
+2025-05-19 14:32:13,724 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1514-T103749.99 | PredD:1433.27 | BUY_YES x101@99c (B:97,A:99) | Outcome:YES | PNL:101c | Cap:$1444.82
+2025-05-19 14:32:13,769 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1515-T102999.99 | PredD:436.38 | BUY_YES x92@57c (B:52,A:57) | Outcome:NO | PNL:-5244c | Cap:$1392.38
+2025-05-19 14:32:13,771 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1515-T103249.99 | PredD:-521.59 | BUY_NO x60@98c (B:2,A:7) | Outcome:NO | PNL:120c | Cap:$1393.58
+2025-05-19 14:32:13,776 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1515-T102749.99 | PredD:1255.96 | BUY_YES x102@98c (B:95,A:98) | Outcome:NO | PNL:-9996c | Cap:$1293.62
+2025-05-19 14:32:13,779 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1516-T103249.99 | PredD:150.83 | BUY_YES x129@22c (B:18,A:22) | Outcome:NO | PNL:-2838c | Cap:$1265.24
+2025-05-19 14:32:13,796 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1516-T103499.99 | PredD:-516.64 | BUY_NO x59@99c (B:1,A:7) | Outcome:NO | PNL:59c | Cap:$1265.83
+2025-05-19 14:32:13,801 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1516-T102999.99 | PredD:1062.53 | BUY_YES x129@77c (B:71,A:77) | Outcome:YES | PNL:2967c | Cap:$1295.50
+2025-05-19 14:32:13,816 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1516-T102749.99 | PredD:1422.64 | BUY_YES x101@99c (B:94,A:99) | Outcome:YES | PNL:101c | Cap:$1296.51
+2025-05-19 14:32:13,841 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1517-T103499.99 | PredD:126.88 | BUY_YES x73@36c (B:33,A:36) | Outcome:NO | PNL:-2628c | Cap:$1270.23
+2025-05-19 14:32:13,886 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1518-T103249.99 | PredD:462.65 | BUY_YES x74@73c (B:68,A:73) | Outcome:YES | PNL:1998c | Cap:$1290.21
+2025-05-19 14:32:13,888 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1518-T103499.99 | PredD:-480.41 | BUY_NO x57@97c (B:3,A:7) | Outcome:NO | PNL:171c | Cap:$1291.92
+2025-05-19 14:32:13,908 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1518-T102999.99 | PredD:1453.87 | BUY_YES x101@99c (B:97,A:99) | Outcome:YES | PNL:101c | Cap:$1292.93
+2025-05-19 14:32:13,932 - INFO - __main__.run_backtest:249 - TRADE: KXBTCD-25MAY1519-T103499.99 | PredD:981.64 | BUY_YES x140@70c (B:68,A:70) | Outcome:YES | PNL:4200c | Cap:$1334.93
+2025-05-19 14:32:13,961 - INFO - __main__.run_backtest:252 - 
+--- Backtest Summary (New LR Model v2) ---
+2025-05-19 14:32:13,961 - INFO - __main__.run_backtest:253 - Period: 2025-05-10 to 2025-05-15
+2025-05-19 14:32:13,961 - INFO - __main__.run_backtest:254 - Initial Capital: $1000.00, Final Capital: $1334.93
+2025-05-19 14:32:13,961 - INFO - __main__.run_backtest:255 - Trades: 209, Contracts: 18108, Total P&L: $334.93
+2025-05-19 14:32:13,961 - INFO - __main__.run_backtest:266 - Avg P&L/Trade: $1.6025, Avg P&L/Contract: $0.0185
+2025-05-19 14:32:13,961 - INFO - __main__.run_backtest:267 - Log file: /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks/logs/backtest_v2_log_LR_20250519_143208.txt

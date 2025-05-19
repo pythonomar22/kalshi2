@@ -1,338 +1,308 @@
-# download_kalshi_market_history_multiple.py
-import os
-import requests
-import time
-import datetime
-import base64
+# kalshi.py
+import asyncio
+import websockets
 import json
-from pathlib import Path
+import time
+import base64
 from cryptography.hazmat.primitives import serialization, hashes
 from cryptography.hazmat.primitives.asymmetric import padding, rsa
-from cryptography.exceptions import InvalidSignature
-import pandas as pd
-from tqdm import tqdm
+import os
 from dotenv import load_dotenv
+import logging
+from datetime import datetime
+import csv
+import pathlib # For path manipulation
 
-# --- Configuration ---
-load_dotenv() # Load environment variables from .env file
+# --- Basic Logging Setup ---
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(name)s - %(funcName)s - %(message)s',
+    handlers=[logging.StreamHandler()]
+)
+logger = logging.getLogger("kalshi_monitor")
 
-# Get credentials from environment variables
-KALSHI_API_KEY_ID = os.getenv("KALSHI_API_KEY_ID")
-KALSHI_PRIVATE_KEY_PATH = os.getenv("KALSHI_PRIVATE_KEY_PATH")
+# --- Configuration (loaded once) ---
+KALSHI_API_KEY_ID = None
+KALSHI_PRIVATE_KEY_PATH = None
+KALSHI_WS_BASE_URL = None
+CSV_LOG_DIR = pathlib.Path("market_data_logs")
 
-# Kalshi API details
-KALSHI_BASE_URL = "https://api.elections.kalshi.com" # For production
-# KALSHI_BASE_URL = "https://demo-api.kalshi.co" # For demo environment
-
-# Common series ticker for these markets
-TARGET_SERIES_TICKER = "KXETHD"
-COMMON_DATE_STR = "2025-05-13" # All markets are for this date
-COMMON_THRESHOLD_PART = "T2649.99" # Common threshold for these markets
-
-# --- Define the 5 target markets ---
-# Each market trades for 1 hour before its closing time.
-# The hour in the ticker (e.g., '18' in KXETHD-25MAY1318) is the *closing hour in EDT (24h format)*.
-MARKETS_TO_FETCH = [
-    {
-        "closing_hour_edt": 17, # 6 PM EDT
-        "description": "ETH price at 5 PM EDT, $2650 or above"
-    },
-    {
-        "closing_hour_edt": 18, # 6 PM EDT
-        "description": "ETH price at 6 PM EDT, $2650 or above"
-    },
-    {
-        "closing_hour_edt": 19, # 7 PM EDT
-        "description": "ETH price at 7 PM EDT, $2650 or above"
-    },
-    {
-        "closing_hour_edt": 20, # 8 PM EDT
-        "description": "ETH price at 8 PM EDT, $2650 or above"
-    },
-    {
-        "closing_hour_edt": 21, # 9 PM EDT
-        "description": "ETH price at 9 PM EDT, $2650 or above"
-    },
-    {
-        "closing_hour_edt": 22, # 10 PM EDT
-        "description": "ETH price at 10 PM EDT, $2650 or above"
-    },
-    {
-        "closing_hour_edt": 23, # 11 PM EDT
-        "description": "ETH price at 11 PM EDT, $2650 or above"
-    }
-]
-
-# --- Data Fetching Parameters ---
-PERIOD_INTERVAL_MINUTES = 1 # 1-minute candlesticks
-MAX_PERIODS_PER_REQUEST = 4900
-
-# --- Output Configuration ---
-OUTPUT_DIR = Path("./kalshi_market_data_hourly_eth")
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-
-# --- Helper Functions for Kalshi API Auth (same as before) ---
+# --- Kalshi Auth Functions ---
 def load_private_key(file_path: str) -> rsa.RSAPrivateKey | None:
     try:
         with open(file_path, "rb") as key_file:
-            private_key = serialization.load_pem_private_key(
-                key_file.read(),
-                password=None,
-            )
+            private_key = serialization.load_pem_private_key(key_file.read(), password=None)
         return private_key
+    except FileNotFoundError:
+        logger.error(f"Kalshi private key file not found: {file_path}")
+        return None
     except Exception as e:
-        print(f"Error loading private key from {file_path}: {e}")
+        logger.error(f"Error loading Kalshi private key from {file_path}: {e}")
         return None
 
 def sign_pss_text(private_key: rsa.RSAPrivateKey, text: str) -> str | None:
     message = text.encode('utf-8')
     try:
         signature = private_key.sign(
-            message,
-            padding.PSS(
-                mgf=padding.MGF1(hashes.SHA256()),
-                salt_length=padding.PSS.DIGEST_LENGTH
-            ),
+            message, padding.PSS(mgf=padding.MGF1(hashes.SHA256()), salt_length=padding.PSS.DIGEST_LENGTH),
             hashes.SHA256()
         )
         return base64.b64encode(signature).decode('utf-8')
-    except InvalidSignature as e:
-        print(f"RSA sign PSS failed: {e}")
-        return None
     except Exception as e:
-        print(f"Error during signing: {e}")
+        logger.error(f"Error during Kalshi signing: {e}")
         return None
 
-def get_kalshi_auth_headers(method: str, path: str, private_key: rsa.RSAPrivateKey, key_id: str) -> dict | None:
+def get_kalshi_ws_auth_headers(private_key: rsa.RSAPrivateKey, key_id: str) -> dict | None:
+    ws_path_for_signing = "/trade-api/ws/v2"
+    method = "GET"
     timestamp_ms_str = str(int(time.time() * 1000))
-    message_to_sign = timestamp_ms_str + method.upper() + path
-
+    message_to_sign = timestamp_ms_str + method.upper() + ws_path_for_signing
     signature = sign_pss_text(private_key, message_to_sign)
-    if signature is None:
-        return None
+    if signature is None: return None
+    return {'KALSHI-ACCESS-KEY': key_id, 'KALSHI-ACCESS-SIGNATURE': signature, 'KALSHI-ACCESS-TIMESTAMP': timestamp_ms_str}
+
+def init_config():
+    global KALSHI_API_KEY_ID, KALSHI_PRIVATE_KEY_PATH, KALSHI_WS_BASE_URL
+    load_dotenv()
+    KALSHI_API_KEY_ID = os.getenv("KALSHI_API_KEY_ID")
+    KALSHI_PRIVATE_KEY_PATH = os.getenv("KALSHI_PRIVATE_KEY_PATH")
+
+    is_demo = os.getenv("KALSHI_DEMO_MODE", "false").lower() == "true"
+    if is_demo:
+        logger.info("Kalshi: Running in DEMO mode.")
+        KALSHI_WS_BASE_URL = "wss://demo-api.kalshi.co/trade-api/ws/v2"
+        demo_key_id = os.getenv("KALSHI_DEMO_API_KEY_ID")
+        demo_key_path = os.getenv("KALSHI_DEMO_PRIVATE_KEY_PATH")
+        if demo_key_id: KALSHI_API_KEY_ID = demo_key_id
+        if demo_key_path: KALSHI_PRIVATE_KEY_PATH = demo_key_path
+    else:
+        logger.info("Kalshi: Running in PRODUCTION mode.")
+        KALSHI_WS_BASE_URL = os.getenv("KALSHI_PROD_WS_BASE_URL", "wss://api.elections.kalshi.com/trade-api/ws/v2")
+
+    if not KALSHI_API_KEY_ID or not KALSHI_PRIVATE_KEY_PATH:
+        logger.critical("Kalshi API credentials (API Key ID or Private Key Path) not found in .env. Please set them.")
+        exit(1)
+    if not os.path.exists(KALSHI_PRIVATE_KEY_PATH):
+        logger.critical(f"Kalshi private key file not found at path: {KALSHI_PRIVATE_KEY_PATH}. Please check .env.")
+        exit(1)
+    
+    CSV_LOG_DIR.mkdir(parents=True, exist_ok=True)
+    logger.info(f"CSV logs will be saved to: {CSV_LOG_DIR.resolve()}")
+
+
+def _extract_ui_bid_ask(yes_book_data: dict, no_book_data: dict):
+    yes_bids_prices = sorted([p for p, q in yes_book_data.items() if q > 0], reverse=True)
+    no_bids_prices = sorted([p for p, q in no_book_data.items() if q > 0], reverse=True)
+
+    ui_yes_bid = yes_bids_prices[0] if yes_bids_prices else None
+    ui_yes_bid_qty = yes_book_data.get(ui_yes_bid, 0) if ui_yes_bid is not None else 0
+
+    ui_yes_ask = (100 - no_bids_prices[0]) if no_bids_prices else None
+    ui_yes_ask_qty_on_no_side = 0
+    if ui_yes_ask is not None:
+        original_no_bid_price = 100 - ui_yes_ask
+        ui_yes_ask_qty_on_no_side = no_book_data.get(original_no_bid_price, 0)
 
     return {
-        'accept': 'application/json',
-        'KALSHI-ACCESS-KEY': key_id,
-        'KALSHI-ACCESS-SIGNATURE': signature,
-        'KALSHI-ACCESS-TIMESTAMP': timestamp_ms_str
+        "ui_yes_bid": ui_yes_bid,
+        "ui_yes_bid_qty": ui_yes_bid_qty,
+        "ui_yes_ask": ui_yes_ask,
+        "ui_yes_ask_qty_on_no_side": ui_yes_ask_qty_on_no_side
     }
 
-# --- Main Data Fetching Logic (same as before) ---
-def fetch_kalshi_candlesticks(
-    series_ticker: str,
-    market_ticker: str,
-    start_ts_s: int,
-    end_ts_s: int,
-    period_minutes: int,
-    private_key: rsa.RSAPrivateKey,
-    key_id: str
-) -> pd.DataFrame | None:
+def _log_market_data_to_csv(market_ticker: str, data_type: str, seq: int, ui_data: dict, delta_details: dict = None):
+    csv_file_path = CSV_LOG_DIR / f"{market_ticker.replace('/', '_')}.csv"
+    file_exists = csv_file_path.exists()
 
-    all_candlesticks_processed = []
-    current_start_ts = start_ts_s
+    row_data = {
+        'timestamp': datetime.now().isoformat(),
+        'market_ticker': market_ticker,
+        'type': data_type, 
+        'yes_bid_price_cents': ui_data.get('ui_yes_bid'),
+        'yes_bid_qty': ui_data.get('ui_yes_bid_qty', 0),
+        'yes_ask_price_cents': ui_data.get('ui_yes_ask'),
+        'yes_ask_qty_on_no_side': ui_data.get('ui_yes_ask_qty_on_no_side', 0),
+        'sequence_num': seq,
+        'delta_side': None,
+        'delta_price_cents': None,
+        'delta_quantity': None
+    }
 
-    print(f"Fetching candlesticks for {market_ticker}")
-    print(f"Period: {datetime.datetime.fromtimestamp(start_ts_s, tz=datetime.timezone.utc).strftime('%Y-%m-%d %H:%M:%S %Z')} to {datetime.datetime.fromtimestamp(end_ts_s, tz=datetime.timezone.utc).strftime('%Y-%m-%d %H:%M:%S %Z')}")
+    if data_type == 'DELTA' and delta_details:
+        row_data.update({
+            'delta_side': delta_details.get('side'),
+            'delta_price_cents': delta_details.get('price'),
+            'delta_quantity': delta_details.get('delta_val')
+        })
 
-    total_duration_seconds = max(0, end_ts_s - start_ts_s)
-    total_expected_intervals = total_duration_seconds // (period_minutes * 60) if period_minutes > 0 else 0
+    try:
+        with open(csv_file_path, 'a', newline='', encoding='utf-8') as csvfile:
+            fieldnames = list(row_data.keys())
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            if not file_exists:
+                writer.writeheader()
+            writer.writerow(row_data)
+    except IOError as e:
+        logger.error(f"Error writing to CSV {csv_file_path}: {e}")
 
-    with tqdm(total=total_expected_intervals, desc=f"Fetching {market_ticker}") as pbar:
-        while current_start_ts < end_ts_s:
-            chunk_end_ts = min(end_ts_s, current_start_ts + (MAX_PERIODS_PER_REQUEST - 1) * period_minutes * 60)
-            if chunk_end_ts <= current_start_ts :
-                break
 
-            path = f"/trade-api/v2/series/{series_ticker}/markets/{market_ticker}/candlesticks"
-            params = {
-                "start_ts": current_start_ts,
-                "end_ts": chunk_end_ts,
-                "period_interval": period_minutes
-            }
-
-            headers = get_kalshi_auth_headers("GET", path, private_key, key_id)
-            if headers is None:
-                print("Failed to generate authentication headers.")
-                return None
-
-            try:
-                response = requests.get(f"{KALSHI_BASE_URL}{path}", headers=headers, params=params)
-                response.raise_for_status()
-                api_response_data = response.json()
-
-                candlesticks_from_api = api_response_data.get("candlesticks")
-
-                if candlesticks_from_api and isinstance(candlesticks_from_api, list):
-                    processed_chunk = []
-                    for candle_data in candlesticks_from_api:
-                        ts = candle_data.get("end_period_ts")
-                        volume = candle_data.get("volume", 0)
-                        price_info = candle_data.get("price", {})
-                        open_price = price_info.get("open")
-                        high_price = price_info.get("high")
-                        low_price = price_info.get("low")
-                        close_price = price_info.get("close")
-
-                        if open_price is None and "yes_bid" in candle_data:
-                            open_price = candle_data["yes_bid"].get("open")
-                        if high_price is None and "yes_bid" in candle_data:
-                            high_price = candle_data["yes_bid"].get("high")
-                        if low_price is None and "yes_bid" in candle_data:
-                            low_price = candle_data["yes_bid"].get("low")
-                        if close_price is None and "yes_bid" in candle_data:
-                            close_price = candle_data["yes_bid"].get("close")
-
-                        if ts is None or open_price is None or high_price is None or low_price is None or close_price is None:
-                            continue
-
-                        processed_chunk.append({
-                            "timestamp_s": ts,
-                            "open": open_price,
-                            "high": high_price,
-                            "low": low_price,
-                            "close": close_price,
-                            "volume": volume
-                        })
-
-                    if processed_chunk:
-                        all_candlesticks_processed.extend(processed_chunk)
-
-                    actual_chunk_duration_seconds = chunk_end_ts - current_start_ts
-                    intervals_in_this_chunk_param = actual_chunk_duration_seconds // (period_minutes * 60) if period_minutes > 0 else 0
-                    pbar.update(max(0, intervals_in_this_chunk_param))
-
-                    if processed_chunk:
-                        last_processed_ts = processed_chunk[-1]["timestamp_s"]
-                        current_start_ts = last_processed_ts + 1
-                    else:
-                        current_start_ts = chunk_end_ts + 1
-                else:
-                    if current_start_ts < end_ts_s:
-                        pbar.update(max(0, (chunk_end_ts - current_start_ts) // (period_minutes * 60) if period_minutes > 0 else 0))
-                    current_start_ts = chunk_end_ts + 1
-
-                if current_start_ts >= end_ts_s:
-                    break
-
-                time.sleep(0.7) # Be respectful to the API
-
-            except requests.exceptions.HTTPError as e:
-                print(f"HTTP Error: {e.response.status_code} - {e.response.text}")
-                if e.response.status_code == 401: print("Auth failed.")
-                break
-            except Exception as e:
-                print(f"An unexpected error occurred in loop: {e}")
-                import traceback
-                traceback.print_exc()
-                break
-
-    if pbar.n < pbar.total:
-        pbar.update(pbar.total - pbar.n)
-    pbar.close()
-
-    if not all_candlesticks_processed:
-        print(f"No candlestick data successfully collected and processed for {market_ticker}.")
-        return None
-
-    df = pd.DataFrame(all_candlesticks_processed)
-    df['timestamp'] = pd.to_datetime(df['timestamp_s'], unit='s', utc=True)
-    df.set_index('timestamp', inplace=True)
-    df_final = df[['open', 'high', 'low', 'close', 'volume']].copy()
-    df_final.rename(columns={
-        'open': 'kalshi_open_cents',
-        'high': 'kalshi_high_cents',
-        'low': 'kalshi_low_cents',
-        'close': 'kalshi_close_cents',
-        'volume': 'kalshi_volume'
-    }, inplace=True)
-
-    return df_final
-
-if __name__ == "__main__":
-    if not KALSHI_API_KEY_ID or not KALSHI_PRIVATE_KEY_PATH:
-        print("Error: KALSHI_API_KEY_ID or KALSHI_PRIVATE_KEY_PATH not found in .env file.")
-        exit()
+async def kalshi_orderbook_listener(market_ticker_to_subscribe: str):
+    init_config() 
 
     private_key = load_private_key(KALSHI_PRIVATE_KEY_PATH)
-    if private_key is None:
-        exit()
+    if not private_key:
+        logger.critical(f"Failed to load Kalshi private key from {KALSHI_PRIVATE_KEY_PATH}. Exiting.")
+        return
 
-    edt_tz = datetime.timezone(datetime.timedelta(hours=-4)) # EDT is UTC-4
+    current_market_book = {"active": False, "seq": 0, "yes": {}, "no": {}, "sid": None}
+    kalshi_command_id_counter = 1
 
-    for market_config in MARKETS_TO_FETCH:
-        closing_hour_edt = market_config["closing_hour_edt"]
-        market_description = market_config["description"]
+    while True:
+        auth_headers = get_kalshi_ws_auth_headers(private_key, KALSHI_API_KEY_ID)
+        if not auth_headers:
+            logger.error("Kalshi: Failed to generate auth headers. Retrying in 30s.")
+            await asyncio.sleep(30)
+            continue
 
-        # Construct the target market ticker
-        # Example: KXETHD-25MAY1318-T2649.99
-        # Date part for ticker: YYMMDD -> 25MAY13 (derived from COMMON_DATE_STR "2025-05-13")
-        date_obj = datetime.datetime.strptime(COMMON_DATE_STR, "%Y-%m-%d")
-        ticker_date_part = f"{date_obj.strftime('%y%b%d').upper()}" # e.g., 25MAY13
-
-        target_market_ticker = f"{TARGET_SERIES_TICKER}-{ticker_date_part}{closing_hour_edt:02d}-{COMMON_THRESHOLD_PART}"
-
-        # Determine start and end times for fetching
-        # Market opens 1 hour before closing_hour_edt and closes at closing_hour_edt
-        end_dt_edt = datetime.datetime.strptime(f"{COMMON_DATE_STR} {closing_hour_edt:02d}:00:00", "%Y-%m-%d %H:%M:%S").replace(tzinfo=edt_tz)
-        start_dt_edt = end_dt_edt - datetime.timedelta(hours=1)
-
+        uri = KALSHI_WS_BASE_URL
+        logger.info(f"Kalshi: Attempting to connect to {uri} for market: {market_ticker_to_subscribe}")
+        connection_established_once = False
         try:
-            start_timestamp_s = int(start_dt_edt.timestamp())
-            end_timestamp_s = int(end_dt_edt.timestamp())
-        except ValueError as e:
-            print(f"Error parsing dates for market {target_market_ticker}. Ensure they are correct and EDT offset is appropriate: {e}")
-            continue # Skip to the next market
+            async with websockets.connect(
+                uri, extra_headers=auth_headers, ping_interval=10, ping_timeout=20, open_timeout=15
+            ) as websocket:
+                connection_established_once = True
+                logger.info(f"Kalshi: Successfully connected to WebSocket for {market_ticker_to_subscribe}.")
+                
+                current_market_book = {"active": False, "seq": 0, "yes": {}, "no": {}, "sid": None}
 
-        print(f"\n--- Processing Market: {target_market_ticker} ({market_description}) ---")
-        print(f"Market Open (EDT): {start_dt_edt.strftime('%Y-%m-%d %H:%M:%S %Z')}")
-        print(f"Market Close (EDT): {end_dt_edt.strftime('%Y-%m-%d %H:%M:%S %Z')}")
+                subscribe_cmd = {
+                    "id": kalshi_command_id_counter,
+                    "cmd": "subscribe",
+                    "params": {
+                        "channels": ["orderbook_delta"],
+                        "market_tickers": [market_ticker_to_subscribe] # API expects a list
+                    }
+                }
+                kalshi_command_id_counter += 1
+                await websocket.send(json.dumps(subscribe_cmd))
+                logger.info(f"Kalshi: Sent subscription request: {json.dumps(subscribe_cmd)}")
+
+                async for message_str in websocket:
+                    try:
+                        message = json.loads(message_str)
+                        msg_type = message.get("type")
+                        server_sid = message.get("sid") 
+
+                        if msg_type == "subscribed":
+                            channel = message.get("msg", {}).get("channel")
+                            actual_subscription_sid = message.get("msg", {}).get("sid") 
+                            logger.info(f"Kalshi: Subscribed to '{channel}' for {market_ticker_to_subscribe} (Server SID: {actual_subscription_sid}).")
+                            current_market_book.update({"sid": actual_subscription_sid, "active": True, "seq": 0})
+
+                        elif msg_type == "orderbook_snapshot":
+                            seq = message.get("seq")
+                            data = message.get("msg", {})
+                            market_ticker_resp = data.get("market_ticker")
+
+                            if market_ticker_resp == market_ticker_to_subscribe:
+                                # logger.info(f"Kalshi: ORDERBOOK_SNAPSHOT for {market_ticker_resp} (SID: {server_sid}, Seq: {seq})")
+                                yes_data = {int(level[0]): int(level[1]) for level in data.get("yes", [])}
+                                no_data = {int(level[0]): int(level[1]) for level in data.get("no", [])}
+                                current_market_book.update({"yes": yes_data, "no": no_data, "seq": seq, "active": True})
+                                
+                                ui_data = _extract_ui_bid_ask(yes_data, no_data)
+                                _log_market_data_to_csv(market_ticker_resp, 'SNAPSHOT', seq, ui_data)
+
+                                print(f"[{datetime.now().strftime('%H:%M:%S')}] SNAPSHOT {market_ticker_resp}: "
+                                      f"Yes Bid: {ui_data['ui_yes_bid']}¢ (Qty: {ui_data['ui_yes_bid_qty']}), "
+                                      f"Yes Ask: {ui_data['ui_yes_ask']}¢ (Qty: {ui_data['ui_yes_ask_qty_on_no_side']}) "
+                                      f"| Seq: {seq}")
+                            else:
+                                logger.warning(f"Received snapshot for unexpected ticker: {market_ticker_resp} (subscribed to {market_ticker_to_subscribe})")
 
 
-        # Define output filenames for this specific market
-        base_output_filename = f"{target_market_ticker}_candlesticks_{PERIOD_INTERVAL_MINUTES}min"
-        output_filepath_parquet = OUTPUT_DIR / f"{base_output_filename}.parquet"
-        output_filepath_csv = OUTPUT_DIR / f"{base_output_filename}.csv"
+                        elif msg_type == "orderbook_delta":
+                            seq = message.get("seq")
+                            data = message.get("msg", {})
+                            market_ticker_resp = data.get("market_ticker")
 
-        market_history_df = fetch_kalshi_candlesticks(
-            series_ticker=TARGET_SERIES_TICKER,
-            market_ticker=target_market_ticker,
-            start_ts_s=start_timestamp_s,
-            end_ts_s=end_timestamp_s,
-            period_minutes=PERIOD_INTERVAL_MINUTES,
-            private_key=private_key,
-            key_id=KALSHI_API_KEY_ID
-        )
+                            if market_ticker_resp == market_ticker_to_subscribe:
+                                if not current_market_book.get("active"):
+                                    continue 
 
-        if market_history_df is not None and not market_history_df.empty:
-            # Save to Parquet
-            try:
-                market_history_df.to_parquet(output_filepath_parquet)
-                print(f"Successfully downloaded and saved market history to Parquet: {output_filepath_parquet}")
-                print(f"Shape of saved Parquet data: {market_history_df.shape}")
-            except Exception as e:
-                print(f"Error saving data to Parquet: {e}")
+                                price = data.get("price")
+                                delta_val = data.get("delta")
+                                side_of_book = data.get("side") 
+                                delta_details = {"side": side_of_book, "price": price, "delta_val": delta_val}
 
-            # Save to CSV
-            try:
-                market_history_df.to_csv(output_filepath_csv)
-                print(f"Successfully downloaded and saved market history to CSV: {output_filepath_csv}")
-                print(f"Shape of saved CSV data: {market_history_df.shape}")
-            except Exception as e:
-                print(f"Error saving data to CSV: {e}")
+                                if seq != current_market_book.get("seq", -1) + 1:
+                                    logger.warning(f"Kalshi: Sequence gap for {market_ticker_resp}! Expected {current_market_book.get('seq', -1) + 1}, got {seq}. Closing to resync.")
+                                    current_market_book["active"] = False
+                                    await websocket.close(code=1000, reason="Resync due to sequence gap")
+                                    break 
 
-            print("\nSample data (from DataFrame):")
-            print(market_history_df.head())
-            # Check for volume
-            total_volume = market_history_df['kalshi_volume'].sum()
-            print(f"Total volume for {target_market_ticker} in this period: {total_volume}")
-            if total_volume > 0:
-                print(f"SUCCESS: Found volume for {target_market_ticker}!")
-            else:
-                print(f"NOTE: No volume found for {target_market_ticker} in this period (as expected for future markets).")
+                                current_market_book["seq"] = seq
+                                side_book_data = current_market_book.get(side_of_book, {})
+                                new_quantity = side_book_data.get(price, 0) + delta_val
+                                if new_quantity > 0:
+                                    side_book_data[price] = new_quantity
+                                else:
+                                    side_book_data.pop(price, None)
+                                current_market_book[side_of_book] = side_book_data
+                                
+                                ui_data = _extract_ui_bid_ask(current_market_book["yes"], current_market_book["no"])
+                                _log_market_data_to_csv(market_ticker_resp, 'DELTA', seq, ui_data, delta_details)
+                                
+                                print(f"[{datetime.now().strftime('%H:%M:%S')}] DELTA    {market_ticker_resp}: "
+                                      f"Yes Bid: {ui_data['ui_yes_bid']}¢ (Qty: {ui_data['ui_yes_bid_qty']}), "
+                                      f"Yes Ask: {ui_data['ui_yes_ask']}¢ (Qty: {ui_data['ui_yes_ask_qty_on_no_side']}) "
+                                      f"| Seq: {seq}, Δ {side_of_book.upper()}@{price}c by {delta_val}")
+                            else:
+                                logger.warning(f"Received delta for unexpected ticker: {market_ticker_resp} (subscribed to {market_ticker_to_subscribe})")
 
-        else:
-            print(f"Failed to fetch or no data available for {target_market_ticker} in the specified range.")
+                        elif msg_type == "error":
+                            error_msg_details = message.get("msg", {})
+                            cmd_id_resp = message.get("id")
+                            logger.error(f"Kalshi WS Error (CmdID: {cmd_id_resp}, SID: {server_sid}): Code {error_msg_details.get('code')}, Msg: {error_msg_details.get('msg')}")
+                            if error_msg_details.get('code') == 6: 
+                                logger.info(f"Kalshi: 'Already subscribed' for {market_ticker_to_subscribe}. Server SID: {server_sid}. Assuming active.")
+                                current_market_book.update({"sid": server_sid, "active": True})
+                    
+                    except json.JSONDecodeError:
+                        logger.error(f"Kalshi: JSON Decode Error - {message_str}")
+                    except Exception as e:
+                        logger.exception(f"Kalshi: Error processing message - {message_str} - {e}")
+        
+        except (websockets.exceptions.InvalidStatusCode, websockets.exceptions.ConnectionClosed,
+                ConnectionRefusedError, websockets.exceptions.WebSocketException, asyncio.TimeoutError) as e:
+            logger.error(f"Kalshi: WS connection issue for {market_ticker_to_subscribe}: {type(e).__name__} - {e}. Retrying...")
+        except Exception as e: 
+            logger.exception(f"Kalshi: Unexpected WS connection error for {market_ticker_to_subscribe}: {e}. Retrying...")
 
-        print("--------------------------------------------------")
-        time.sleep(1) # Small delay before fetching the next market
+        current_market_book["active"] = False 
+        
+        retry_delay = 10 if connection_established_once else 30 
+        logger.info(f"Kalshi: Retrying connection for {market_ticker_to_subscribe} in {retry_delay} seconds.")
+        await asyncio.sleep(retry_delay)
+
+async def main():
+    print("Kalshi Live Market Monitor")
+    print("--------------------------")
+    
+    target_market_ticker = "KXBTCD-25MAY1919-T105249.99" 
+
+    logger.info(f"Monitoring market: {target_market_ticker}")
+    logger.info(f"Data will be logged to CSV and printed to console.")
+
+    try:
+        await kalshi_orderbook_listener(target_market_ticker)
+    except KeyboardInterrupt:
+        logger.info("Kalshi monitor stopped by user.")
+    except Exception as e:
+        logger.exception(f"An unhandled error occurred in main: {e}")
+    finally:
+        logger.info("Kalshi monitor finished.")
+
+if __name__ == "__main__":
+    asyncio.run(main())
