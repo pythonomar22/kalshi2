@@ -26,8 +26,8 @@ TOTAL_CAPITAL_USD = 500.0 # Your total trading capital
 sizing.MODEL_SCORE_THRESHOLD_BUY_YES = linreg_strategy.MODEL_SCORE_THRESHOLD_BUY_YES
 sizing.MODEL_SCORE_THRESHOLD_BUY_NO = linreg_strategy.MODEL_SCORE_THRESHOLD_BUY_NO
 # --- Sizing specific parameters for the capital-based approach ---
-sizing.MAX_CAPITAL_ALLOCATION_PER_TRADE_USD = 25.0 # e.g., max 5% of 500 USD
-sizing.BASE_CAPITAL_ALLOCATION_PER_TRADE_USD = 5.0  # e.g., min 1% of 500 USD
+sizing.MAX_CAPITAL_ALLOCATION_PER_TRADE_USD = 100.0 # e.g., max 5% of 500 USD
+sizing.BASE_CAPITAL_ALLOCATION_PER_TRADE_USD = 20.0  # e.g., min 1% of 500 USD
 sizing.MAX_CONTRACTS_PER_TRADE = 200 # An overall hard cap on contracts
 sizing.PRACTICAL_MAX_MODEL_SCORE_FOR_SCALING = 5.0 # Tune this based on typical model score range
 

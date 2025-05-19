@@ -16,8 +16,8 @@ MODEL_PARAMS = {
     'coef_distance_to_strike': 0.0001 
 }
 # Thresholds for taking action based on model score
-MODEL_SCORE_THRESHOLD_BUY_YES = 0.2 
-MODEL_SCORE_THRESHOLD_BUY_NO = -0.2
+MODEL_SCORE_THRESHOLD_BUY_YES = 0.1
+MODEL_SCORE_THRESHOLD_BUY_NO = -0.1
 
 FEATURE_KEYS = [ # Ensure this order matches how coefficients are used if doing dot product
     'btc_price_change_1m', 
