@@ -1,0 +1,5 @@
+market_ticker,series_ticker,timestamp_s,datetime_utc,trade_open_cents,trade_high_cents,trade_low_cents,trade_close_cents,yes_bid_open_cents,yes_bid_high_cents,yes_bid_low_cents,yes_bid_close_cents,yes_ask_open_cents,yes_ask_high_cents,yes_ask_low_cents,yes_ask_close_cents,volume,open_interest
+KXBTCD-25APR1919-T86499.99,KXBTCD,1745100060,2025-04-19T22:01:00+00:00,,,,,0,0,0,0,83,83,16,16,0,0
+KXBTCD-25APR1919-T86499.99,KXBTCD,1745100180,2025-04-19T22:03:00+00:00,,,,,0,0,0,0,16,16,14,14,0,0
+KXBTCD-25APR1919-T86499.99,KXBTCD,1745100240,2025-04-19T22:04:00+00:00,,,,,0,0,0,0,14,16,2,2,0,0
+KXBTCD-25APR1919-T86499.99,KXBTCD,1745103540,2025-04-19T22:59:00+00:00,,,,,0,0,0,0,2,2,1,1,0,0
