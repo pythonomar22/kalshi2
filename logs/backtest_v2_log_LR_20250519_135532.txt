@@ -1,9 +1,0 @@
-2025-05-19 13:55:32,747 - INFO - __main__.<module>:68 - Final BASE_PROJECT_DIR: /Users/omarabul-hassan/Desktop/projects/kalshi
-2025-05-19 13:55:32,747 - INFO - __main__.<module>:69 - Kalshi Data Dir: /Users/omarabul-hassan/Desktop/projects/kalshi/kalshi_data
-2025-05-19 13:55:32,747 - INFO - __main__.<module>:70 - Binance Data Dir: /Users/omarabul-hassan/Desktop/projects/kalshi/binance_data
-2025-05-19 13:55:32,747 - INFO - __main__.<module>:71 - Model Artifacts Dir: /Users/omarabul-hassan/Desktop/projects/kalshi/trained_models
-2025-05-19 13:55:33,224 - INFO - linreg_strategy_v2.<module>:31 - Strategy: Loaded scaler from trained_models/feature_scaler_v1.joblib
-2025-05-19 13:55:33,225 - INFO - linreg_strategy_v2.<module>:41 - Strategy: Loaded model parameters from trained_models/lr_model_params_v1.json
-2025-05-19 13:55:33,225 - INFO - linreg_strategy_v2.<module>:43 - Strategy: Expected feature order (25 features): ['btc_price_t_minus_1', 'btc_mom_5m', 'btc_mom_10m', 'btc_mom_15m', 'btc_mom_30m']...
-2025-05-19 13:55:33,225 - CRITICAL - __main__.<module>:99 - Backtest: CRITICAL - Kalshi data root directory does not exist: /Users/omarabul-hassan/Desktop/projects/kalshi/kalshi_data. Market outcomes file is required to run the backtest.
-2025-05-19 13:55:33,225 - CRITICAL - __main__.<module>:353 - MARKET_OUTCOMES_CSV_PATH is not set. Cannot run backtest.

@@ -290,7 +290,7 @@ async def main():
     print("Kalshi Live Market Monitor")
     print("--------------------------")
     
-    target_market_ticker = "KXBTCD-25MAY2015-T105749.99" 
+    target_market_ticker = "KXBTCD-25MAY2019-T106999.99" 
 
     logger.info(f"Monitoring market: {target_market_ticker}")
     logger.info(f"Data will be logged to CSV and printed to console.")
