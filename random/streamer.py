@@ -3,115 +3,181 @@ import websockets
 import json
 import time
 from datetime import datetime
+import csv
+import pathlib # For CSV path and directory management
+import logging # Using logging for better output control
 
-# Configuration
+# --- Basic Logging Setup ---
+# Configure logging to be similar to your Kalshi script for consistency
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(name)s - %(funcName)s - %(message)s',
+    handlers=[logging.StreamHandler()]
+)
+logger = logging.getLogger("binance_streamer")
+
+# --- Configuration ---
 STREAMS_TO_SUBSCRIBE = [
     # "ethusdt@miniTicker",
     # "btcusdt@miniTicker",
-    # "ethusdt@kline_1m",  # 1-minute candlesticks for ETH/USDT
-    "btcusdt@kline_1m"   # 1-minute candlesticks for BTC/USDT
-    # For even more granularity (consider data volume):
-    # "ethusdt@kline_1s",
-    # "btcusdt@kline_1s",
+    # "ethusdt@kline_1m",
+    "btcusdt@kline_1m"
     # "ethusdt@trade",
     # "btcusdt@trade",
 ]
 
 BINANCE_WS_ENDPOINT = "wss://data-stream.binance.vision/stream"
-SUBSCRIPTION_ID_COUNTER = 1
+CSV_LOG_DIR = pathlib.Path("binance_market_data_logs")
+SUBSCRIPTION_ID_COUNTER = 1 # Global counter for subscription IDs
 
-# Store latest kline data (optional, for more complex logic)
-latest_klines = {}
+# --- CSV Logging Function ---
+def ensure_log_dir():
+    """Ensures the CSV log directory exists."""
+    CSV_LOG_DIR.mkdir(parents=True, exist_ok=True)
+    logger.info(f"Binance CSV logs will be saved to: {CSV_LOG_DIR.resolve()}")
 
-async def binance_websocket_client():
-    global SUBSCRIPTION_ID_COUNTER, latest_klines
+def log_kline_to_csv(kline_event_data: dict):
+    """Logs kline data to a CSV file."""
+    stream_name = kline_event_data.get('stream', 'unknown_stream')
+    kline_data = kline_event_data.get('data', {}).get('k', {})
+
+    if not kline_data:
+        logger.warning(f"Missing kline data in event: {kline_event_data}")
+        return
+
+    symbol = kline_data.get('s')
+    # Create a unique CSV filename per symbol and interval to keep data organized
+    # e.g., btcusdt_kline_1m.csv
+    csv_filename = f"{symbol.lower()}_2kline_{kline_data.get('i', 'unknown_interval')}.csv"
+    csv_file_path = CSV_LOG_DIR / csv_filename
+    file_exists = csv_file_path.exists()
+
+    # Define the data to be written
+    row_data = {
+        'reception_timestamp_utc': datetime.utcnow().isoformat() + "Z", # Timestamp when data was received by script
+        'kline_start_time_ms': kline_data.get('t'),
+        'kline_close_time_ms': kline_data.get('T'),
+        'symbol': symbol,
+        'interval': kline_data.get('i'),
+        'open_price': kline_data.get('o'),
+        'close_price': kline_data.get('c'),
+        'high_price': kline_data.get('h'),
+        'low_price': kline_data.get('l'),
+        'base_asset_volume': kline_data.get('v'),
+        'number_of_trades': kline_data.get('n'),
+        'is_kline_closed': kline_data.get('x'),
+        'quote_asset_volume': kline_data.get('q'),
+        'taker_buy_base_asset_volume': kline_data.get('V'),
+        'taker_buy_quote_asset_volume': kline_data.get('Q'),
+        'stream_name': stream_name
+    }
+
+    try:
+        with open(csv_file_path, 'a', newline='', encoding='utf-8') as csvfile:
+            fieldnames = list(row_data.keys())
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+            if not file_exists:
+                writer.writeheader()
+                logger.info(f"Created new CSV log file: {csv_file_path}")
+            
+            writer.writerow(row_data)
+    except IOError as e:
+        logger.error(f"Error writing Binance kline data to CSV {csv_file_path}: {e}")
+    except Exception as e:
+        logger.error(f"Unexpected error during CSV writing for Binance: {e}")
+
+
+# --- Binance WebSocket Client ---
+async def binance_websocket_client_task():
+    global SUBSCRIPTION_ID_COUNTER # Use the global counter
     uri = BINANCE_WS_ENDPOINT
+    ensure_log_dir() # Make sure log directory exists
 
-    async with websockets.connect(uri) as websocket:
-        print(f"Connected to Binance WebSocket at {uri}")
+    while True: # Outer loop for reconnection
+        current_subscription_id = SUBSCRIPTION_ID_COUNTER # Use and then increment for this connection attempt
+        SUBSCRIPTION_ID_COUNTER +=1
+        
+        logger.info(f"Attempting to connect to Binance WebSocket at {uri}")
+        try:
+            async with websockets.connect(uri, ping_interval=20, ping_timeout=60, open_timeout=10) as websocket:
+                logger.info(f"Successfully connected to Binance WebSocket.")
 
-        subscribe_payload = {
-            "method": "SUBSCRIBE",
-            "params": STREAMS_TO_SUBSCRIBE,
-            "id": SUBSCRIPTION_ID_COUNTER
-        }
-        SUBSCRIPTION_ID_COUNTER += 1
-        await websocket.send(json.dumps(subscribe_payload))
-        print(f"Sent subscription request: {json.dumps(subscribe_payload)}")
+                if not STREAMS_TO_SUBSCRIBE:
+                    logger.warning("No streams configured in STREAMS_TO_SUBSCRIBE. Listener will be idle.")
+                    await asyncio.sleep(3600) # Sleep for a long time if no streams
+                    continue
 
-        print("\n--- Listening for live data ---")
-        while True:
-            try:
-                message_str = await websocket.recv()
-                message_data = json.loads(message_str)
+                subscribe_payload = {
+                    "method": "SUBSCRIBE",
+                    "params": STREAMS_TO_SUBSCRIBE,
+                    "id": current_subscription_id
+                }
+                await websocket.send(json.dumps(subscribe_payload))
+                logger.info(f"Sent subscription request (ID: {current_subscription_id}): {json.dumps(subscribe_payload)}")
 
-                if 'stream' in message_data and 'data' in message_data:
-                    stream_name = message_data['stream']
-                    data_payload = message_data['data']
-                    event_type = data_payload.get('e')
+                logger.info("--- Listening for live Binance data ---")
+                async for message_str in websocket:
+                    try:
+                        message_data = json.loads(message_str)
 
-                    current_time_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
+                        if 'stream' in message_data and 'data' in message_data:
+                            data_payload = message_data['data']
+                            event_type = data_payload.get('e')
+                            stream_name = message_data['stream'] # For logging context
 
-                    if event_type == '24hrMiniTicker':
-                        symbol = data_payload['s']
-                        last_price = data_payload['c']
-                        print(f"{current_time_str} | MINI_TICKER | {symbol}: Last Price = {last_price}")
+                            if event_type == 'kline':
+                                kline_data_full = data_payload['k']
+                                symbol = kline_data_full['s']
+                                interval = kline_data_full['i']
+                                is_closed = kline_data_full['x']
+                                close_price = kline_data_full['c']
+                                
+                                # Log to console (optional, can be made more concise or removed)
+                                logger.debug(f"KLINE_{interval} | {symbol}: C={close_price}, Closed={is_closed} (Stream: {stream_name})")
+                                
+                                # Log to CSV
+                                log_kline_to_csv(message_data) # Pass the whole message_data for context
 
-                    elif event_type == 'kline':
-                        kline_data = data_payload['k']
-                        symbol = kline_data['s']
-                        interval = kline_data['i']
-                        is_closed = kline_data['x']
-                        open_price = kline_data['o']
-                        close_price = kline_data['c'] # This updates with current price for unclosed kline
-                        high_price = kline_data['h']
-                        low_price = kline_data['l']
-                        volume = kline_data['v']
+                            elif event_type == '24hrMiniTicker':
+                                symbol = data_payload['s']
+                                last_price = data_payload['c']
+                                logger.debug(f"MINI_TICKER | {symbol}: Last Price = {last_price} (Stream: {stream_name})")
+                                # CSV logging for miniTicker could be added here if needed, similar to klines
 
-                        # Store the latest kline data if you want to perform calculations on it
-                        latest_klines[f"{symbol}_{interval}"] = kline_data
+                            # Add handlers for other event_types like 'trade' if you subscribe to them
 
-                        print(f"{current_time_str} | KLINE_{interval} | {symbol}: O={open_price}, H={high_price}, L={low_price}, C={close_price}, V={volume}, Closed={is_closed}")
+                        elif "result" in message_data and "id" in message_data:
+                            logger.info(f"Subscription response (ID: {message_data['id']}): {json.dumps(message_data)}")
+                        else:
+                            logger.debug(f"Other Binance message: {json.dumps(message_data)}")
 
-                        # --- Your prediction logic would go here ---
-                        # Example: Check momentum on the 1m kline
-                        # if symbol == "ETHUSDT" and interval == "1m":
-                        #     if float(close_price) > float(open_price):
-                        #         print(f"    ETHUSDT 1m kline: Bullish momentum (C > O)")
-                        #     elif float(close_price) < float(open_price):
-                        #         print(f"    ETHUSDT 1m kline: Bearish momentum (C < O)")
+                    except json.JSONDecodeError:
+                        logger.error(f"Binance: JSON Decode Error - {message_str}")
+                    except Exception as e:
+                        logger.exception(f"Binance: Error processing message - {e} - Message: {message_str}")
+        
+        except (websockets.exceptions.ConnectionClosed, websockets.exceptions.ConnectionClosedError,
+                websockets.exceptions.ConnectionClosedOK, websockets.exceptions.InvalidStatusCode,
+                asyncio.TimeoutError, ConnectionRefusedError) as e:
+            logger.error(f"Binance WebSocket connection issue: {type(e).__name__} - {e}.")
+        except Exception as e:
+            logger.exception(f"Unexpected error in Binance WebSocket client task: {e}")
+        
+        logger.info("Attempting to reconnect to Binance in 10 seconds...")
+        await asyncio.sleep(10)
 
-
-                elif "result" in message_data and "id" in message_data:
-                    print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]} | Subscription response: {json.dumps(message_data)}")
-                else:
-                    print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]} | Other message: {json.dumps(message_data)}")
-
-            except websockets.exceptions.ConnectionClosedOK:
-                print("Connection closed normally.")
-                break
-            except websockets.exceptions.ConnectionClosedError as e:
-                print(f"Connection closed with error: {e} - Attempting to reconnect...")
-                await asyncio.sleep(5)
-                asyncio.run(binance_websocket_client())
-                break
-            except websockets.exceptions.ConnectionClosed as e:
-                print(f"Connection closed unexpectedly: {e} - Attempting to reconnect...")
-                await asyncio.sleep(5)
-                asyncio.run(binance_websocket_client())
-                break
-            except json.JSONDecodeError as e:
-                print(f"JSON Decode Error: {e} - Received: {message_str}")
-            except Exception as e:
-                print(f"An error occurred: {e} - Message: {message_str}")
-                await asyncio.sleep(1)
 
 if __name__ == "__main__":
-    print("Starting Binance WebSocket client for ETH and BTC prices + Klines...")
-    print(f"Attempting to subscribe to: {', '.join(STREAMS_TO_SUBSCRIBE)}")
+    logger.info("Starting Binance WebSocket client...")
+    if STREAMS_TO_SUBSCRIBE:
+        logger.info(f"Attempting to subscribe to: {', '.join(STREAMS_TO_SUBSCRIBE)}")
+    else:
+        logger.warning("STREAMS_TO_SUBSCRIBE is empty. The client will connect but not receive market data.")
+
     try:
-        asyncio.run(binance_websocket_client())
+        asyncio.run(binance_websocket_client_task())
     except KeyboardInterrupt:
-        print("\nManually interrupted by user. Exiting.")
+        logger.info("\nManually interrupted by user. Exiting Binance streamer.")
     except Exception as e:
-        print(f"Main execution error: {e}")
+        logger.exception(f"Main execution error for Binance streamer: {e}")
