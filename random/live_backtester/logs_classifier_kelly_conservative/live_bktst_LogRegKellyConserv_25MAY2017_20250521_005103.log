@@ -1,0 +1,41 @@
+2025-05-21 00:51:07,256 - INFO - LiveClassifyKellyConservBktst.main:314 - Logging for session '25MAY2017' will be in: /Users/omarabul-hassan/Desktop/projects/kalshi/random/live_backtester/logs_classifier_kelly_conservative/live_bktst_LogRegKellyConserv_25MAY2017_20250521_005103.log
+2025-05-21 00:51:07,256 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:82 - --- Starting Live Data Backtest (Classifier + Kelly - Conservative) for Session: 25MAY2017 ---
+2025-05-21 00:51:07,256 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:83 - Using Binance data: btcusdt_4kline_1m.csv
+2025-05-21 00:51:07,256 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:84 - Strategy: Min Model Prob: 0.6, Edge Threshold: 0.2
+2025-05-21 00:51:07,256 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:85 - Sizing: Kelly Frac: 0.05, Max Alloc Pct: 0.05
+2025-05-21 00:51:07,256 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:86 - Session Start Capital: $530.54
+2025-05-21 00:51:07,263 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:98 - Calculated TA features for 30 Binance klines.
+2025-05-21 00:51:07,264 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:119 - 
+--- Processing Kalshi Market: KXBTCD-25MAY2017-T105999.99 ---
+2025-05-21 00:51:07,264 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:125 -   Actual outcome: yes
+2025-05-21 00:51:07,282 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:161 - Market KXBTCD-25MAY2017-T105999.99: Strike=105999.99, Resolves (UTC)=2025-05-20T21:00:00+00:00
+2025-05-21 00:51:07,282 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:162 -   Kalshi data: 2025-05-20T20:04:05.201618+00:00 to 2025-05-20T20:36:39.746327+00:00
+2025-05-21 00:51:07,282 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:163 -   Decision loop: 2025-05-20T20:05:00+00:00 to 2025-05-20T20:36:00+00:00
+2025-05-21 00:51:07,348 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:119 - 
+--- Processing Kalshi Market: KXBTCD-25MAY2017-T106499.99 ---
+2025-05-21 00:51:07,348 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:125 -   Actual outcome: yes
+2025-05-21 00:51:07,454 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:161 - Market KXBTCD-25MAY2017-T106499.99: Strike=106499.99, Resolves (UTC)=2025-05-20T21:00:00+00:00
+2025-05-21 00:51:07,455 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:162 -   Kalshi data: 2025-05-20T20:02:46.781688+00:00 to 2025-05-20T20:40:10.992640+00:00
+2025-05-21 00:51:07,455 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:163 -   Decision loop: 2025-05-20T20:03:00+00:00 to 2025-05-20T20:40:00+00:00
+2025-05-21 00:51:07,457 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:240 - TRADE: KXBTCD-25MAY2017-T106499.99 @ 20:03 | P(YES):0.932 P(YES):0.932 | BUY_YES x29@70c (B:65,A:70) | Outcome:YES | PNL:870c | GlobalCap:$539.24
+2025-05-21 00:51:07,459 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:240 - TRADE: KXBTCD-25MAY2017-T106499.99 @ 20:04 | P(YES):0.905 P(YES):0.905 | BUY_YES x31@64c (B:61,A:64) | Outcome:YES | PNL:1116c | GlobalCap:$550.40
+2025-05-21 00:51:07,497 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:240 - TRADE: KXBTCD-25MAY2017-T106499.99 @ 20:15 | P(YES):0.957 P(YES):0.957 | BUY_YES x33@71c (B:67,A:71) | Outcome:YES | PNL:957c | GlobalCap:$559.97
+2025-05-21 00:51:07,502 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:240 - TRADE: KXBTCD-25MAY2017-T106499.99 @ 20:16 | P(YES):0.932 P(YES):0.932 | BUY_YES x36@63c (B:61,A:63) | Outcome:YES | PNL:1332c | GlobalCap:$573.29
+2025-05-21 00:51:07,507 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:240 - TRADE: KXBTCD-25MAY2017-T106499.99 @ 20:17 | P(YES):0.862 P(YES):0.862 | BUY_YES x38@53c (B:49,A:53) | Outcome:YES | PNL:1786c | GlobalCap:$591.15
+2025-05-21 00:51:07,512 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:240 - TRADE: KXBTCD-25MAY2017-T106499.99 @ 20:18 | P(YES):0.882 P(YES):0.882 | BUY_YES x35@59c (B:57,A:59) | Outcome:YES | PNL:1435c | GlobalCap:$605.50
+2025-05-21 00:51:07,518 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:240 - TRADE: KXBTCD-25MAY2017-T106499.99 @ 20:19 | P(YES):0.925 P(YES):0.925 | BUY_YES x33@69c (B:67,A:69) | Outcome:YES | PNL:1023c | GlobalCap:$615.73
+2025-05-21 00:51:07,560 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:240 - TRADE: KXBTCD-25MAY2017-T106499.99 @ 20:26 | P(YES):0.962 P(YES):0.962 | BUY_YES x34@76c (B:72,A:76) | Outcome:YES | PNL:816c | GlobalCap:$623.89
+2025-05-21 00:51:07,567 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:240 - TRADE: KXBTCD-25MAY2017-T106499.99 @ 20:27 | P(YES):0.957 P(YES):0.957 | BUY_YES x34@75c (B:70,A:75) | Outcome:YES | PNL:850c | GlobalCap:$632.39
+2025-05-21 00:51:07,604 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:240 - TRADE: KXBTCD-25MAY2017-T106499.99 @ 20:40 | P(YES):0.965 P(YES):0.965 | BUY_YES x36@75c (B:71,A:75) | Outcome:YES | PNL:900c | GlobalCap:$641.39
+2025-05-21 00:51:07,604 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:119 - 
+--- Processing Kalshi Market: KXBTCD-25MAY2017-T106999.99 ---
+2025-05-21 00:51:07,604 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:125 -   Actual outcome: no
+2025-05-21 00:51:07,697 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:161 - Market KXBTCD-25MAY2017-T106999.99: Strike=106999.99, Resolves (UTC)=2025-05-20T21:00:00+00:00
+2025-05-21 00:51:07,698 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:162 -   Kalshi data: 2025-05-20T20:03:00.935978+00:00 to 2025-05-20T21:00:33.302611+00:00
+2025-05-21 00:51:07,698 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:163 -   Decision loop: 2025-05-20T20:04:00+00:00 to 2025-05-20T20:55:00+00:00
+2025-05-21 00:51:07,865 - INFO - LiveClassifyKellyConservBktst.main:327 - --- Summary for Session: 25MAY2017 ---
+2025-05-21 00:51:07,866 - INFO - LiveClassifyKellyConservBktst.main:329 -   Decision Points Logged: 84
+2025-05-21 00:51:07,866 - INFO - LiveClassifyKellyConservBktst.main:330 -   Executed Trades: 10
+2025-05-21 00:51:07,866 - INFO - LiveClassifyKellyConservBktst.main:331 -   Contracts Traded: 339
+2025-05-21 00:51:07,866 - INFO - LiveClassifyKellyConservBktst.main:332 -   Session P&L: $110.85
+2025-05-21 00:51:07,866 - INFO - LiveClassifyKellyConservBktst.main:333 -   Global Capital after session: $641.39
