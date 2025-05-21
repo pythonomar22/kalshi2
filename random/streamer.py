@@ -48,7 +48,7 @@ def log_kline_to_csv(kline_event_data: dict):
     symbol = kline_data.get('s')
     # Create a unique CSV filename per symbol and interval to keep data organized
     # e.g., btcusdt_kline_1m.csv
-    csv_filename = f"{symbol.lower()}_6kline_{kline_data.get('i', 'unknown_interval')}.csv"
+    csv_filename = f"{symbol.lower()}_7kline_{kline_data.get('i', 'unknown_interval')}.csv"
     csv_file_path = CSV_LOG_DIR / csv_filename
     file_exists = csv_file_path.exists()
 
