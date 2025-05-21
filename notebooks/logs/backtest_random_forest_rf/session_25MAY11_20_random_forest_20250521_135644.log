@@ -1,8 +1,0 @@
-2025-05-21 13:56:45,134 - INFO - Backtest_random_forest.main_backtest_loop:247 - Logging for session 25MAY11_20 to: /Users/omarabul-hassan/Desktop/projects/kalshi/notebooks/logs/backtest_random_forest_rf/session_25MAY11_20_random_forest_20250521_135644.log
-2025-05-21 13:56:45,134 - INFO - utils.clear_binance_cache:41 - Utils: All Binance data caches cleared.
-2025-05-21 13:56:45,134 - INFO - utils.clear_kalshi_cache:46 - Utils: Kalshi market minute data cache cleared.
-2025-05-21 13:56:45,135 - INFO - Backtest_random_forest.main_backtest_loop:267 -   Session 25MAY11_20: Binance data 2025-05-11 21:00 to 2025-05-12 01:00
-2025-05-21 13:56:45,135 - INFO - utils.load_and_prepare_binance_range_with_features:192 - Utils: Preparing Binance data with features for range: 2025-05-11 to 2025-05-12
-2025-05-21 13:56:45,146 - INFO - utils.load_and_prepare_binance_range_with_features:222 - Utils: Calculating TA features on combined Binance data (5760 rows)...
-2025-05-21 13:56:45,148 - INFO - utils.load_and_prepare_binance_range_with_features:237 - Utils: Binance features calculated and cached for the requested range 2025-05-11 to 2025-05-12.
-2025-05-21 13:56:45,149 - INFO - Backtest_random_forest.run_hourly_session_backtest:97 - --- Starting Backtest for Session: 25MAY11_20 ---

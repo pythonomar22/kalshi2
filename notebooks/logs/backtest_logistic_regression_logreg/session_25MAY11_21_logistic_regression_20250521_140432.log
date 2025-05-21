@@ -1,0 +1,13 @@
+2025-05-21 14:04:34,192 - INFO - Backtest_logistic_regression.main_backtest_loop:238 - Processing session 25MAY11_21 (logs: session_25MAY11_21_logistic_regression_20250521_140432.log)
+2025-05-21 14:04:34,193 - INFO - utils.clear_binance_cache:41 - Utils: All Binance data caches cleared.
+2025-05-21 14:04:34,193 - INFO - utils.clear_kalshi_cache:46 - Utils: Kalshi market minute data cache cleared.
+2025-05-21 14:04:34,193 - INFO - Backtest_logistic_regression.main_backtest_loop:256 -   Session 25MAY11_21: Binance data 2025-05-11 22:00 to 2025-05-12 02:00
+2025-05-21 14:04:34,193 - INFO - utils.load_and_prepare_binance_range_with_features:192 - Utils: Preparing Binance data with features for range: 2025-05-11 to 2025-05-12
+2025-05-21 14:04:34,202 - INFO - utils.load_and_prepare_binance_range_with_features:222 - Utils: Calculating TA features on combined Binance data (5760 rows)...
+2025-05-21 14:04:34,204 - INFO - utils.load_and_prepare_binance_range_with_features:237 - Utils: Binance features calculated and cached for the requested range 2025-05-11 to 2025-05-12.
+2025-05-21 14:04:34,204 - INFO - Backtest_logistic_regression.run_hourly_session_backtest:94 - --- Starting Backtest for Session: 25MAY11_21 ---
+2025-05-21 14:04:35,687 - INFO - Backtest_logistic_regression.main_backtest_loop:267 - --- Session 25MAY11_21 Summary ---
+2025-05-21 14:04:35,687 - INFO - Backtest_logistic_regression.main_backtest_loop:268 -   Decision Points: 1176
+2025-05-21 14:04:35,687 - INFO - Backtest_logistic_regression.main_backtest_loop:269 -   Executed Trades: 0
+2025-05-21 14:04:35,687 - INFO - Backtest_logistic_regression.main_backtest_loop:270 -   Contracts Traded: 0
+2025-05-21 14:04:35,687 - INFO - Backtest_logistic_regression.main_backtest_loop:271 -   P&L: $0.00, Capital After: $500.00

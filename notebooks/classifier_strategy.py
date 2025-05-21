@@ -155,7 +155,7 @@ def generate_live_features(
         try: features['hour_of_day_edt'] = decision_point_dt_utc.astimezone(timezone(timedelta(hours=-4))).hour
         except Exception: features['hour_of_day_edt'] = (decision_point_dt_utc.hour - 4 + 24) % 24
 
-    for f_name in _feature_order: # Final pass for any missed NaNs
+    for f_name in _feature_order: 
         if pd.isna(features.get(f_name)):
             if 'rsi' in f_name: features[f_name] = 50.0
             elif f_name == 'kalshi_yes_ask': features[f_name] = 100.0
@@ -171,26 +171,18 @@ def calculate_model_prediction_proba(feature_vector: pd.Series) -> float | None:
     if feature_vector is None or feature_vector.empty:
         logger.warning(f"Strategy ({_model_type_loaded}): Empty feature vector for prediction."); return None
     try:
-        # Ensure DataFrame has columns in the correct order for the scaler and model
         feature_df = pd.DataFrame([feature_vector], columns=_feature_order)
-        
-        if feature_df.isnull().values.any(): # Check for NaNs before scaling
+        if feature_df.isnull().values.any():
             nan_cols = feature_df.columns[feature_df.isnull().any()].tolist()
-            logger.warning(f"Strategy ({_model_type_loaded}): NaNs in feature vector pre-scaling: {nan_cols}. Imputing with 0 for these.")
-            for col in nan_cols: # Simple imputation, could be more sophisticated
+            logger.warning(f"Strategy ({_model_type_loaded}): NaNs in feature vector pre-scaling: {nan_cols}. Imputing.")
+            for col in nan_cols: 
                 if 'rsi' in col: feature_df[col].fillna(50.0, inplace=True)
                 else: feature_df[col].fillna(0, inplace=True)
-
         scaled_features_array = _scaler.transform(feature_df)
-        
-        # Create a DataFrame with feature names for predict_proba to avoid UserWarning
-        # This assumes _feature_order contains the correct names used during fit
         scaled_features_df_with_names = pd.DataFrame(scaled_features_array, columns=_feature_order)
-
         positive_class_idx = np.where(_model_classes == 1)[0]
         if not positive_class_idx.size: 
             logger.error(f"Strategy ({_model_type_loaded}): Positive class (1) not found in model.classes_ ({_model_classes})."); return None
-            
         proba_yes = _model.predict_proba(scaled_features_df_with_names)[0, positive_class_idx[0]]
         return float(proba_yes)
     except Exception as e:
@@ -200,23 +192,37 @@ def calculate_model_prediction_proba(feature_vector: pd.Series) -> float | None:
 def get_trade_decision(
     predicted_proba_yes: float | None, current_kalshi_bid: float | None, current_kalshi_ask: float | None
 ):
-    if predicted_proba_yes is None: return None, None, None
-    trade_action, model_prob_chosen_side, entry_price_chosen_side = None, None, None
+    # Ensure all return variables are initialized at the start of the function's scope
+    trade_action = None
+    model_prob_for_chosen_side = None
+    entry_price_for_chosen_side = None
 
+    if predicted_proba_yes is None:
+        # Still return the initialized None values
+        return trade_action, model_prob_for_chosen_side, entry_price_for_chosen_side
+
+    # --- Try BUY_YES ---
     if pd.notna(current_kalshi_ask) and 0 < current_kalshi_ask < 100:
         implied_proba_yes_at_ask = current_kalshi_ask / 100.0
         if predicted_proba_yes > MIN_MODEL_PROB_FOR_CONSIDERATION and \
            predicted_proba_yes > (implied_proba_yes_at_ask + EDGE_THRESHOLD_FOR_TRADE):
-            trade_action, model_prob_chosen_side, entry_price_for_chosen_side = \
-                "BUY_YES", predicted_proba_yes, current_kalshi_ask
+            trade_action = "BUY_YES"
+            model_prob_for_chosen_side = predicted_proba_yes
+            entry_price_for_chosen_side = current_kalshi_ask
 
-    if trade_action is None and pd.notna(current_kalshi_bid) and 0 < current_kalshi_bid < 100:
-        predicted_proba_no = 1.0 - predicted_proba_yes
-        cost_of_no_contract_cents = 100.0 - current_kalshi_bid
-        if 0 < cost_of_no_contract_cents < 100:
-            implied_proba_no_at_bid = cost_of_no_contract_cents / 100.0
-            if predicted_proba_no > MIN_MODEL_PROB_FOR_CONSIDERATION and \
-               predicted_proba_no > (implied_proba_no_at_bid + EDGE_THRESHOLD_FOR_TRADE):
-                trade_action, model_prob_for_chosen_side, entry_price_for_chosen_side = \
-                    "BUY_NO", predicted_proba_no, cost_of_no_contract_cents
+    # --- Try BUY_NO (only if no BUY_YES action) ---
+    if trade_action is None: # Check if a BUY_YES decision was already made
+        if pd.notna(current_kalshi_bid) and 0 < current_kalshi_bid < 100:
+            predicted_proba_no = 1.0 - predicted_proba_yes
+            cost_of_no_contract_cents = 100.0 - current_kalshi_bid
+            if 0 < cost_of_no_contract_cents < 100:
+                implied_proba_no_at_bid = cost_of_no_contract_cents / 100.0
+                if predicted_proba_no > MIN_MODEL_PROB_FOR_CONSIDERATION and \
+                   predicted_proba_no > (implied_proba_no_at_bid + EDGE_THRESHOLD_FOR_TRADE):
+                    trade_action = "BUY_NO"
+                    model_prob_for_chosen_side = predicted_proba_no
+                    entry_price_for_chosen_side = cost_of_no_contract_cents
+    
+    # If trade_action is still None here, it means no trade conditions were met.
+    # model_prob_for_chosen_side and entry_price_for_chosen_side will correctly be None.
     return trade_action, model_prob_for_chosen_side, entry_price_for_chosen_side

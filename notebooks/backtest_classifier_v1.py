@@ -7,17 +7,11 @@ from datetime import timezone, timedelta
 import logging
 import numpy as np
 import json
-import warnings # Import warnings module
-from sklearn.utils.validation import DataConversionWarning # More specific warning if needed
+import warnings 
+from sklearn.utils.validation import DataConversionWarning 
 
-# --- Suppress specific scikit-learn UserWarnings about feature names ---
-# This is generally safe if you ensure column order and count are correct.
 warnings.filterwarnings(action='ignore', category=UserWarning, module='sklearn.utils.validation')
-# You could also target DataConversionWarning if that appears for specific data types:
-# warnings.filterwarnings(action='ignore', category=DataConversionWarning)
 
-
-# --- Configuration ---
 try:
     script_path = Path(os.path.abspath(__file__)) 
     BASE_PROJECT_DIR = script_path.parent.parent 
@@ -33,7 +27,7 @@ KALSHI_DATA_ROOT_DIR = NOTEBOOKS_DIR / "kalshi_data"
 BINANCE_FLAT_DATA_DIR = NOTEBOOKS_DIR / "binance_data"
 MODEL_ARTIFACTS_ROOT_DIR = NOTEBOOKS_DIR / "trained_models" 
 
-MODEL_TYPE_TO_RUN = "random_forest" 
+MODEL_TYPE_TO_RUN = "logistic_regression" 
 
 if MODEL_TYPE_TO_RUN == "logistic_regression": CLASSIFIER_MODEL_SUBDIR_NAME = "logreg"
 elif MODEL_TYPE_TO_RUN == "random_forest": CLASSIFIER_MODEL_SUBDIR_NAME = "rf"
@@ -46,15 +40,18 @@ BACKTEST_LOGS_DIR.mkdir(parents=True, exist_ok=True)
 run_timestamp = dt.datetime.now().strftime('%Y%m%d_%H%M%S')
 
 # --- Root Logger for Initial Setup (Console Only) ---
-# Configure root logger once for console output during setup
-if not logging.getLogger().hasHandlers():
-    root_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(name)s.%(funcName)s:%(lineno)d - %(message)s')
-    console_handler_root = logging.StreamHandler()
-    console_handler_root.setFormatter(root_formatter)
-    logging.getLogger().addHandler(console_handler_root)
-    logging.getLogger().setLevel(logging.INFO)
+# This ensures console output during setup, and then per-session file handlers take over for detailed logs.
+log_formatter_console = logging.Formatter('%(asctime)s - %(levelname)s - %(name)s.%(funcName)s:%(lineno)d - %(message)s')
+console_handler_main = logging.StreamHandler()
+console_handler_main.setFormatter(log_formatter_console)
 
-logger = logging.getLogger(f"Backtest_{MODEL_TYPE_TO_RUN}") # Main logger for this script
+# Clear any existing handlers from the root logger to avoid conflicts or duplicate messages
+for handler in logging.root.handlers[:]:
+    logging.root.removeHandler(handler)
+logging.root.addHandler(console_handler_main) # Add our configured console handler
+logging.root.setLevel(logging.INFO) # Set root logger level
+
+logger = logging.getLogger(f"Backtest_{MODEL_TYPE_TO_RUN}") 
 logger.info(f"BASE_PROJECT_DIR: {BASE_PROJECT_DIR.resolve()}")
 logger.info(f"Attempting to load {MODEL_TYPE_TO_RUN} model artifacts from: {MODEL_ARTIFACTS_SPECIFIC_DIR.resolve()}")
 logger.info(f"Backtest session logs will be saved under: {BACKTEST_LOGS_DIR.resolve()}")
@@ -88,8 +85,8 @@ if MODEL_TYPE_TO_RUN == "logistic_regression":
     strategy.MIN_MODEL_PROB_FOR_CONSIDERATION = 0.70 
     strategy.EDGE_THRESHOLD_FOR_TRADE = 0.10      
 elif MODEL_TYPE_TO_RUN == "random_forest":
-    strategy.MIN_MODEL_PROB_FOR_CONSIDERATION = 0.85 # Adjusted from 0.80 for RF
-    strategy.EDGE_THRESHOLD_FOR_TRADE = 0.10       # Adjusted from 0.15 for RF
+    strategy.MIN_MODEL_PROB_FOR_CONSIDERATION = 0.85 
+    strategy.EDGE_THRESHOLD_FOR_TRADE = 0.20
 logger.info(f"Strategy thresholds set for {MODEL_TYPE_TO_RUN}: MinProb={strategy.MIN_MODEL_PROB_FOR_CONSIDERATION}, Edge={strategy.EDGE_THRESHOLD_FOR_TRADE}")
 
 def run_hourly_session_backtest(session_markets_df, binance_session_features_df, global_config_state):
@@ -215,22 +212,16 @@ def main_backtest_loop():
         return pi['event_resolution_dt_utc'] if pi else dt.datetime.min.replace(tzinfo=timezone.utc)
     sorted_session_keys = sorted(grouped_sessions.groups.keys(), key=sort_key_func)
     
-    # --- Session-specific File Logging Setup ---
-    # Get root logger and remove any existing file handlers from previous sessions
-    # Keep console handler if it's the only one from initial setup
-    console_handler = None
-    for h in logging.getLogger().handlers:
-        if isinstance(h, logging.StreamHandler): # Keep the console handler
-            console_handler = h
-            break
-    
-    # This formatter will be used for both console and file logs
+    # General log formatter (used by console and session files)
     log_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(name)s.%(funcName)s:%(lineno)d - %(message)s')
-    if console_handler:
-        console_handler.setFormatter(log_formatter)
+    # Ensure console handler uses this formatter
+    global console_handler_main # Reference the one set up globally
+    if console_handler_main:
+        console_handler_main.setFormatter(log_formatter)
 
     for session_key in sorted_session_keys:
         # Remove previous session's file handler, if any
+        # This ensures only one file handler is active at a time for session-specific logs
         current_file_handlers = [h for h in logging.getLogger().handlers if isinstance(h, logging.FileHandler)]
         for h_file in current_file_handlers:
             h_file.close()
@@ -240,21 +231,19 @@ def main_backtest_loop():
         session_log_file_name = f"session_{session_key}_{MODEL_TYPE_TO_RUN}_{run_timestamp}.log"
         session_log_file_path = BACKTEST_LOGS_DIR / session_log_file_name
         
-        file_handler_session = logging.FileHandler(str(session_log_file_path), mode='w') # Overwrite for new session
+        file_handler_session = logging.FileHandler(str(session_log_file_path), mode='w') 
         file_handler_session.setFormatter(log_formatter)
-        logging.getLogger().addHandler(file_handler_session)
+        logging.getLogger().addHandler(file_handler_session) # Add to root logger
         
-        logger.info(f"Logging for session {session_key} to: {session_log_file_path.resolve()}")
-        # --- End Session-specific File Logging Setup for this iteration ---
+        logger.info(f"Processing session {session_key} (logs: {session_log_file_path.name})")
 
         session_markets_df = grouped_sessions.get_group(session_key)
         utils.clear_binance_cache(); utils.clear_kalshi_cache()
-        if session_markets_df.empty: continue
+        if session_markets_df.empty: logger.info(f"No markets in session {session_key}. Skipping."); continue
         
         min_market_open_dt_session = session_markets_df['market_open_time_iso'].min()
         max_market_close_dt_session = session_markets_df['market_close_time_iso'].max()
-
-        max_ta_lookback_minutes = 0
+        max_ta_lookback_minutes = 0 # Recalculate max lookback needed
         if hasattr(utils, 'BTC_MOMENTUM_WINDOWS') and utils.BTC_MOMENTUM_WINDOWS: max_ta_lookback_minutes = max(max_ta_lookback_minutes, max(utils.BTC_MOMENTUM_WINDOWS))
         max_ta_lookback_minutes = max(max_ta_lookback_minutes, getattr(utils, 'BTC_VOLATILITY_WINDOW', 0))
         if hasattr(utils, 'BTC_SMA_WINDOWS') and utils.BTC_SMA_WINDOWS: max_ta_lookback_minutes = max(max_ta_lookback_minutes, max(utils.BTC_SMA_WINDOWS))
@@ -281,12 +270,11 @@ def main_backtest_loop():
         logger.info(f"  Contracts Traded: {session_contracts}")
         logger.info(f"  P&L: ${session_pnl/100:.2f}, Capital After: ${global_config_state['current_capital_usd']:.2f}")
         
-        # Close session-specific file handler
-        if file_handler_session:
+        if file_handler_session: # Close and remove current session's file handler
             file_handler_session.close()
             logging.getLogger().removeHandler(file_handler_session)
             
-    # Final summary to console (root logger should still have console handler)
+    # Final summary to console (root logger should still have only the console handler active)
     logger.info(f"\n\n======= OVERALL HISTORICAL BACKTEST SUMMARY ({MODEL_TYPE_TO_RUN.upper()}) =======")
     logger.info(f"Period: {BACKTEST_START_DATE_STR} to {BACKTEST_END_DATE_STR}")
     logger.info(f"Initial Capital: ${INITIAL_CAPITAL_USD:.2f}, Final Capital: ${global_config_state['current_capital_usd']:.2f}")
@@ -298,12 +286,12 @@ def main_backtest_loop():
 
     if overall_trades_log:
         overall_results_csv_filename = f"ALL_TRADES_{MODEL_TYPE_TO_RUN}_{run_timestamp}.csv"
-        overall_results_csv_path = BACKTEST_LOGS_DIR.parent / overall_results_csv_filename # Save with session logs parent
+        overall_results_csv_path = BACKTEST_LOGS_DIR.parent / overall_results_csv_filename 
         df_overall_results = pd.DataFrame(overall_trades_log)
         df_overall_results.to_csv(overall_results_csv_path, index=False)
         logger.info(f"Overall backtest trade results saved to: {overall_results_csv_path.resolve()}")
     
-    logging.shutdown()
+    logging.shutdown() # Clean up all logging resources
 
 if __name__ == "__main__":
     if strategy._model is None or strategy._scaler is None or strategy._feature_order is None:
