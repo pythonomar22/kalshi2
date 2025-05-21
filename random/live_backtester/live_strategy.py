@@ -23,8 +23,8 @@ logger = logging.getLogger(__name__)
 MODEL_BASE_DIR = Path(".") # Placeholder, will be updated by live_backtest_main.py
 
 # --- Trade Decision Parameters ---
-MIN_MODEL_PROB_FOR_CONSIDERATION = 0.90 # Model must be at least this confident
-EDGE_THRESHOLD_FOR_TRADE = 0.40     # Model's P(event) must be this much > Kalshi's Implied P(event)
+MIN_MODEL_PROB_FOR_CONSIDERATION = 1.0 # Model must be at least this confident
+EDGE_THRESHOLD_FOR_TRADE = 1.0     # Model's P(event) must be this much > Kalshi's Implied P(event)
 
 # --- Global variables for loaded model artifacts ---
 _scaler = None

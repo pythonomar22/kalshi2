@@ -1,0 +1,31 @@
+2025-05-21 00:33:59,641 - INFO - LiveClassifyKellyConservBktst.main:314 - Logging for session '25MAY2016' will be in: /Users/omarabul-hassan/Desktop/projects/kalshi/random/live_backtester/logs_classifier_kelly_conservative/live_bktst_LogRegKellyConserv_25MAY2016_20250521_003356.log
+2025-05-21 00:33:59,641 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:82 - --- Starting Live Data Backtest (Classifier + Kelly - Conservative) for Session: 25MAY2016 ---
+2025-05-21 00:33:59,641 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:83 - Using Binance data: btcusdt_3kline_1m.csv
+2025-05-21 00:33:59,641 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:84 - Strategy: Min Model Prob: 0.9, Edge Threshold: 0.3
+2025-05-21 00:33:59,641 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:85 - Sizing: Kelly Frac: 0.05, Max Alloc Pct: 0.05
+2025-05-21 00:33:59,641 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:86 - Session Start Capital: $480.86
+2025-05-21 00:33:59,650 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:98 - Calculated TA features for 60 Binance klines.
+2025-05-21 00:33:59,650 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:119 - 
+--- Processing Kalshi Market: KXBTCD-25MAY2016-T104999.99 ---
+2025-05-21 00:33:59,650 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:125 -   Actual outcome: yes
+2025-05-21 00:33:59,680 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:161 - Market KXBTCD-25MAY2016-T104999.99: Strike=104999.99, Resolves (UTC)=2025-05-20T20:00:00+00:00
+2025-05-21 00:33:59,680 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:162 -   Kalshi data: 2025-05-20T19:03:31.720882+00:00 to 2025-05-20T19:59:58.796206+00:00
+2025-05-21 00:33:59,680 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:163 -   Decision loop: 2025-05-20T19:04:00+00:00 to 2025-05-20T19:55:00+00:00
+2025-05-21 00:33:59,836 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:119 - 
+--- Processing Kalshi Market: KXBTCD-25MAY2016-T105499.99 ---
+2025-05-21 00:33:59,836 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:125 -   Actual outcome: yes
+2025-05-21 00:33:59,962 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:161 - Market KXBTCD-25MAY2016-T105499.99: Strike=105499.99, Resolves (UTC)=2025-05-20T20:00:00+00:00
+2025-05-21 00:33:59,962 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:162 -   Kalshi data: 2025-05-20T19:03:00.189762+00:00 to 2025-05-20T19:59:58.826350+00:00
+2025-05-21 00:33:59,962 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:163 -   Decision loop: 2025-05-20T19:04:00+00:00 to 2025-05-20T19:55:00+00:00
+2025-05-21 00:34:00,218 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:119 - 
+--- Processing Kalshi Market: KXBTCD-25MAY2016-T106499.99 ---
+2025-05-21 00:34:00,218 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:125 -   Actual outcome: yes
+2025-05-21 00:34:00,314 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:161 - Market KXBTCD-25MAY2016-T106499.99: Strike=106499.99, Resolves (UTC)=2025-05-20T20:00:00+00:00
+2025-05-21 00:34:00,314 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:162 -   Kalshi data: 2025-05-20T19:34:21.814096+00:00 to 2025-05-20T19:59:58.879910+00:00
+2025-05-21 00:34:00,314 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:163 -   Decision loop: 2025-05-20T19:35:00+00:00 to 2025-05-20T19:55:00+00:00
+2025-05-21 00:34:00,421 - INFO - LiveClassifyKellyConservBktst.main:327 - --- Summary for Session: 25MAY2016 ---
+2025-05-21 00:34:00,422 - INFO - LiveClassifyKellyConservBktst.main:329 -   Decision Points Logged: 125
+2025-05-21 00:34:00,422 - INFO - LiveClassifyKellyConservBktst.main:330 -   Executed Trades: 0
+2025-05-21 00:34:00,422 - INFO - LiveClassifyKellyConservBktst.main:331 -   Contracts Traded: 0
+2025-05-21 00:34:00,422 - INFO - LiveClassifyKellyConservBktst.main:332 -   Session P&L: $0.00
+2025-05-21 00:34:00,422 - INFO - LiveClassifyKellyConservBktst.main:333 -   Global Capital after session: $480.86

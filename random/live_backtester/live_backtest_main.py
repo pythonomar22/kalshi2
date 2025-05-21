@@ -72,8 +72,8 @@ if not classifier_live_strategy.load_classifier_artifacts(MODEL_ARTIFACTS_DIR_FO
     exit()
 
 # === CONSERVATIVE STRATEGY SETTINGS ===
-classifier_live_strategy.MIN_MODEL_PROB_FOR_CONSIDERATION = 0.65 # Was 0.55
-classifier_live_strategy.EDGE_THRESHOLD_FOR_TRADE = 0.10      # Was 0.05
+classifier_live_strategy.MIN_MODEL_PROB_FOR_CONSIDERATION = 0.90 # Was 0.55
+classifier_live_strategy.EDGE_THRESHOLD_FOR_TRADE = 0.30     # Was 0.05
 
 def run_live_data_backtest(current_run_config_session, df_all_market_outcomes: pd.DataFrame, global_capital_state: dict):
     kalshi_session_key = current_run_config_session['kalshi_yyyymmddhh_session_key']

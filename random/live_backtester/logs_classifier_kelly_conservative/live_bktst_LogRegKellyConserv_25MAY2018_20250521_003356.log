@@ -1,0 +1,43 @@
+2025-05-21 00:34:01,034 - INFO - LiveClassifyKellyConservBktst.main:314 - Logging for session '25MAY2018' will be in: /Users/omarabul-hassan/Desktop/projects/kalshi/random/live_backtester/logs_classifier_kelly_conservative/live_bktst_LogRegKellyConserv_25MAY2018_20250521_003356.log
+2025-05-21 00:34:01,034 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:82 - --- Starting Live Data Backtest (Classifier + Kelly - Conservative) for Session: 25MAY2018 ---
+2025-05-21 00:34:01,034 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:83 - Using Binance data: btcusdt_5kline_1m.csv
+2025-05-21 00:34:01,034 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:84 - Strategy: Min Model Prob: 0.9, Edge Threshold: 0.3
+2025-05-21 00:34:01,034 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:85 - Sizing: Kelly Frac: 0.05, Max Alloc Pct: 0.05
+2025-05-21 00:34:01,034 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:86 - Session Start Capital: $492.33
+2025-05-21 00:34:01,045 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:98 - Calculated TA features for 62 Binance klines.
+2025-05-21 00:34:01,045 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:119 - 
+--- Processing Kalshi Market: KXBTCD-25MAY2018-T106499.99 ---
+2025-05-21 00:34:01,045 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:125 -   Actual outcome: yes
+2025-05-21 00:34:01,346 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:161 - Market KXBTCD-25MAY2018-T106499.99: Strike=106499.99, Resolves (UTC)=2025-05-20T22:00:00+00:00
+2025-05-21 00:34:01,346 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:162 -   Kalshi data: 2025-05-20T21:00:26.475563+00:00 to 2025-05-20T21:59:59.904604+00:00
+2025-05-21 00:34:01,346 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:163 -   Decision loop: 2025-05-20T21:01:00+00:00 to 2025-05-20T21:55:00+00:00
+2025-05-21 00:34:01,774 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:119 - 
+--- Processing Kalshi Market: KXBTCD-25MAY2018-T106749.99 ---
+2025-05-21 00:34:01,774 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:125 -   Actual outcome: no
+2025-05-21 00:34:02,025 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:161 - Market KXBTCD-25MAY2018-T106749.99: Strike=106749.99, Resolves (UTC)=2025-05-20T22:00:00+00:00
+2025-05-21 00:34:02,025 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:162 -   Kalshi data: 2025-05-20T21:01:53.079396+00:00 to 2025-05-20T21:59:59.488363+00:00
+2025-05-21 00:34:02,025 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:163 -   Decision loop: 2025-05-20T21:02:00+00:00 to 2025-05-20T21:55:00+00:00
+2025-05-21 00:34:02,428 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:119 - 
+--- Processing Kalshi Market: KXBTCD-25MAY2018-T106999.99 ---
+2025-05-21 00:34:02,428 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:125 -   Actual outcome: no
+2025-05-21 00:34:02,564 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:161 - Market KXBTCD-25MAY2018-T106999.99: Strike=106999.99, Resolves (UTC)=2025-05-20T22:00:00+00:00
+2025-05-21 00:34:02,564 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:162 -   Kalshi data: 2025-05-20T21:01:01.579254+00:00 to 2025-05-20T21:59:59.213899+00:00
+2025-05-21 00:34:02,564 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:163 -   Decision loop: 2025-05-20T21:02:00+00:00 to 2025-05-20T21:55:00+00:00
+2025-05-21 00:34:02,970 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:119 - 
+--- Processing Kalshi Market: KXBTCD-25MAY2018-T107249.99 ---
+2025-05-21 00:34:02,970 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:125 -   Actual outcome: no
+2025-05-21 00:34:03,057 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:161 - Market KXBTCD-25MAY2018-T107249.99: Strike=107249.99, Resolves (UTC)=2025-05-20T22:00:00+00:00
+2025-05-21 00:34:03,057 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:162 -   Kalshi data: 2025-05-20T21:02:17.210629+00:00 to 2025-05-20T22:01:13.625482+00:00
+2025-05-21 00:34:03,057 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:163 -   Decision loop: 2025-05-20T21:03:00+00:00 to 2025-05-20T21:55:00+00:00
+2025-05-21 00:34:03,333 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:119 - 
+--- Processing Kalshi Market: KXBTCD-25MAY2018-T107499.99 ---
+2025-05-21 00:34:03,333 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:125 -   Actual outcome: no
+2025-05-21 00:34:03,374 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:161 - Market KXBTCD-25MAY2018-T107499.99: Strike=107499.99, Resolves (UTC)=2025-05-20T22:00:00+00:00
+2025-05-21 00:34:03,374 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:162 -   Kalshi data: 2025-05-20T21:00:40.535117+00:00 to 2025-05-20T21:59:59.206730+00:00
+2025-05-21 00:34:03,374 - INFO - LiveClassifyKellyConservBktst.run_live_data_backtest:163 -   Decision loop: 2025-05-20T21:01:00+00:00 to 2025-05-20T21:55:00+00:00
+2025-05-21 00:34:03,590 - INFO - LiveClassifyKellyConservBktst.main:327 - --- Summary for Session: 25MAY2018 ---
+2025-05-21 00:34:03,590 - INFO - LiveClassifyKellyConservBktst.main:329 -   Decision Points Logged: 271
+2025-05-21 00:34:03,590 - INFO - LiveClassifyKellyConservBktst.main:330 -   Executed Trades: 0
+2025-05-21 00:34:03,590 - INFO - LiveClassifyKellyConservBktst.main:331 -   Contracts Traded: 0
+2025-05-21 00:34:03,590 - INFO - LiveClassifyKellyConservBktst.main:332 -   Session P&L: $0.00
+2025-05-21 00:34:03,590 - INFO - LiveClassifyKellyConservBktst.main:333 -   Global Capital after session: $492.33
