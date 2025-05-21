@@ -1,0 +1,141 @@
+2025-05-20 19:10:02,602 - INFO - LiveBacktestMain.<module>:421 - Logging for this session will be in: /Users/omarabul-hassan/Desktop/projects/kalshi/random/live_backtester/logs/live_backtest_25MAY2015_20250520_191002.log
+2025-05-20 19:10:02,603 - INFO - LiveBacktestMain.<module>:432 - Loaded 22 market outcomes from /Users/omarabul-hassan/Desktop/projects/kalshi/random/live_backtester/live_sessions_market_outcomes.csv
+2025-05-20 19:10:02,603 - INFO - LiveBacktestMain.run_live_data_backtest:91 - --- Starting Live Data Backtest for Session: 25MAY2015 ---
+2025-05-20 19:10:02,603 - INFO - LiveBacktestMain.run_live_data_backtest:92 - Using Binance data: btcusdt_2kline_1m.csv
+2025-05-20 19:10:02,603 - INFO - LiveBacktestMain.run_live_data_backtest:93 - Model PRED_THRESHOLD_BUY_YES: 750.0
+2025-05-20 19:10:02,603 - INFO - LiveBacktestMain.run_live_data_backtest:94 - Model PRED_THRESHOLD_BUY_NO: -750.0
+2025-05-20 19:10:02,603 - INFO - LiveBacktestMain.run_live_data_backtest:95 - Initial Capital: $500.00
+2025-05-20 19:10:02,610 - INFO - LiveBacktestMain.run_live_data_backtest:102 - Loaded 61 closed 1-min Binance klines for session.
+2025-05-20 19:10:02,612 - INFO - LiveBacktestMain.run_live_data_backtest:108 - Calculated TA features for 61 Binance klines for session.
+2025-05-20 19:10:02,612 - INFO - LiveBacktestMain.run_live_data_backtest:121 - Loaded 3 market outcomes for session 25MAY2015.
+2025-05-20 19:10:02,612 - INFO - LiveBacktestMain.run_live_data_backtest:130 - Found 3 Kalshi market CSVs for session 25MAY2015.
+2025-05-20 19:10:02,612 - INFO - LiveBacktestMain.run_live_data_backtest:136 - Live strategy model artifacts (scaler, params, feature_order) appear to be loaded.
+2025-05-20 19:10:02,612 - INFO - LiveBacktestMain.run_live_data_backtest:144 - 
+--- Processing Kalshi Market: KXBTCD-25MAY2015-T105499.99 ---
+2025-05-20 19:10:02,612 - INFO - LiveBacktestMain.run_live_data_backtest:152 -   Actual historical outcome for KXBTCD-25MAY2015-T105499.99: no
+2025-05-20 19:10:02,616 - INFO - LiveBacktestMain.run_live_data_backtest:196 - Market KXBTCD-25MAY2015-T105499.99: Strike=105499.99, Resolves At (UTC)=2025-05-20T19:00:00+00:00
+2025-05-20 19:10:02,616 - INFO - LiveBacktestMain.run_live_data_backtest:197 -   Recorded Kalshi data available from: 2025-05-20T19:03:10.337579+00:00 to 2025-05-20T19:03:32.272381+00:00
+2025-05-20 19:10:02,616 - INFO - LiveBacktestMain.run_live_data_backtest:198 -   Decision loop will run from: 2025-05-20T19:04:00+00:00 to 2025-05-20T18:55:00+00:00 (Interval: 1 min)
+2025-05-20 19:10:02,616 - INFO - LiveBacktestMain.run_live_data_backtest:201 -   No valid decision window for market KXBTCD-25MAY2015-T105499.99. Skipping market.
+2025-05-20 19:10:02,616 - INFO - LiveBacktestMain.run_live_data_backtest:144 - 
+--- Processing Kalshi Market: KXBTCD-25MAY2015-T106249.99 ---
+2025-05-20 19:10:02,616 - INFO - LiveBacktestMain.run_live_data_backtest:152 -   Actual historical outcome for KXBTCD-25MAY2015-T106249.99: no
+2025-05-20 19:10:02,757 - INFO - LiveBacktestMain.run_live_data_backtest:196 - Market KXBTCD-25MAY2015-T106249.99: Strike=106249.99, Resolves At (UTC)=2025-05-20T19:00:00+00:00
+2025-05-20 19:10:02,757 - INFO - LiveBacktestMain.run_live_data_backtest:197 -   Recorded Kalshi data available from: 2025-05-20T18:01:04.499226+00:00 to 2025-05-20T18:59:58.857304+00:00
+2025-05-20 19:10:02,757 - INFO - LiveBacktestMain.run_live_data_backtest:198 -   Decision loop will run from: 2025-05-20T18:02:00+00:00 to 2025-05-20T18:55:00+00:00 (Interval: 1 min)
+2025-05-20 19:10:02,760 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:02:00 | 106249.99 | PredD:295.61 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,762 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:03:00 | 106249.99 | PredD:395.85 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,766 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:04:00 | 106249.99 | PredD:531.10 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,769 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:05:00 | 106249.99 | PredD:540.66 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,772 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:06:00 | 106249.99 | PredD:476.13 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,775 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:07:00 | 106249.99 | PredD:664.90 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,778 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:08:00 | 106249.99 | PredD:620.00 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,781 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:09:00 | 106249.99 | PredD:745.07 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,785 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:10:00 | 106249.99 | PredD:664.52 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,788 - INFO - LiveBacktestMain.run_live_data_backtest:310 - TICK: 18:11:00 | 106249.99 | PredD:950.99 -> BUY_YES x50 @ 73c (B:70.0, A:73) | Cap Before: $500.00
+2025-05-20 19:10:02,792 - INFO - LiveBacktestMain.run_live_data_backtest:310 - TICK: 18:12:00 | 106249.99 | PredD:767.90 -> BUY_YES x17 @ 69c (B:66.0, A:69) | Cap Before: $500.00
+2025-05-20 19:10:02,795 - INFO - LiveBacktestMain.run_live_data_backtest:310 - TICK: 18:13:00 | 106249.99 | PredD:938.77 -> BUY_YES x50 @ 76c (B:71.0, A:76) | Cap Before: $500.00
+2025-05-20 19:10:02,799 - INFO - LiveBacktestMain.run_live_data_backtest:310 - TICK: 18:14:00 | 106249.99 | PredD:854.18 -> BUY_YES x50 @ 72c (B:70.0, A:72) | Cap Before: $500.00
+2025-05-20 19:10:02,804 - INFO - LiveBacktestMain.run_live_data_backtest:310 - TICK: 18:15:00 | 106249.99 | PredD:798.46 -> BUY_YES x40 @ 58c (B:56.0, A:58) | Cap Before: $500.00
+2025-05-20 19:10:02,807 - INFO - LiveBacktestMain.run_live_data_backtest:310 - TICK: 18:16:00 | 106249.99 | PredD:815.65 -> BUY_YES x46 @ 65c (B:62.0, A:65) | Cap Before: $500.00
+2025-05-20 19:10:02,812 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:17:00 | 106249.99 | PredD:590.08 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,817 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:18:00 | 106249.99 | PredD:607.68 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,822 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:19:00 | 106249.99 | PredD:415.48 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,827 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:20:00 | 106249.99 | PredD:514.70 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,832 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:21:00 | 106249.99 | PredD:275.40 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,838 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:22:00 | 106249.99 | PredD:44.92 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,844 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:23:00 | 106249.99 | PredD:-27.50 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,850 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:24:00 | 106249.99 | PredD:13.14 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,856 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:25:00 | 106249.99 | PredD:-45.58 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,863 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:26:00 | 106249.99 | PredD:-89.76 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,869 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:27:00 | 106249.99 | PredD:-237.82 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,876 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:28:00 | 106249.99 | PredD:-220.23 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,882 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:29:00 | 106249.99 | PredD:-393.65 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,889 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:30:00 | 106249.99 | PredD:-299.97 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,896 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:31:00 | 106249.99 | PredD:-433.83 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,903 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:32:00 | 106249.99 | PredD:-493.66 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,911 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:33:00 | 106249.99 | PredD:-623.92 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,919 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:34:00 | 106249.99 | PredD:-476.75 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,926 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:35:00 | 106249.99 | PredD:-483.77 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,933 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:36:00 | 106249.99 | PredD:-358.36 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,941 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:37:00 | 106249.99 | PredD:-317.52 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,949 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:38:00 | 106249.99 | PredD:-154.24 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,958 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:39:00 | 106249.99 | PredD:-201.51 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,967 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:40:00 | 106249.99 | PredD:-276.50 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,975 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:41:00 | 106249.99 | PredD:-323.10 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,984 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:42:00 | 106249.99 | PredD:-414.68 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:02,992 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:43:00 | 106249.99 | PredD:-198.00 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,001 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:44:00 | 106249.99 | PredD:-318.16 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,010 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:45:00 | 106249.99 | PredD:-389.00 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,022 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:49:00 | 106249.99 | PredD:-533.97 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,031 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:50:00 | 106249.99 | PredD:-575.57 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,040 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:51:00 | 106249.99 | PredD:-516.53 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,051 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:54:00 | 106249.99 | PredD:-418.63 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,053 - INFO - LiveBacktestMain.run_live_data_backtest:342 -   PNL_UPDATE for KXBTCD-25MAY2015-T106249.99 | Trade @ 18:11:00: BUY_YES x50 -> -3650c. New Cap: $463.50
+2025-05-20 19:10:03,053 - INFO - LiveBacktestMain.run_live_data_backtest:342 -   PNL_UPDATE for KXBTCD-25MAY2015-T106249.99 | Trade @ 18:12:00: BUY_YES x17 -> -1173c. New Cap: $451.77
+2025-05-20 19:10:03,053 - INFO - LiveBacktestMain.run_live_data_backtest:342 -   PNL_UPDATE for KXBTCD-25MAY2015-T106249.99 | Trade @ 18:13:00: BUY_YES x50 -> -3800c. New Cap: $413.77
+2025-05-20 19:10:03,053 - INFO - LiveBacktestMain.run_live_data_backtest:342 -   PNL_UPDATE for KXBTCD-25MAY2015-T106249.99 | Trade @ 18:14:00: BUY_YES x50 -> -3600c. New Cap: $377.77
+2025-05-20 19:10:03,053 - INFO - LiveBacktestMain.run_live_data_backtest:342 -   PNL_UPDATE for KXBTCD-25MAY2015-T106249.99 | Trade @ 18:15:00: BUY_YES x40 -> -2320c. New Cap: $354.57
+2025-05-20 19:10:03,053 - INFO - LiveBacktestMain.run_live_data_backtest:342 -   PNL_UPDATE for KXBTCD-25MAY2015-T106249.99 | Trade @ 18:16:00: BUY_YES x46 -> -2990c. New Cap: $324.67
+2025-05-20 19:10:03,053 - INFO - LiveBacktestMain.run_live_data_backtest:144 - 
+--- Processing Kalshi Market: KXBTCD-25MAY2015-T106499.99 ---
+2025-05-20 19:10:03,053 - INFO - LiveBacktestMain.run_live_data_backtest:152 -   Actual historical outcome for KXBTCD-25MAY2015-T106499.99: no
+2025-05-20 19:10:03,142 - INFO - LiveBacktestMain.run_live_data_backtest:196 - Market KXBTCD-25MAY2015-T106499.99: Strike=106499.99, Resolves At (UTC)=2025-05-20T19:00:00+00:00
+2025-05-20 19:10:03,142 - INFO - LiveBacktestMain.run_live_data_backtest:197 -   Recorded Kalshi data available from: 2025-05-20T18:00:58.280643+00:00 to 2025-05-20T18:59:58.825876+00:00
+2025-05-20 19:10:03,142 - INFO - LiveBacktestMain.run_live_data_backtest:198 -   Decision loop will run from: 2025-05-20T18:01:00+00:00 to 2025-05-20T18:55:00+00:00 (Interval: 1 min)
+2025-05-20 19:10:03,145 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:02:00 | 106499.99 | PredD:-252.09 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,147 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:03:00 | 106499.99 | PredD:-168.55 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,150 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:04:00 | 106499.99 | PredD:-71.66 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,152 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:05:00 | 106499.99 | PredD:-112.31 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,155 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:06:00 | 106499.99 | PredD:-114.20 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,158 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:07:00 | 106499.99 | PredD:59.04 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,161 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:08:00 | 106499.99 | PredD:13.28 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,164 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:09:00 | 106499.99 | PredD:98.01 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,167 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:10:00 | 106499.99 | PredD:46.54 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,172 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:11:00 | 106499.99 | PredD:314.04 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,175 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:12:00 | 106499.99 | PredD:158.13 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,180 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:13:00 | 106499.99 | PredD:289.10 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,183 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:14:00 | 106499.99 | PredD:211.62 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,188 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:15:00 | 106499.99 | PredD:173.44 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,192 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:16:00 | 106499.99 | PredD:159.65 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,197 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:17:00 | 106499.99 | PredD:-31.23 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,202 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:18:00 | 106499.99 | PredD:-50.86 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,207 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:19:00 | 106499.99 | PredD:-198.84 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,212 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:20:00 | 106499.99 | PredD:-131.76 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,217 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:21:00 | 106499.99 | PredD:-284.58 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,224 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:22:00 | 106499.99 | PredD:-473.18 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,229 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:23:00 | 106499.99 | PredD:-547.06 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,235 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:24:00 | 106499.99 | PredD:-462.07 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,241 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:25:00 | 106499.99 | PredD:-501.10 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,247 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:26:00 | 106499.99 | PredD:-481.96 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,253 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:27:00 | 106499.99 | PredD:-564.80 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,258 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:28:00 | 106499.99 | PredD:-594.94 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,265 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:30:00 | 106499.99 | PredD:-692.01 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,271 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:31:00 | 106499.99 | PredD:-745.27 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,277 - INFO - LiveBacktestMain.run_live_data_backtest:310 - TICK: 18:32:00 | 106499.99 | PredD:-755.54 -> BUY_NO x7 @ 97c (B:3.0, A:6) | Cap Before: $324.67
+2025-05-20 19:10:03,283 - INFO - LiveBacktestMain.run_live_data_backtest:310 - TICK: 18:33:00 | 106499.99 | PredD:-811.37 -> BUY_NO x28 @ 98c (B:2.0, A:5) | Cap Before: $324.67
+2025-05-20 19:10:03,289 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:34:00 | 106499.99 | PredD:-701.03 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,295 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:35:00 | 106499.99 | PredD:-678.36 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,301 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:36:00 | 106499.99 | PredD:-610.08 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,306 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:37:00 | 106499.99 | PredD:-576.10 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,313 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:38:00 | 106499.99 | PredD:-513.13 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,319 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:39:00 | 106499.99 | PredD:-521.08 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,325 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:40:00 | 106499.99 | PredD:-609.59 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,333 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:43:00 | 106499.99 | PredD:-493.14 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,340 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:44:00 | 106499.99 | PredD:-504.74 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,349 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:50:00 | 106499.99 | PredD:-651.82 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,358 - INFO - LiveBacktestMain.run_live_data_backtest:320 - TICK: 18:54:00 | 106499.99 | PredD:-494.87 -> NO_TRADE (Reason: score between NO_THRESH (-750.00) and YES_THRESH (750.00))
+2025-05-20 19:10:03,358 - INFO - LiveBacktestMain.run_live_data_backtest:342 -   PNL_UPDATE for KXBTCD-25MAY2015-T106499.99 | Trade @ 18:32:00: BUY_NO x7 -> 21c. New Cap: $324.88
+2025-05-20 19:10:03,358 - INFO - LiveBacktestMain.run_live_data_backtest:342 -   PNL_UPDATE for KXBTCD-25MAY2015-T106499.99 | Trade @ 18:33:00: BUY_NO x28 -> 56c. New Cap: $325.44
+2025-05-20 19:10:03,360 - INFO - LiveBacktestMain.run_live_data_backtest:354 - Live backtest results saved to: /Users/omarabul-hassan/Desktop/projects/kalshi/random/live_backtester/logs/live_backtest_results_25MAY2015_20250520_191002.csv
+2025-05-20 19:10:03,360 - INFO - LiveBacktestMain.run_live_data_backtest:361 - 
+--- Live Data Backtest Summary for Session: 25MAY2015 ---
+2025-05-20 19:10:03,360 - INFO - LiveBacktestMain.run_live_data_backtest:362 - Total decision points evaluated across all markets in session: 90
+2025-05-20 19:10:03,360 - INFO - LiveBacktestMain.run_live_data_backtest:363 - Total trades EXECUTED (contracts > 0): 8
+2025-05-20 19:10:03,360 - INFO - LiveBacktestMain.run_live_data_backtest:365 -   BUY_YES executed: 6
+2025-05-20 19:10:03,360 - INFO - LiveBacktestMain.run_live_data_backtest:366 -   BUY_NO executed: 2
+2025-05-20 19:10:03,360 - INFO - LiveBacktestMain.run_live_data_backtest:367 - Total Contracts Traded in session: 288
+2025-05-20 19:10:03,360 - INFO - LiveBacktestMain.run_live_data_backtest:368 - Initial Capital: $500.00, Final Capital: $325.44
+2025-05-20 19:10:03,360 - INFO - LiveBacktestMain.run_live_data_backtest:369 - Total P&L for Session (from actual outcomes): $-174.56
+2025-05-20 19:10:03,360 - INFO - LiveBacktestMain.run_live_data_backtest:371 - Avg P&L/Contract (from actual outcomes): $-0.6061
+2025-05-20 19:10:03,361 - INFO - LiveBacktestMain.<module>:446 - Full log file for this run: /Users/omarabul-hassan/Desktop/projects/kalshi/random/live_backtester/logs/live_backtest_25MAY2015_20250520_191002.log

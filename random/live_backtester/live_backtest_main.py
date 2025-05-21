@@ -384,7 +384,7 @@ if __name__ == "__main__":
         "25MAY2019": "btcusdt_6kline_1m.csv",
     }
     
-    session_key_to_run = "25MAY2019" 
+    session_key_to_run = "25MAY1920" 
 
     _current_run_config = RUN_CONFIG.copy() 
 
