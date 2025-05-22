@@ -1,0 +1,52 @@
+2025-05-21 15:13:59,286 - INFO - LiveBktst_random_forest.main:287 - Logging for session '25MAY2017' to: live_bktst_RFKelly_25MAY2017_20250521_151351.log
+2025-05-21 15:13:59,286 - INFO - LiveBktst_random_forest.run_live_data_backtest:100 - --- Starting Live Data Backtest (random_forest) for Session: 25MAY2017 ---
+2025-05-21 15:13:59,286 - INFO - LiveBktst_random_forest.run_live_data_backtest:101 - Using Binance data: btcusdt_4kline_1m.csv
+2025-05-21 15:13:59,286 - INFO - LiveBktst_random_forest.run_live_data_backtest:102 - Strategy Params: MinProb=0.55, Edge=0.05
+2025-05-21 15:13:59,286 - INFO - LiveBktst_random_forest.run_live_data_backtest:104 - Sizing Params: KellyFrac=0.05, MaxAllocPct=0.05, MaxContracts=50
+2025-05-21 15:13:59,286 - INFO - LiveBktst_random_forest.run_live_data_backtest:105 - Session Start Capital: $724.35
+2025-05-21 15:13:59,293 - INFO - LiveBktst_random_forest.run_live_data_backtest:117 - Calculated TA features for 30 Binance klines for session 25MAY2017.
+2025-05-21 15:13:59,294 - INFO - LiveBktst_random_forest.run_live_data_backtest:133 - 
+--- Processing Live Kalshi Market: KXBTCD-25MAY2017-T105999.99 ---
+2025-05-21 15:13:59,312 - INFO - LiveBktst_random_forest.run_live_data_backtest:173 -   Market KXBTCD-25MAY2017-T105999.99: Strike=105999.99, Resolves=2025-05-20T21:00:00+00:00
+2025-05-21 15:13:59,312 - INFO - LiveBktst_random_forest.run_live_data_backtest:174 -   Kalshi Data (UTC): 2025-05-20T20:04:05.201618+00:00 to 2025-05-20T20:36:39.746327+00:00
+2025-05-21 15:13:59,312 - INFO - LiveBktst_random_forest.run_live_data_backtest:175 -   Decision Loop (UTC): 2025-05-20T20:05:00+00:00 to 2025-05-20T20:36:00+00:00
+2025-05-21 15:13:59,719 - INFO - LiveBktst_random_forest.run_live_data_backtest:133 - 
+--- Processing Live Kalshi Market: KXBTCD-25MAY2017-T106499.99 ---
+2025-05-21 15:13:59,826 - INFO - LiveBktst_random_forest.run_live_data_backtest:173 -   Market KXBTCD-25MAY2017-T106499.99: Strike=106499.99, Resolves=2025-05-20T21:00:00+00:00
+2025-05-21 15:13:59,826 - INFO - LiveBktst_random_forest.run_live_data_backtest:174 -   Kalshi Data (UTC): 2025-05-20T20:02:46.781688+00:00 to 2025-05-20T20:40:10.992640+00:00
+2025-05-21 15:13:59,826 - INFO - LiveBktst_random_forest.run_live_data_backtest:175 -   Decision Loop (UTC): 2025-05-20T20:03:00+00:00 to 2025-05-20T20:40:00+00:00
+2025-05-21 15:13:59,856 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106499.99 @ 20:04 | P(YES):0.394 P(NO):0.606 | BUY_NO x32@39c (Exec B:61,Exec A:64) | Outcome:YES | PNL:-1248c | GlobalCap:$711.87
+2025-05-21 15:14:00,108 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106499.99 @ 20:16 | P(YES):0.442 P(NO):0.558 | BUY_NO x25@39c (Exec B:61,Exec A:63) | Outcome:YES | PNL:-975c | GlobalCap:$702.12
+2025-05-21 15:14:00,125 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106499.99 @ 20:17 | P(YES):0.340 P(NO):0.660 | BUY_NO x21@51c (Exec B:49,Exec A:53) | Outcome:YES | PNL:-1071c | GlobalCap:$691.41
+2025-05-21 15:14:00,143 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106499.99 @ 20:18 | P(YES):0.332 P(NO):0.668 | BUY_NO x33@43c (Exec B:57,Exec A:59) | Outcome:YES | PNL:-1419c | GlobalCap:$677.22
+2025-05-21 15:14:00,160 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106499.99 @ 20:19 | P(YES):0.346 P(NO):0.654 | BUY_NO x49@33c (Exec B:67,Exec A:69) | Outcome:YES | PNL:-1617c | GlobalCap:$661.05
+2025-05-21 15:14:00,376 - INFO - LiveBktst_random_forest.run_live_data_backtest:133 - 
+--- Processing Live Kalshi Market: KXBTCD-25MAY2017-T106999.99 ---
+2025-05-21 15:14:00,477 - INFO - LiveBktst_random_forest.run_live_data_backtest:173 -   Market KXBTCD-25MAY2017-T106999.99: Strike=106999.99, Resolves=2025-05-20T21:00:00+00:00
+2025-05-21 15:14:00,477 - INFO - LiveBktst_random_forest.run_live_data_backtest:174 -   Kalshi Data (UTC): 2025-05-20T20:03:00.935978+00:00 to 2025-05-20T21:00:33.302611+00:00
+2025-05-21 15:14:00,477 - INFO - LiveBktst_random_forest.run_live_data_backtest:175 -   Decision Loop (UTC): 2025-05-20T20:04:00+00:00 to 2025-05-20T20:55:00+00:00
+2025-05-21 15:14:00,508 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:05 | P(YES):0.062 P(NO):0.938 | BUY_NO x34@73c (Exec B:27.0,Exec A:33.0) | Outcome:NO | PNL:918c | GlobalCap:$670.23
+2025-05-21 15:14:00,524 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:06 | P(YES):0.115 P(NO):0.885 | BUY_NO x26@73c (Exec B:27.0,Exec A:35.0) | Outcome:NO | PNL:702c | GlobalCap:$677.25
+2025-05-21 15:14:00,540 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:07 | P(YES):0.111 P(NO):0.889 | BUY_NO x21@78c (Exec B:22.0,Exec A:29.0) | Outcome:NO | PNL:462c | GlobalCap:$681.87
+2025-05-21 15:14:00,556 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:08 | P(YES):0.055 P(NO):0.945 | BUY_NO x33@77c (Exec B:23.0,Exec A:31.0) | Outcome:NO | PNL:759c | GlobalCap:$689.46
+2025-05-21 15:14:00,572 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:09 | P(YES):0.075 P(NO):0.925 | BUY_NO x28@79c (Exec B:21.0,Exec A:27.0) | Outcome:NO | PNL:588c | GlobalCap:$695.34
+2025-05-21 15:14:00,588 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:10 | P(YES):0.054 P(NO):0.946 | BUY_NO x39@71c (Exec B:29.0,Exec A:35.0) | Outcome:NO | PNL:1131c | GlobalCap:$706.65
+2025-05-21 15:14:00,605 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:11 | P(YES):0.142 P(NO):0.858 | BUY_NO x32@65c (Exec B:35.0,Exec A:39.0) | Outcome:NO | PNL:1120c | GlobalCap:$717.85
+2025-05-21 15:14:00,620 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:12 | P(YES):0.163 P(NO):0.837 | BUY_NO x30@64c (Exec B:36.0,Exec A:41.0) | Outcome:NO | PNL:1080c | GlobalCap:$728.65
+2025-05-21 15:14:00,635 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:13 | P(YES):0.172 P(NO):0.828 | BUY_NO x29@64c (Exec B:36.0,Exec A:40.0) | Outcome:NO | PNL:1044c | GlobalCap:$739.09
+2025-05-21 15:14:00,651 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:14 | P(YES):0.127 P(NO):0.873 | BUY_NO x21@77c (Exec B:23.0,Exec A:26.0) | Outcome:NO | PNL:483c | GlobalCap:$743.92
+2025-05-21 15:14:00,666 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:15 | P(YES):0.086 P(NO):0.914 | BUY_NO x22@83c (Exec B:17.0,Exec A:18.0) | Outcome:NO | PNL:374c | GlobalCap:$747.66
+2025-05-21 15:14:00,728 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:19 | P(YES):0.096 P(NO):0.904 | BUY_NO x19@83c (Exec B:17.0,Exec A:21.0) | Outcome:NO | PNL:323c | GlobalCap:$750.89
+2025-05-21 15:14:00,745 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:20 | P(YES):0.091 P(NO):0.909 | BUY_NO x35@72c (Exec B:28.0,Exec A:32.0) | Outcome:NO | PNL:980c | GlobalCap:$760.69
+2025-05-21 15:14:00,762 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:21 | P(YES):0.125 P(NO):0.875 | BUY_NO x30@71c (Exec B:29.0,Exec A:33.0) | Outcome:NO | PNL:870c | GlobalCap:$769.39
+2025-05-21 15:14:00,778 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:22 | P(YES):0.134 P(NO):0.866 | BUY_NO x27@72c (Exec B:28.0,Exec A:33.0) | Outcome:NO | PNL:756c | GlobalCap:$776.95
+2025-05-21 15:14:00,794 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:23 | P(YES):0.104 P(NO):0.896 | BUY_NO x26@78c (Exec B:22.0,Exec A:26.0) | Outcome:NO | PNL:572c | GlobalCap:$782.67
+2025-05-21 15:14:00,810 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:24 | P(YES):0.086 P(NO):0.914 | BUY_NO x24@82c (Exec B:18.0,Exec A:22.0) | Outcome:NO | PNL:432c | GlobalCap:$786.99
+2025-05-21 15:14:00,826 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:25 | P(YES):0.090 P(NO):0.910 | BUY_NO x18@85c (Exec B:15.0,Exec A:19.0) | Outcome:NO | PNL:270c | GlobalCap:$789.69
+2025-05-21 15:14:00,877 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:28 | P(YES):0.082 P(NO):0.918 | BUY_NO x19@86c (Exec B:14.0,Exec A:20.0) | Outcome:NO | PNL:266c | GlobalCap:$792.35
+2025-05-21 15:14:00,895 - INFO - LiveBktst_random_forest.run_live_data_backtest:230 - TRADE: KXBTCD-25MAY2017-T106999.99 @ 20:29 | P(YES):0.095 P(NO):0.905 | BUY_NO x27@79c (Exec B:21.0,Exec A:27.0) | Outcome:NO | PNL:567c | GlobalCap:$798.02
+2025-05-21 15:14:00,959 - INFO - LiveBktst_random_forest.main:296 - --- Summary for Session: 25MAY2017 (random_forest) ---
+2025-05-21 15:14:00,959 - INFO - LiveBktst_random_forest.main:297 -   Decision Points: 84
+2025-05-21 15:14:00,959 - INFO - LiveBktst_random_forest.main:298 -   Executed Trades: 25
+2025-05-21 15:14:00,959 - INFO - LiveBktst_random_forest.main:299 -   Contracts Traded: 700
+2025-05-21 15:14:00,959 - INFO - LiveBktst_random_forest.main:300 -   Session P&L: $73.67, Global Capital: $798.02

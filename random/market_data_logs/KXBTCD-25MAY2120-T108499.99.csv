@@ -1,0 +1,2 @@
+timestamp,market_ticker,type,yes_bid_price_cents,yes_bid_qty,yes_ask_price_cents,yes_ask_qty_on_no_side,sequence_num,delta_side,delta_price_cents,delta_quantity
+2025-05-21T15:59:54.610789,KXBTCD-25MAY2120-T108499.99,SNAPSHOT,,0,,0,1,,,

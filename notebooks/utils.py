@@ -10,19 +10,31 @@ import numpy as np
 
 logger = logging.getLogger(__name__)
 
-# These will be set by the main backtest script
+# These will be set by the main backtest script if they run utils.py directly,
+# or used by other modules importing from utils.
 BASE_PROJECT_DIR = Path.cwd() 
 BINANCE_FLAT_DATA_DIR = BASE_PROJECT_DIR / "binance_data" 
 KALSHI_DATA_DIR = BASE_PROJECT_DIR / "kalshi_data" 
 
 # --- Feature Calculation Parameters (Single Source of Truth) ---
-# These need to match what the model was trained with and what the strategy uses.
-BTC_MOMENTUM_WINDOWS = [5, 10, 15, 30]
-BTC_VOLATILITY_WINDOW = 15
-BTC_SMA_WINDOWS = [10, 30]
-BTC_EMA_WINDOWS = [12, 26]
+# --- BTC Features ---
+BTC_MOMENTUM_WINDOWS = [5, 10, 15, 30, 60] # Expanded
+BTC_VOLATILITY_WINDOW = 15 
+BTC_SMA_WINDOWS = [10, 30, 50]          # Expanded
+BTC_EMA_WINDOWS = [12, 26, 50]          # Expanded
 BTC_RSI_WINDOW = 14
-# KALSHI_PRICE_CHANGE_WINDOWS is used by strategy, not directly in utils features yet.
+BTC_ATR_WINDOW = 14                     # New
+
+# --- Kalshi Features (Primarily for strategy logic, not directly calculated in _calculate_ta_features here) ---
+# These are defined here so strategy modules can import them for consistency if needed.
+# The actual calculation of Kalshi-specific features (like mid-price changes or volatility)
+# happens within the feature engineering script or the strategy files themselves,
+# as they require the Kalshi market data specific to each contract.
+KALSHI_PRICE_CHANGE_WINDOWS = [1, 3, 5, 10] # Expanded
+KALSHI_VOLATILITY_WINDOWS = [5, 10]       # New (for Kalshi mid-price volatility)
+# Max staleness for Kalshi data when generating features (used in strategy/feature_engineering)
+KALSHI_MAX_STALENESS_SECONDS_FOR_FEATURES = 120
+
 
 # --- Caches ---
 _binance_daily_raw_cache = {} 
@@ -46,9 +58,6 @@ def clear_kalshi_cache():
     logger.info("Utils: Kalshi market minute data cache cleared.")
 
 def parse_kalshi_ticker_info(ticker_string: str | None):
-    """
-    Parses Kalshi market or event ticker for series, date (YYMMMDD), hour (EDT), strike, and event_resolution_dt_utc.
-    """
     if not ticker_string: return None
     market_match = re.match(r"^(.*?)-(\d{2}[A-Z]{3}\d{2})(\d{2})-(T(\d+\.?\d*))$", ticker_string)
     event_match = re.match(r"^(.*?)-(\d{2}[A-Z]{3}\d{2})(\d{2})$", ticker_string) 
@@ -74,7 +83,6 @@ def parse_kalshi_ticker_info(ticker_string: str | None):
         hour_edt_int = int(hour_str_edt)
         
         event_resolution_dt_naive_edt = dt.datetime(year_int, month_int, day_int, hour_edt_int, 0, 0)
-        # EDT is UTC-4. This is the standard offset for Kalshi's BTC market resolution times.
         edt_offset_from_utc = timedelta(hours=-4) 
         event_resolution_dt_edt_aware = event_resolution_dt_naive_edt.replace(tzinfo=timezone(edt_offset_from_utc))
         event_resolution_dt_utc = event_resolution_dt_edt_aware.astimezone(timezone.utc)
@@ -82,7 +90,7 @@ def parse_kalshi_ticker_info(ticker_string: str | None):
         return {
             "series": series,
             "date_str": date_str_yymmmdd, 
-            "hour_str_EDT": hour_str_edt, # This is the closing hour in EDT as per Kalshi ticker convention
+            "hour_str_EDT": hour_str_edt, 
             "strike_price": strike_price_val,
             "event_resolution_dt_utc": event_resolution_dt_utc
         }
@@ -91,10 +99,6 @@ def parse_kalshi_ticker_info(ticker_string: str | None):
         return None
 
 def get_session_key_from_market_row(market_row_series: pd.Series) -> str | None:
-    """
-    Generates a session key (e.g., '25MAY15_10') from a market row (DataFrame series).
-    Assumes market_row_series['market_ticker'] exists.
-    """
     ticker = market_row_series.get('market_ticker')
     if not ticker:
         return None
@@ -105,14 +109,12 @@ def get_session_key_from_market_row(market_row_series: pd.Series) -> str | None:
 
 
 def _load_single_binance_day_raw(date_obj: dt.date) -> pd.DataFrame | None:
-    """Loads a single day's raw Binance CSV from the flat directory structure."""
     global _binance_daily_raw_cache
     date_str = date_obj.strftime("%Y-%m-%d")
     if date_str in _binance_daily_raw_cache:
         df_copy = _binance_daily_raw_cache[date_str]
         return df_copy.copy() if df_copy is not None else None
 
-    # Use BINANCE_FLAT_DATA_DIR which should be set by the calling script
     filepath = BINANCE_FLAT_DATA_DIR / f"BTCUSDT-1m-{date_str}.csv"
     if not filepath.exists():
         logger.warning(f"Utils: Binance raw data file not found for {date_str} at {filepath}")
@@ -124,13 +126,13 @@ def _load_single_binance_day_raw(date_obj: dt.date) -> pd.DataFrame | None:
                         "taker_buy_base_asset_volume", "taker_buy_quote_asset_volume", "ignore"]
         df = pd.read_csv(filepath, header=None, names=column_names)
         if df.empty:
-            _binance_daily_raw_cache[date_str] = None # Cache None for empty files
+            _binance_daily_raw_cache[date_str] = None 
             return None
         df['timestamp_s'] = df['open_time_raw'] // 1_000_000 
         for col in ['open', 'high', 'low', 'close', 'volume']: 
              df[col] = pd.to_numeric(df[col], errors='coerce')
         df.set_index('timestamp_s', inplace=True)
-        df.dropna(subset=['close'], inplace=True) # Drop rows where close price is NaN after conversion
+        df.dropna(subset=['close', 'high', 'low'], inplace=True) # Ensure H,L,C for ATR
         _binance_daily_raw_cache[date_str] = df
         return df.copy()
     except Exception as e:
@@ -139,17 +141,17 @@ def _load_single_binance_day_raw(date_obj: dt.date) -> pd.DataFrame | None:
         return None
 
 def _calculate_ta_features(df_btc: pd.DataFrame) -> pd.DataFrame:
-    """Calculates TA features on a DataFrame with a 'close' column and timestamp_s index."""
     if df_btc.empty or 'close' not in df_btc.columns:
-        return df_btc.copy() # Return copy even if empty or no close
+        return df_btc.copy() 
     
     df = df_btc.copy() 
-    # Ensure 'close' is numeric; if not, TA features will fail or be incorrect
     df['close'] = pd.to_numeric(df['close'], errors='coerce')
-    df.dropna(subset=['close'], inplace=True) # Critical for TA calculations
-    if df.empty: return df_btc.copy() # Return original (empty or no valid 'close') if all rows dropped
+    # Ensure high and low are also numeric for ATR
+    df['high'] = pd.to_numeric(df['high'], errors='coerce')
+    df['low'] = pd.to_numeric(df['low'], errors='coerce')
+    df.dropna(subset=['close', 'high', 'low'], inplace=True) 
+    if df.empty: return df_btc.copy()
 
-    # Use globally defined window sizes from this utils module
     for window in BTC_MOMENTUM_WINDOWS:
         df[f'btc_mom_{window}m'] = df['close'].diff(periods=window)
     if BTC_VOLATILITY_WINDOW > 0:
@@ -162,22 +164,25 @@ def _calculate_ta_features(df_btc: pd.DataFrame) -> pd.DataFrame:
     if BTC_RSI_WINDOW > 0:
         delta = df['close'].diff(1)
         gain = delta.where(delta > 0, 0.0)
-        loss = -delta.where(delta < 0, 0.0) # Ensure loss is positive for calculation
-        
-        # Use EWM for RSI calculation for smoother average, similar to many platforms
+        loss = -delta.where(delta < 0, 0.0) 
         avg_gain = gain.ewm(com=BTC_RSI_WINDOW - 1, min_periods=BTC_RSI_WINDOW).mean()
         avg_loss = loss.ewm(com=BTC_RSI_WINDOW - 1, min_periods=BTC_RSI_WINDOW).mean()
-        
-        rs = avg_gain / avg_loss.replace(0, 1e-9) # Avoid division by zero
+        rs = avg_gain / avg_loss.replace(0, 1e-9) 
         df['btc_rsi'] = 100.0 - (100.0 / (1.0 + rs))
-        df['btc_rsi'].fillna(50.0, inplace=True) # Neutral RSI for initial NaNs (common practice)
+        df['btc_rsi'].fillna(50.0, inplace=True) 
+
+    # Calculate ATR
+    if BTC_ATR_WINDOW > 0:
+        high_low = df['high'] - df['low']
+        high_close_prev = np.abs(df['high'] - df['close'].shift(1))
+        low_close_prev = np.abs(df['low'] - df['close'].shift(1))
+        tr = pd.concat([high_low, high_close_prev, low_close_prev], axis=1).max(axis=1, skipna=False) # skipna=False to ensure if any component is NaN, TR is NaN
+        df[f'btc_atr_{BTC_ATR_WINDOW}'] = tr.ewm(alpha=1/BTC_ATR_WINDOW, adjust=False, min_periods=BTC_ATR_WINDOW).mean()
+        # ATR can have initial NaNs, which should be handled by imputation in the feature engineering/strategy.
+        # df[f'btc_atr_{BTC_ATR_WINDOW}'].fillna(method='bfill', inplace=True) # Or handle imputation later
     return df
 
 def load_and_prepare_binance_range_with_features(start_dt: dt.datetime, end_dt: dt.datetime) -> pd.DataFrame | None:
-    """
-    Loads Binance data for a date range, concatenates, and calculates all TA features.
-    Caches the result for the given range to avoid redundant processing.
-    """
     global _binance_range_with_features_cache, _cache_range_start_dt, _cache_range_end_dt
     
     start_date_obj = start_dt.date()
@@ -191,12 +196,12 @@ def load_and_prepare_binance_range_with_features(start_dt: dt.datetime, end_dt: 
 
     logger.info(f"Utils: Preparing Binance data with features for range: {start_date_obj} to {end_date_obj}")
     all_daily_dfs = []
-    current_date_obj = start_date_obj
-    max_lookback_days = (max(BTC_MOMENTUM_WINDOWS + [BTC_VOLATILITY_WINDOW] + BTC_SMA_WINDOWS + BTC_EMA_WINDOWS + [BTC_RSI_WINDOW], default=0) // 1440) + 2 # days
     
-    # Prepend data from earlier days to ensure enough history for rolling window calculations at the start of the range
-    # Note: The TA functions use .diff(periods=window), so this pre-pending is more about correct std/mean at start.
-    # For .diff(), it will just result in NaNs for the first `window` entries.
+    # Determine max lookback needed for all TA features
+    all_btc_windows = BTC_MOMENTUM_WINDOWS + [BTC_VOLATILITY_WINDOW] + BTC_SMA_WINDOWS + BTC_EMA_WINDOWS + [BTC_RSI_WINDOW, BTC_ATR_WINDOW]
+    max_lookback_ta_minutes = max(all_btc_windows, default=0)
+    max_lookback_days = (max_lookback_ta_minutes // 1440) + 2 # Convert minutes to days, add buffer
+    
     start_date_for_load = start_date_obj - timedelta(days=max_lookback_days)
 
     current_load_date = start_date_for_load
@@ -205,7 +210,6 @@ def load_and_prepare_binance_range_with_features(start_dt: dt.datetime, end_dt: 
         if df_day_raw is not None and not df_day_raw.empty:
             all_daily_dfs.append(df_day_raw)
         current_load_date += timedelta(days=1)
-
 
     if not all_daily_dfs:
         logger.error(f"Utils: No Binance data found for the extended range {start_date_for_load} to {end_date_obj}")
@@ -220,9 +224,8 @@ def load_and_prepare_binance_range_with_features(start_dt: dt.datetime, end_dt: 
     df_combined_raw = df_combined_raw[~df_combined_raw.index.duplicated(keep='first')]
 
     logger.info(f"Utils: Calculating TA features on combined Binance data ({len(df_combined_raw)} rows)...")
-    df_with_features = _calculate_ta_features(df_combined_raw)
+    df_with_features = _calculate_ta_features(df_combined_raw) # This now calculates ATR too
     
-    # Filter back to the originally requested range AFTER feature calculation
     requested_start_ts = int(start_dt.replace(tzinfo=timezone.utc).timestamp())
     requested_end_ts = int(end_dt.replace(tzinfo=timezone.utc).timestamp())
     
@@ -231,7 +234,7 @@ def load_and_prepare_binance_range_with_features(start_dt: dt.datetime, end_dt: 
         (df_with_features.index <= requested_end_ts)
     ]
     
-    _binance_range_with_features_cache = df_with_features_filtered_range # Cache the filtered range
+    _binance_range_with_features_cache = df_with_features_filtered_range 
     _cache_range_start_dt = start_date_obj
     _cache_range_end_dt = end_date_obj
     logger.info(f"Utils: Binance features calculated and cached for the requested range {start_date_obj} to {end_date_obj}.")
@@ -239,14 +242,12 @@ def load_and_prepare_binance_range_with_features(start_dt: dt.datetime, end_dt: 
 
 
 def load_kalshi_market_minute_data(market_ticker: str, date_str_yymmmdd: str, hour_str_edt: str) -> pd.DataFrame | None:
-    """Loads a specific Kalshi market's 1-minute data and caches it."""
     global _kalshi_market_minute_data_cache
-    cache_key = f"{date_str_yymmmdd}_{hour_str_edt.zfill(2)}_{market_ticker}" # Ensure hour_str is padded
+    cache_key = f"{date_str_yymmmdd}_{hour_str_edt.zfill(2)}_{market_ticker}" 
     if cache_key in _kalshi_market_minute_data_cache:
         df_copy = _kalshi_market_minute_data_cache[cache_key]
         return df_copy.copy() if df_copy is not None else None
 
-    # Use KALSHI_DATA_DIR which should be set by the calling script
     filepath = KALSHI_DATA_DIR / date_str_yymmmdd / hour_str_edt.zfill(2) / f"{market_ticker}.csv"
     if not filepath.exists():
         logger.debug(f"Utils: Kalshi minute data file not found: {filepath}")
@@ -260,11 +261,18 @@ def load_kalshi_market_minute_data(market_ticker: str, date_str_yymmmdd: str, ho
             
         df['timestamp_s'] = pd.to_numeric(df['timestamp_s'])
         df.set_index('timestamp_s', inplace=True)
-        # Ensure relevant columns are numeric, coercing errors
+        
         cols_to_numeric = ['yes_bid_close_cents', 'yes_ask_close_cents', 'volume', 'open_interest']
         for col in cols_to_numeric:
             if col in df.columns:
                 df[col] = pd.to_numeric(df[col], errors='coerce')
+        
+        # Pre-calculate mid_price if components exist, for potential use in Kalshi feature generation
+        if 'yes_bid_close_cents' in df.columns and 'yes_ask_close_cents' in df.columns:
+            bid = pd.to_numeric(df['yes_bid_close_cents'], errors='coerce')
+            ask = pd.to_numeric(df['yes_ask_close_cents'], errors='coerce')
+            df['mid_price'] = (bid + ask) / 2.0 # Will be NaN if bid or ask is NaN
+
         _kalshi_market_minute_data_cache[cache_key] = df
         return df.copy()
     except Exception as e:
@@ -277,10 +285,6 @@ def get_kalshi_prices_at_decision(
     decision_timestamp_s: int, 
     max_staleness_seconds: int
 ) -> dict | None:
-    """
-    Gets Kalshi yes_bid/yes_ask at or just before decision_timestamp_s.
-    Uses 'yes_bid_close_cents' and 'yes_ask_close_cents' from the Kalshi minute data.
-    """
     if kalshi_market_df is None or kalshi_market_df.empty:
         return None
     
@@ -292,17 +296,13 @@ def get_kalshi_prices_at_decision(
             
             time_diff_seconds = decision_timestamp_s - latest_row_ts
             
-            if time_diff_seconds <= max_staleness_seconds and time_diff_seconds >=0:
+            if 0 <= time_diff_seconds <= max_staleness_seconds:
                 return {
                     "yes_bid": latest_row.get('yes_bid_close_cents'), 
                     "yes_ask": latest_row.get('yes_ask_close_cents')
-                    # Add other fields like volume if needed by strategy
                 }
-            # else:
-                # logger.debug(f"Utils: Kalshi data too stale for {decision_timestamp_s}. Diff: {time_diff_seconds}s")
             return None
         return None
-            
     except Exception as e:
         logger.error(f"Utils: Error in get_kalshi_prices_at_decision for {decision_timestamp_s}: {e}")
         return None

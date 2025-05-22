@@ -1,0 +1,30 @@
+2025-05-21 17:12:44,594 - INFO - Backtest_random_forest_CalV2_15m.main_backtest_loop:349 - Processing session 25MAY12_09 (logs: session_25MAY12_09_random_forest_20250521_170924.log)
+2025-05-21 17:12:44,595 - INFO - utils.clear_binance_cache:53 - Utils: All Binance data caches cleared.
+2025-05-21 17:12:44,595 - INFO - utils.clear_kalshi_cache:58 - Utils: Kalshi market minute data cache cleared.
+2025-05-21 17:12:44,595 - INFO - Backtest_random_forest_CalV2_15m.main_backtest_loop:370 -   Session 25MAY12_09: Binance data range for TA: 2025-05-12 10:00 to 2025-05-12 14:00
+2025-05-21 17:12:44,595 - INFO - utils.load_and_prepare_binance_range_with_features:197 - Utils: Preparing Binance data with features for range: 2025-05-12 to 2025-05-12
+2025-05-21 17:12:44,602 - INFO - utils.load_and_prepare_binance_range_with_features:226 - Utils: Calculating TA features on combined Binance data (4320 rows)...
+2025-05-21 17:12:44,605 - INFO - utils.load_and_prepare_binance_range_with_features:240 - Utils: Binance features calculated and cached for the requested range 2025-05-12 to 2025-05-12.
+2025-05-21 17:12:44,605 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:110 - --- Starting Backtest for Session: 25MAY12_09 ---
+2025-05-21 17:13:03,924 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1209-T103749.99 @ 12:02 | P(YES):0.668 P(YES):0.668 | BUY_YES x8@59c (Exec B:52, Exec A:59) | Outcome:YES | PNL:328c | Cap:$503.33
+2025-05-21 17:13:04,003 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1209-T103749.99 @ 12:04 | P(YES):0.666 P(YES):0.666 | BUY_YES x5@61c (Exec B:55, Exec A:61) | Outcome:YES | PNL:195c | Cap:$505.28
+2025-05-21 17:13:04,087 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1209-T103749.99 @ 12:06 | P(YES):0.658 P(YES):0.658 | BUY_YES x11@55c (Exec B:49, Exec A:55) | Outcome:YES | PNL:495c | Cap:$510.23
+2025-05-21 17:13:21,391 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1209-T103999.99 @ 12:04 | P(YES):0.662 P(YES):0.662 | BUY_YES x24@43c (Exec B:38, Exec A:43) | Outcome:NO | PNL:-1032c | Cap:$499.91
+2025-05-21 17:13:21,431 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1209-T103999.99 @ 12:05 | P(YES):0.651 P(YES):0.651 | BUY_YES x21@44c (Exec B:39, Exec A:44) | Outcome:NO | PNL:-924c | Cap:$490.67
+2025-05-21 17:13:21,883 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1209-T103999.99 @ 12:16 | P(YES):0.650 P(YES):0.650 | BUY_YES x25@40c (Exec B:35, Exec A:40) | Outcome:NO | PNL:-1000c | Cap:$480.67
+2025-05-21 17:13:22,263 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1209-T103999.99 @ 12:25 | P(YES):0.661 P(YES):0.661 | BUY_YES x15@50c (Exec B:47, Exec A:50) | Outcome:NO | PNL:-750c | Cap:$473.17
+2025-05-21 17:13:22,388 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1209-T103999.99 @ 12:28 | P(YES):0.673 P(YES):0.673 | BUY_YES x11@55c (Exec B:52, Exec A:55) | Outcome:NO | PNL:-605c | Cap:$467.12
+2025-05-21 17:13:22,431 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1209-T103999.99 @ 12:29 | P(YES):0.664 P(YES):0.664 | BUY_YES x13@52c (Exec B:49, Exec A:52) | Outcome:NO | PNL:-676c | Cap:$460.36
+2025-05-21 17:13:22,681 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1209-T103999.99 @ 12:35 | P(YES):0.692 P(YES):0.692 | BUY_YES x13@55c (Exec B:53, Exec A:55) | Outcome:NO | PNL:-715c | Cap:$453.21
+2025-05-21 17:13:22,723 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1209-T103999.99 @ 12:36 | P(YES):0.672 P(YES):0.672 | BUY_YES x12@53c (Exec B:51, Exec A:53) | Outcome:NO | PNL:-636c | Cap:$446.85
+2025-05-21 17:13:22,764 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1209-T103999.99 @ 12:37 | P(YES):0.656 P(YES):0.656 | BUY_YES x5@60c (Exec B:58, Exec A:60) | Outcome:NO | PNL:-300c | Cap:$443.85
+2025-05-21 17:13:22,849 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1209-T103999.99 @ 12:39 | P(YES):0.676 P(YES):0.676 | BUY_YES x7@59c (Exec B:56, Exec A:59) | Outcome:NO | PNL:-413c | Cap:$439.72
+2025-05-21 17:13:22,891 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1209-T103999.99 @ 12:40 | P(YES):0.660 P(YES):0.660 | BUY_YES x6@59c (Exec B:56, Exec A:59) | Outcome:NO | PNL:-354c | Cap:$436.18
+2025-05-21 17:13:22,932 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1209-T103999.99 @ 12:41 | P(YES):0.663 P(YES):0.663 | BUY_YES x10@54c (Exec B:51, Exec A:54) | Outcome:NO | PNL:-540c | Cap:$430.78
+2025-05-21 17:13:22,975 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1209-T103999.99 @ 12:42 | P(YES):0.653 P(YES):0.653 | BUY_YES x8@56c (Exec B:54, Exec A:56) | Outcome:NO | PNL:-448c | Cap:$426.30
+2025-05-21 17:13:25,055 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:289 - Saved detailed decision evaluation log to: decision_eval_log_25MAY12_09_random_forest_20250521_170924.csv
+2025-05-21 17:13:25,055 - INFO - Backtest_random_forest_CalV2_15m.main_backtest_loop:381 - --- Session 25MAY12_09 Summary ---
+2025-05-21 17:13:25,056 - INFO - Backtest_random_forest_CalV2_15m.main_backtest_loop:384 -   Decision Points Logged in decision_eval_log: 966
+2025-05-21 17:13:25,056 - INFO - Backtest_random_forest_CalV2_15m.main_backtest_loop:385 -   Executed Trades in session_trades_log: 16
+2025-05-21 17:13:25,056 - INFO - Backtest_random_forest_CalV2_15m.main_backtest_loop:386 -   Contracts Traded: 194
+2025-05-21 17:13:25,056 - INFO - Backtest_random_forest_CalV2_15m.main_backtest_loop:387 -   P&L: $-73.75, Capital After: $426.30

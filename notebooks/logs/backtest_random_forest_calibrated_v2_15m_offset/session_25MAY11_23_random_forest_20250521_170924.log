@@ -1,0 +1,19 @@
+2025-05-21 17:11:25,889 - INFO - Backtest_random_forest_CalV2_15m.main_backtest_loop:349 - Processing session 25MAY11_23 (logs: session_25MAY11_23_random_forest_20250521_170924.log)
+2025-05-21 17:11:25,889 - INFO - utils.clear_binance_cache:53 - Utils: All Binance data caches cleared.
+2025-05-21 17:11:25,890 - INFO - utils.clear_kalshi_cache:58 - Utils: Kalshi market minute data cache cleared.
+2025-05-21 17:11:25,890 - INFO - Backtest_random_forest_CalV2_15m.main_backtest_loop:370 -   Session 25MAY11_23: Binance data range for TA: 2025-05-12 00:00 to 2025-05-12 04:00
+2025-05-21 17:11:25,890 - INFO - utils.load_and_prepare_binance_range_with_features:197 - Utils: Preparing Binance data with features for range: 2025-05-12 to 2025-05-12
+2025-05-21 17:11:25,896 - INFO - utils.load_and_prepare_binance_range_with_features:226 - Utils: Calculating TA features on combined Binance data (4320 rows)...
+2025-05-21 17:11:25,899 - INFO - utils.load_and_prepare_binance_range_with_features:240 - Utils: Binance features calculated and cached for the requested range 2025-05-12 to 2025-05-12.
+2025-05-21 17:11:25,899 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:110 - --- Starting Backtest for Session: 25MAY11_23 ---
+2025-05-21 17:11:45,299 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1123-T103999.99 @ 02:03 | P(YES):0.673 P(YES):0.673 | BUY_YES x9@58c (Exec B:56, Exec A:58) | Outcome:NO | PNL:-522c | Cap:$488.14
+2025-05-21 17:11:46,496 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1123-T103999.99 @ 02:32 | P(YES):0.684 P(YES):0.684 | BUY_YES x6@62c (Exec B:56, Exec A:62) | Outcome:NO | PNL:-372c | Cap:$484.42
+2025-05-21 17:12:02,631 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1123-T104249.99 @ 02:05 | P(YES):0.669 P(YES):0.669 | BUY_YES x16@50c (Exec B:43, Exec A:50) | Outcome:NO | PNL:-800c | Cap:$476.42
+2025-05-21 17:12:02,674 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1123-T104249.99 @ 02:06 | P(YES):0.657 P(YES):0.657 | BUY_YES x16@48c (Exec B:41, Exec A:48) | Outcome:NO | PNL:-768c | Cap:$468.74
+2025-05-21 17:12:02,923 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:251 - TRADE: KXBTCD-25MAY1123-T104249.99 @ 02:12 | P(YES):0.655 P(YES):0.655 | BUY_YES x19@45c (Exec B:35, Exec A:45) | Outcome:NO | PNL:-855c | Cap:$460.19
+2025-05-21 17:12:06,220 - INFO - Backtest_random_forest_CalV2_15m.run_hourly_session_backtest:289 - Saved detailed decision evaluation log to: decision_eval_log_25MAY11_23_random_forest_20250521_170924.csv
+2025-05-21 17:12:06,220 - INFO - Backtest_random_forest_CalV2_15m.main_backtest_loop:381 - --- Session 25MAY11_23 Summary ---
+2025-05-21 17:12:06,221 - INFO - Backtest_random_forest_CalV2_15m.main_backtest_loop:384 -   Decision Points Logged in decision_eval_log: 966
+2025-05-21 17:12:06,222 - INFO - Backtest_random_forest_CalV2_15m.main_backtest_loop:385 -   Executed Trades in session_trades_log: 5
+2025-05-21 17:12:06,222 - INFO - Backtest_random_forest_CalV2_15m.main_backtest_loop:386 -   Contracts Traded: 66
+2025-05-21 17:12:06,222 - INFO - Backtest_random_forest_CalV2_15m.main_backtest_loop:387 -   P&L: $-33.17, Capital After: $460.19
