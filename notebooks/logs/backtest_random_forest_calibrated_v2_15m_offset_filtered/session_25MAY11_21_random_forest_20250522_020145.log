@@ -1,0 +1,14 @@
+2025-05-22 02:24:10,256 - INFO - Backtest_random_forest_CalV2_15m_Filtered.main_backtest_loop:339 - Processing session 25MAY11_21 (logs: session_25MAY11_21_random_forest_20250522_020145.log)
+2025-05-22 02:24:10,256 - INFO - utils.clear_binance_cache:53 - Utils: All Binance data caches cleared.
+2025-05-22 02:24:10,256 - INFO - utils.clear_kalshi_cache:58 - Utils: Kalshi market minute data cache cleared.
+2025-05-22 02:24:10,256 - INFO - Backtest_random_forest_CalV2_15m_Filtered.main_backtest_loop:358 -   Session 25MAY11_21: Binance data range for TA: 2025-05-11 22:00 to 2025-05-12 02:00
+2025-05-22 02:24:10,256 - INFO - utils.load_and_prepare_binance_range_with_features:197 - Utils: Preparing Binance data with features for range: 2025-05-11 to 2025-05-12
+2025-05-22 02:24:10,264 - INFO - utils.load_and_prepare_binance_range_with_features:226 - Utils: Calculating TA features on combined Binance data (5760 rows)...
+2025-05-22 02:24:10,267 - INFO - utils.load_and_prepare_binance_range_with_features:240 - Utils: Binance features calculated and cached for the requested range 2025-05-11 to 2025-05-12.
+2025-05-22 02:24:10,268 - INFO - Backtest_random_forest_CalV2_15m_Filtered.run_hourly_session_backtest:112 - --- Starting Backtest for Session: 25MAY11_21 ---
+2025-05-22 02:24:51,349 - INFO - Backtest_random_forest_CalV2_15m_Filtered.run_hourly_session_backtest:283 - Saved detailed decision evaluation log to: decision_eval_log_25MAY11_21_random_forest_20250522_020145.csv
+2025-05-22 02:24:51,349 - INFO - Backtest_random_forest_CalV2_15m_Filtered.main_backtest_loop:369 - --- Session 25MAY11_21 Summary ---
+2025-05-22 02:24:51,351 - INFO - Backtest_random_forest_CalV2_15m_Filtered.main_backtest_loop:372 -   Decision Points Logged in decision_eval_log: 966
+2025-05-22 02:24:51,351 - INFO - Backtest_random_forest_CalV2_15m_Filtered.main_backtest_loop:374 -   Executed Trades in session_trades_log: 0
+2025-05-22 02:24:51,351 - INFO - Backtest_random_forest_CalV2_15m_Filtered.main_backtest_loop:375 -   Contracts Traded: 0
+2025-05-22 02:24:51,351 - INFO - Backtest_random_forest_CalV2_15m_Filtered.main_backtest_loop:376 -   P&L: $0.00, Capital After: $500.00

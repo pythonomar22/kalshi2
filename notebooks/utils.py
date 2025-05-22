@@ -169,7 +169,7 @@ def _calculate_ta_features(df_btc: pd.DataFrame) -> pd.DataFrame:
         avg_loss = loss.ewm(com=BTC_RSI_WINDOW - 1, min_periods=BTC_RSI_WINDOW).mean()
         rs = avg_gain / avg_loss.replace(0, 1e-9) 
         df['btc_rsi'] = 100.0 - (100.0 / (1.0 + rs))
-        df['btc_rsi'].fillna(50.0, inplace=True) 
+        df['btc_rsi'] = df['btc_rsi'].fillna(50.0)
 
     # Calculate ATR
     if BTC_ATR_WINDOW > 0:
