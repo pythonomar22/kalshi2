@@ -1,0 +1,15 @@
+2025-05-22 02:45:18,673 - INFO - Backtest_Logistic Regression_CalV2_15m.main_backtest_loop:450 - Processing session 25MAY12_18 (detailed logs will be in: session_25MAY12_18_logistic_regression_20250522_024427.log)
+2025-05-22 02:45:18,673 - INFO - utils.clear_binance_cache:53 - Utils: All Binance data caches cleared.
+2025-05-22 02:45:18,674 - INFO - utils.clear_kalshi_cache:58 - Utils: Kalshi market minute data cache cleared.
+2025-05-22 02:45:18,674 - INFO - Backtest_Logistic Regression_CalV2_15m.main_backtest_loop:471 -   Session 25MAY12_18: Binance data range for TA features: 2025-05-12 19:00 to 2025-05-12 23:00
+2025-05-22 02:45:18,674 - INFO - utils.load_and_prepare_binance_range_with_features:197 - Utils: Preparing Binance data with features for range: 2025-05-12 to 2025-05-12
+2025-05-22 02:45:18,681 - INFO - utils.load_and_prepare_binance_range_with_features:226 - Utils: Calculating TA features on combined Binance data (4320 rows)...
+2025-05-22 02:45:18,683 - INFO - utils.load_and_prepare_binance_range_with_features:240 - Utils: Binance features calculated and cached for the requested range 2025-05-12 to 2025-05-12.
+2025-05-22 02:45:18,684 - INFO - Backtest_Logistic Regression_CalV2_15m.run_hourly_session_backtest:156 - --- Starting Backtest for Session: 25MAY12_18 ---
+2025-05-22 02:45:20,598 - INFO - Backtest_Logistic Regression_CalV2_15m.run_hourly_session_backtest:368 - Saved detailed decision evaluation log (920 rows) to: decision_eval_log_25MAY12_18_logistic_regression_20250522_024427.csv
+2025-05-22 02:45:20,598 - INFO - Backtest_Logistic Regression_CalV2_15m.main_backtest_loop:486 - --- Session 25MAY12_18 Summary ---
+2025-05-22 02:45:20,599 - INFO - Backtest_Logistic Regression_CalV2_15m.main_backtest_loop:492 -   Decision Points Logged in decision_eval_log: 920
+2025-05-22 02:45:20,599 - INFO - Backtest_Logistic Regression_CalV2_15m.main_backtest_loop:494 -   Executed Trades in this session: 0
+2025-05-22 02:45:20,599 - INFO - Backtest_Logistic Regression_CalV2_15m.main_backtest_loop:495 -   Contracts Traded in this session: 0
+2025-05-22 02:45:20,599 - INFO - Backtest_Logistic Regression_CalV2_15m.main_backtest_loop:496 -   P&L for this session: $0.00
+2025-05-22 02:45:20,599 - INFO - Backtest_Logistic Regression_CalV2_15m.main_backtest_loop:497 -   Capital after this session: $12.89

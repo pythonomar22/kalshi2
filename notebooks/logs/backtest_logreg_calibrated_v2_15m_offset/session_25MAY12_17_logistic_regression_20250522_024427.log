@@ -1,0 +1,18 @@
+2025-05-22 02:44:51,496 - INFO - Backtest_Logistic Regression_CalV2_15m.main_backtest_loop:450 - Processing session 25MAY12_17 (detailed logs will be in: session_25MAY12_17_logistic_regression_20250522_024427.log)
+2025-05-22 02:44:51,496 - INFO - utils.clear_binance_cache:53 - Utils: All Binance data caches cleared.
+2025-05-22 02:44:51,496 - INFO - utils.clear_kalshi_cache:58 - Utils: Kalshi market minute data cache cleared.
+2025-05-22 02:44:51,496 - INFO - Backtest_Logistic Regression_CalV2_15m.main_backtest_loop:471 -   Session 25MAY12_17: Binance data range for TA features: 2025-05-11 18:00 to 2025-05-12 22:00
+2025-05-22 02:44:51,496 - INFO - utils.load_and_prepare_binance_range_with_features:197 - Utils: Preparing Binance data with features for range: 2025-05-11 to 2025-05-12
+2025-05-22 02:44:51,506 - INFO - utils.load_and_prepare_binance_range_with_features:226 - Utils: Calculating TA features on combined Binance data (5760 rows)...
+2025-05-22 02:44:51,510 - INFO - utils.load_and_prepare_binance_range_with_features:240 - Utils: Binance features calculated and cached for the requested range 2025-05-11 to 2025-05-12.
+2025-05-22 02:44:51,511 - INFO - Backtest_Logistic Regression_CalV2_15m.run_hourly_session_backtest:156 - --- Starting Backtest for Session: 25MAY12_17 ---
+2025-05-22 02:44:51,615 - INFO - Backtest_Logistic Regression_CalV2_15m.run_hourly_session_backtest:323 - TRADE: KXBTCD-25MAY1217-T104249.99 @ 20:52 | P(YES):0.909 P(YES):0.909 | BUY_YES x1@57c (Exec B:50, Exec A:57) | Outcome:NO | PNL:-57c | Cap:$13.98
+2025-05-22 02:44:55,249 - INFO - Backtest_Logistic Regression_CalV2_15m.run_hourly_session_backtest:323 - TRADE: KXBTCD-25MAY1217-T103749.99 @ 04:02 | P(YES):0.923 P(YES):0.923 | BUY_YES x1@53c (Exec B:49, Exec A:53) | Outcome:NO | PNL:-53c | Cap:$13.45
+2025-05-22 02:44:55,294 - INFO - Backtest_Logistic Regression_CalV2_15m.run_hourly_session_backtest:323 - TRADE: KXBTCD-25MAY1217-T103749.99 @ 04:27 | P(YES):0.931 P(YES):0.931 | BUY_YES x1@56c (Exec B:50, Exec A:56) | Outcome:NO | PNL:-56c | Cap:$12.89
+2025-05-22 02:45:18,660 - INFO - Backtest_Logistic Regression_CalV2_15m.run_hourly_session_backtest:368 - Saved detailed decision evaluation log (14860 rows) to: decision_eval_log_25MAY12_17_logistic_regression_20250522_024427.csv
+2025-05-22 02:45:18,662 - INFO - Backtest_Logistic Regression_CalV2_15m.main_backtest_loop:486 - --- Session 25MAY12_17 Summary ---
+2025-05-22 02:45:18,671 - INFO - Backtest_Logistic Regression_CalV2_15m.main_backtest_loop:492 -   Decision Points Logged in decision_eval_log: 14860
+2025-05-22 02:45:18,673 - INFO - Backtest_Logistic Regression_CalV2_15m.main_backtest_loop:494 -   Executed Trades in this session: 3
+2025-05-22 02:45:18,673 - INFO - Backtest_Logistic Regression_CalV2_15m.main_backtest_loop:495 -   Contracts Traded in this session: 3
+2025-05-22 02:45:18,673 - INFO - Backtest_Logistic Regression_CalV2_15m.main_backtest_loop:496 -   P&L for this session: $-1.66
+2025-05-22 02:45:18,673 - INFO - Backtest_Logistic Regression_CalV2_15m.main_backtest_loop:497 -   Capital after this session: $12.89
