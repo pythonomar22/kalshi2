@@ -24,7 +24,6 @@ logger_live_config.info(f"Live Binance data dir: {LIVE_BINANCE_DATA_DIR}")
 logger_live_config.info(f"Live market outcomes CSV: {LIVE_MARKET_OUTCOMES_CSV}")
 
 # --- Model & Scaler Paths (from historical training) ---
-# *** THIS IS THE MODEL YOU INTEND TO USE FOR THIS LIVE BACKTEST RUN ***
 MODEL_TYPE_SUFFIX = "no_vol_oi"
 MODEL_TYPE_BASE = "logreg_per_minute"
 HISTORICAL_TRAINED_MODELS_BASE_DIR = BASE_PROJECT_DIR / "notebooks" / "trained_models"
@@ -41,7 +40,6 @@ logger_live_config.info(f"Scaler path: {SCALER_PATH}")
 logger_live_config.info(f"Feature names path: {FEATURE_NAMES_PATH}")
 
 # --- Mapping from Kalshi Session (from ticker) to Binance File ---
-# Example: "25MAY1920" from "KXBTCD-25MAY1920-T..." maps to "btcusdt_kline_1m.csv"
 SESSION_TO_BINANCE_FILE_MAP = {
     "25MAY1920": "btcusdt_kline_1m.csv", "25MAY2015": "btcusdt_2kline_1m.csv",
     "25MAY2016": "btcusdt_3kline_1m.csv", "25MAY2017": "btcusdt_4kline_1m.csv",
@@ -56,15 +54,32 @@ SESSION_TO_BINANCE_FILE_MAP = {
 logger_live_config.info(f"Loaded {len(SESSION_TO_BINANCE_FILE_MAP)} session-to-Binance file mappings.")
 
 # --- Trading Parameters ---
-PROBABILITY_THRESHOLD_YES = 0.60 # Same as historical backtest, or adjust
+PROBABILITY_THRESHOLD_YES = 0.60 # Minimum probability to consider a trade
 PROBABILITY_THRESHOLD_NO = 0.60
-ONE_BET_PER_KALSHI_MARKET = False # Or True, if you want to simulate one bet and stop for that market
+ONE_BET_PER_KALSHI_MARKET = False
 
-logger_live_config.info(f"Trading Thresholds: P(Yes) > {PROBABILITY_THRESHOLD_YES} for BUY_YES; P(No) > {PROBABILITY_THRESHOLD_NO} for BUY_NO")
+logger_live_config.info(f"Trading Thresholds: Min P(Yes) > {PROBABILITY_THRESHOLD_YES} for BUY_YES; Min P(No) > {PROBABILITY_THRESHOLD_NO} for BUY_NO")
 logger_live_config.info(f"ONE_BET_PER_KALSHI_MARKET set to: {ONE_BET_PER_KALSHI_MARKET}")
 
+# --- Kelly Criterion Sizing Parameters ---
+USE_KELLY_CRITERION = True # Set to True to enable Kelly sizing
+INITIAL_CAPITAL_CENTS = 50000 # Example: $5000, in cents
+KELLY_FRACTION = 0.1 # Use 10% of full Kelly suggestion (fractional Kelly)
+MAX_PCT_CAPITAL_PER_TRADE = 0.05 # Max 5% of current capital on a single trade, regardless of Kelly
+MIN_CONTRACTS_TO_TRADE = 1
+MAX_CONTRACTS_TO_TRADE = 100 # Max contracts per single trade execution
+
+logger_live_config.info(f"USE_KELLY_CRITERION: {USE_KELLY_CRITERION}")
+if USE_KELLY_CRITERION:
+    logger_live_config.info(f"  Initial Capital: {INITIAL_CAPITAL_CENTS / 100:.2f} USD")
+    logger_live_config.info(f"  Kelly Fraction: {KELLY_FRACTION}")
+    logger_live_config.info(f"  Max % Capital per Trade: {MAX_PCT_CAPITAL_PER_TRADE*100:.1f}%")
+    logger_live_config.info(f"  Min Contracts per Trade: {MIN_CONTRACTS_TO_TRADE}")
+    logger_live_config.info(f"  Max Contracts per Trade: {MAX_CONTRACTS_TO_TRADE}")
+
+
 # --- Feature Engineering Parameters (for live data) ---
-MIN_MINUTES_BEFORE_RESOLUTION_FOR_DECISION = 1 # Decisions up to T-1 minute before resolution
+MIN_MINUTES_BEFORE_RESOLUTION_FOR_DECISION = 1
 LAG_WINDOWS_MINUTES = [1, 3, 5, 10, 15, 30]
 ROLLING_WINDOWS_MINUTES = [5, 15, 30]
 
@@ -72,17 +87,11 @@ logger_live_config.info(f"Live Feature Eng: Decisions up to T-{MIN_MINUTES_BEFOR
 logger_live_config.info(f"Live Feature Eng: Lag windows: {LAG_WINDOWS_MINUTES} mins.")
 logger_live_config.info(f"Live Feature Eng: Rolling windows: {ROLLING_WINDOWS_MINUTES} mins.")
 
-
 # --- Logging for the Backtest Run ---
 LOG_DIR = LIVE_BACKTEST_DIR / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 logger_live_config.info(f"Live backtest trade logs will be saved in: {LOG_DIR}")
 
 # --- Timezone for live Kalshi data timestamps before conversion to UTC ---
-# Kalshi timestamps in your example: "2025-05-19T16:05:05.798010" (PDT for May)
-# It's safer to use pytz for correct DST handling.
 KALSHI_RAW_DATA_TIMEZONE = "America/Los_Angeles"
 logger_live_config.info(f"Assuming raw Kalshi data timestamps are in: {KALSHI_RAW_DATA_TIMEZONE}")
-
-# --- Other ---
-INITIAL_CAPITAL = 50000 # Not strictly used by current P&L calculation but good to have
