@@ -54,8 +54,8 @@ SESSION_TO_BINANCE_FILE_MAP = {
 logger_live_config.info(f"Loaded {len(SESSION_TO_BINANCE_FILE_MAP)} session-to-Binance file mappings.")
 
 # --- Trading Parameters ---
-PROBABILITY_THRESHOLD_YES = 0.60 # Minimum probability to consider a trade
-PROBABILITY_THRESHOLD_NO = 0.60
+PROBABILITY_THRESHOLD_YES = 0.96 # Minimum probability to consider a trade
+PROBABILITY_THRESHOLD_NO = 0.96
 ONE_BET_PER_KALSHI_MARKET = False
 
 logger_live_config.info(f"Trading Thresholds: Min P(Yes) > {PROBABILITY_THRESHOLD_YES} for BUY_YES; Min P(No) > {PROBABILITY_THRESHOLD_NO} for BUY_NO")
@@ -64,8 +64,8 @@ logger_live_config.info(f"ONE_BET_PER_KALSHI_MARKET set to: {ONE_BET_PER_KALSHI_
 # --- Kelly Criterion Sizing Parameters ---
 USE_KELLY_CRITERION = True # Set to True to enable Kelly sizing
 INITIAL_CAPITAL_CENTS = 50000 # Example: $5000, in cents
-KELLY_FRACTION = 0.1 # Use 10% of full Kelly suggestion (fractional Kelly)
-MAX_PCT_CAPITAL_PER_TRADE = 0.05 # Max 5% of current capital on a single trade, regardless of Kelly
+KELLY_FRACTION = 0.5 # Use 10% of full Kelly suggestion (fractional Kelly)
+MAX_PCT_CAPITAL_PER_TRADE = 0.2 # Max 5% of current capital on a single trade, regardless of Kelly
 MIN_CONTRACTS_TO_TRADE = 1
 MAX_CONTRACTS_TO_TRADE = 100 # Max contracts per single trade execution
 
