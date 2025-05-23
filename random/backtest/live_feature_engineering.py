@@ -31,7 +31,9 @@ logger.info(f"Assuming Kalshi CSV timestamps are recorded in timezone: {RECORDED
 TARGET_SESSION_ID_FOR_TESTING = "25MAY2015" # Set to None or remove to process all sessions
 # +++++++++++++++++++++++++++++++++++++++
 
-def get_live_btc_kline_snapshot(
+# In random/backtest/live_feature_engineering.py
+
+def get_live_btc_kline_snapshot( # Consider renaming to get_previous_completed_btc_kline
     binance_day_df: pd.DataFrame,
     kalshi_decision_ts_sec: int,
     current_market_ticker_for_debug: str = None,
@@ -40,21 +42,34 @@ def get_live_btc_kline_snapshot(
     if binance_day_df is None or binance_day_df.empty:
         return None
     try:
-        idx_pos = binance_day_df.index.searchsorted(kalshi_decision_ts_sec, side='right')
-        if idx_pos == 0:
+        # Determine the start of the minute for the kline that would have *just closed*
+        # before or at the beginning of the minute containing kalshi_decision_ts_sec.
+        # e.g., if kalshi_decision_ts_sec is 10:00:05, its minute starts at 10:00:00.
+        # The kline that just closed started at 09:59:00.
+        decision_minute_start_ts = (kalshi_decision_ts_sec // 60) * 60
+        target_kline_start_ts = decision_minute_start_ts - 60 # Start time of the previous, completed kline
+
+        if target_kline_start_ts not in binance_day_df.index:
             if is_market_being_debugged:
-                logger.info(f"  [DEBUG LFE - BTC KLINE {current_market_ticker_for_debug}] No Binance kline found starting at or before {dt.datetime.fromtimestamp(kalshi_decision_ts_sec, tz=timezone.utc).isoformat()}")
+                logger.info(f"  [DEBUG LFE - BTC KLINE {current_market_ticker_for_debug}] Target PREVIOUS kline start_ts {target_kline_start_ts} ({dt.datetime.fromtimestamp(target_kline_start_ts, tz=timezone.utc).isoformat()}) not found in Binance data for decision at {dt.datetime.fromtimestamp(kalshi_decision_ts_sec, tz=timezone.utc).isoformat()}.")
             return None
-        kline_data = binance_day_df.iloc[idx_pos - 1]
-        if kline_data.name > kalshi_decision_ts_sec:
-            logger.error(f"LOOKAHEAD in get_live_btc_kline_snapshot! Kline start {kline_data.name} > decision {kalshi_decision_ts_sec}")
-            return None
+        
+        # Retrieve the specific kline by its start time (which is the index)
+        kline_data = binance_day_df.loc[target_kline_start_ts]
+        # load_and_preprocess_live_binance_data should ensure index is unique
+
         if is_market_being_debugged:
-             logger.info(f"  [DEBUG LFE - BTC KLINE {current_market_ticker_for_debug}] For decision {dt.datetime.fromtimestamp(kalshi_decision_ts_sec, tz=timezone.utc).isoformat()}, using Binance kline starting {dt.datetime.fromtimestamp(kline_data.name, tz=timezone.utc).isoformat()} (close: {kline_data.get('close_price')})")
-        return kline_data
+             logger.info(f"  [DEBUG LFE - BTC KLINE {current_market_ticker_for_debug}] For decision {dt.datetime.fromtimestamp(kalshi_decision_ts_sec, tz=timezone.utc).isoformat()}, using Binance kline that *started* at {dt.datetime.fromtimestamp(kline_data.name, tz=timezone.utc).isoformat()} (close: {kline_data.get('close_price')}) as the *previous completed* kline.")
+        return kline_data # kline_data.name will be target_kline_start_ts
+
+    except KeyError: # If target_kline_start_ts is not in index
+        if is_market_being_debugged:
+            logger.warning(f"  [DEBUG LFE - BTC KLINE {current_market_ticker_for_debug}] KeyError: Target PREVIOUS kline start_ts {target_kline_start_ts} not found for decision at {dt.datetime.fromtimestamp(kalshi_decision_ts_sec, tz=timezone.utc).isoformat()}.")
+        return None
     except Exception as e:
+        # Keep existing error logging for other unexpected issues
         if is_market_being_debugged:
-            logger.error(f"  [DEBUG LFE - BTC KLINE {current_market_ticker_for_debug}] Error getting Binance kline for decision_ts {kalshi_decision_ts_sec}: {e}", exc_info=True)
+            logger.error(f"  [DEBUG LFE - BTC KLINE {current_market_ticker_for_debug}] Error getting PREVIOUS Binance kline for decision_ts {kalshi_decision_ts_sec} (target_kline_start_ts {target_kline_start_ts if 'target_kline_start_ts' in locals() else 'N/A'}): {e}", exc_info=True)
         return None
 
 def main():
