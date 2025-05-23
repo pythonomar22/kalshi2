@@ -47,7 +47,7 @@ logger_config.info(f"Decision-making simulation: For decisions occurring from {D
 
 
 # --- Trading Parameters ---
-PROBABILITY_THRESHOLD_YES = 0.60 # Example: if P(Yes) > 0.60, consider BUY_YES
+PROBABILITY_THRESHOLD_YES = 0.60# Example: if P(Yes) > 0.60, consider BUY_YES
 PROBABILITY_THRESHOLD_NO = 0.60  # Example: if P(No) > 0.60 (i.e., P(Yes) < 0.40), consider BUY_NO
 logger_config.info(f"Trading Thresholds: P(Yes) > {PROBABILITY_THRESHOLD_YES} for BUY_YES; P(No) > {PROBABILITY_THRESHOLD_NO} for BUY_NO")
 
