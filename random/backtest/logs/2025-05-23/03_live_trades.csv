@@ -1,0 +1,3 @@
+trade_execution_time_utc,market_ticker,strike_price,resolution_time_ts,decision_timestamp_s,time_to_resolution_minutes,action,predicted_prob_yes,bet_cost_cents_per_contract,contracts_traded,actual_outcome_target,pnl_cents,current_capital_before_trade_cents,kelly_fraction_f_star,capital_to_risk_cents,trade_value_cents
+2025-05-23T03:50:00+00:00,KXBTCD-25MAY2300-T110999.99,110999.99,1747972800,1747972200,10.00,BUY_YES,0.9650,96,36,1,144,56362,0.1249 if live_cfg.USE_KELLY_CRITERION else '',3521,3456
+2025-05-23T03:57:00+00:00,KXBTCD-25MAY2300-T110999.99,110999.99,1747972800,1747972620,3.00,BUY_YES,0.9712,97,11,1,33,56506,0.0396 if live_cfg.USE_KELLY_CRITERION else '',1120,1067
