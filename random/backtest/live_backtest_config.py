@@ -54,8 +54,8 @@ SESSION_TO_BINANCE_FILE_MAP = {
 logger_live_config.info(f"Loaded {len(SESSION_TO_BINANCE_FILE_MAP)} session-to-Binance file mappings.")
 
 # --- Trading Parameters ---
-PROBABILITY_THRESHOLD_YES = 0.96 # Minimum probability to consider a trade
-PROBABILITY_THRESHOLD_NO = 0.96
+PROBABILITY_THRESHOLD_YES = 0.90 # Minimum probability to consider a trade
+PROBABILITY_THRESHOLD_NO = 0.90
 ONE_BET_PER_KALSHI_MARKET = False
 
 logger_live_config.info(f"Trading Thresholds: Min P(Yes) > {PROBABILITY_THRESHOLD_YES} for BUY_YES; Min P(No) > {PROBABILITY_THRESHOLD_NO} for BUY_NO")
