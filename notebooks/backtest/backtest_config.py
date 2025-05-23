@@ -6,11 +6,8 @@ from datetime import timezone
 import logging # Import logging
 
 # --- Initial logging setup for this config file itself ---
-# This ensures that if this file is imported and its constants are accessed,
-# the logging messages within it (like the date ranges) are shown.
-# The main notebook/script might reconfigure logging later.
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(name)s - %(message)s')
-logger_config = logging.getLogger("backtest_config") # Specific logger for this file
+logger_config = logging.getLogger("backtest_config") 
 
 # --- Core Paths ---
 BASE_PROJECT_DIR = Path("/Users/omarabul-hassan/Desktop/projects/kalshi")
@@ -18,17 +15,34 @@ NOTEBOOKS_DIR = BASE_PROJECT_DIR / "notebooks"
 FEATURES_DIR = NOTEBOOKS_DIR / "features"
 TRAINED_MODELS_BASE_DIR = NOTEBOOKS_DIR / "trained_models"
 BACKTEST_DIR = NOTEBOOKS_DIR / "backtest"
-LOG_DIR = BACKTEST_DIR / "logs"
+LOG_DIR = BACKTEST_DIR / "logs" # Log directory for this historical backtester
 
 # --- Model & Scaler Paths (for per_minute model) ---
-MODEL_TYPE = "logreg_per_minute" 
-MODEL_DIR = TRAINED_MODELS_BASE_DIR / MODEL_TYPE
-MODEL_PATH = MODEL_DIR / "logreg_per_minute_model.joblib"
-SCALER_PATH = MODEL_DIR / "logreg_per_minute_scaler.joblib"
-FEATURE_NAMES_PATH = MODEL_DIR / "logreg_per_minute_feature_names.json"
+# *** THIS IS THE MODEL YOU INTEND TO USE FOR THIS HISTORICAL BACKTEST RUN ***
+# Change MODEL_TYPE to "logreg_per_minute" if you want to run the original model
+# Change MODEL_TYPE to "logreg_per_minute_no_vol_oi" if you want to run the newly retrained model
+MODEL_TYPE_SUFFIX = "no_vol_oi" # Or "" for the original model
+MODEL_TYPE_BASE = "logreg_per_minute"
+
+if MODEL_TYPE_SUFFIX:
+    MODEL_TYPE_DIR_NAME = f"{MODEL_TYPE_BASE}_{MODEL_TYPE_SUFFIX}"
+    MODEL_FILENAME_BASE = f"{MODEL_TYPE_BASE}_{MODEL_TYPE_SUFFIX}"
+else:
+    MODEL_TYPE_DIR_NAME = MODEL_TYPE_BASE
+    MODEL_FILENAME_BASE = MODEL_TYPE_BASE
+
+MODEL_DIR = TRAINED_MODELS_BASE_DIR / MODEL_TYPE_DIR_NAME
+MODEL_PATH = MODEL_DIR / f"{MODEL_FILENAME_BASE}_model.joblib"
+SCALER_PATH = MODEL_DIR / f"{MODEL_FILENAME_BASE}_scaler.joblib"
+FEATURE_NAMES_PATH = MODEL_DIR / f"{MODEL_FILENAME_BASE}_feature_names.json"
+
+logger_config.info(f"Using model from directory: {MODEL_DIR}")
+logger_config.info(f"Model path: {MODEL_PATH}")
+logger_config.info(f"Scaler path: {SCALER_PATH}")
+logger_config.info(f"Feature names path: {FEATURE_NAMES_PATH}")
+
 
 # --- Market Resolution Period for Selecting Eligible Markets ---
-# Markets must RESOLVE within this window to be considered.
 MARKET_RESOLUTION_START_DATE_STR = "2025-05-09"
 MARKET_RESOLUTION_END_DATE_STR = "2025-05-15"
 
@@ -37,7 +51,6 @@ MARKET_RESOLUTION_END_TS = int(dt.datetime.strptime(MARKET_RESOLUTION_END_DATE_S
 logger_config.info(f"Eligible markets for backtest: Resolving from {MARKET_RESOLUTION_START_DATE_STR} to {MARKET_RESOLUTION_END_DATE_STR}")
 
 # --- Actual Decision-Making Period (Calendar Days) ---
-# We will only simulate making decisions if the decision_timestamp_s falls within these calendar days.
 DECISION_MAKING_START_DATE_STR = "2025-05-09"
 DECISION_MAKING_END_DATE_STR = "2025-05-15"
 
@@ -45,17 +58,13 @@ DECISION_MAKING_START_TS = int(dt.datetime.strptime(DECISION_MAKING_START_DATE_S
 DECISION_MAKING_END_TS = int(dt.datetime.strptime(DECISION_MAKING_END_DATE_STR + " 23:59:59", "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc).timestamp())
 logger_config.info(f"Decision-making simulation: For decisions occurring from {DECISION_MAKING_START_DATE_STR} to {DECISION_MAKING_END_DATE_STR}")
 
-
 # --- Trading Parameters ---
-PROBABILITY_THRESHOLD_YES = 0.60# Example: if P(Yes) > 0.60, consider BUY_YES
-PROBABILITY_THRESHOLD_NO = 0.60  # Example: if P(No) > 0.60 (i.e., P(Yes) < 0.40), consider BUY_NO
+PROBABILITY_THRESHOLD_YES = 0.60
+PROBABILITY_THRESHOLD_NO = 0.60  
 logger_config.info(f"Trading Thresholds: P(Yes) > {PROBABILITY_THRESHOLD_YES} for BUY_YES; P(No) > {PROBABILITY_THRESHOLD_NO} for BUY_NO")
 
-# --- Bet Sizing & Cost Assumption ---
-# (Conceptual for now)
-
 # --- Logging ---
-LOG_DIR.mkdir(parents=True, exist_ok=True) # Ensure log directory exists
+LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 # --- Data Loading ---
 LATEST_FEATURES_CSV_GLOB_PATTERN = str(FEATURES_DIR / "kalshi_per_minute_decision_features_*.csv")
